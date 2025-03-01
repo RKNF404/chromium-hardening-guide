@@ -215,10 +215,15 @@ icacls . /grant "*S-1-15-2-2:(OI)(CI)(RX)"
 ```
 [(Thank you Cromite)](https://github.com/uazo/cromite?tab=readme-ov-file#enable-network-process-sandbox-in-windows)
 
+#### `NTPCardsVisible`
+Value: `false`\
+***(privacy annoyance)***\
+Disables new tab page service integrations and utilities
+
 #### `PasswordManagerEnabled`
 Value: `false`\
 ***(security recommendable)***\
-Technicall *optional*, but you should really just use a dedicated app or something
+Technically *optional*, but you should really just use a dedicated app or something
 
 #### `PaymentMethodQueryEnabled`
 Value: `false`\
