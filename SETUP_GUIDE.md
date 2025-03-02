@@ -164,6 +164,10 @@ Windows policies rely on using the registry. Most browsers, similar to Linux, ha
 
 # Persisting Flags
 
+See [FLAGS.md](/configs/FLAGS.md) for what flags to include.
+\
+As well as [ENABLE_FEATURES.md](/configs/ENABLE_FEATURES.md) and [DISABLE_FEATURES.md](/configs/DISABLE_FEATURES.md) to see what features to enable and disable respectively
+
 ## Linux
 
 There is no one answer, most Linux distibutions offer a way to persist flags for their build of chromium, and sometimes even offer a way to persist for Google Chrome as well.
@@ -171,6 +175,28 @@ There is no one answer, most Linux distibutions offer a way to persist flags for
 For example, Arch notably offers a [flag persistence method](https://wiki.archlinux.org/title/Chromium#Configuration) for both chromium and Chrome. Fedora also offers a method via `/etc/chromium/chromium.conf`. Most other common distros like Ubuntu, Debian, Gentoo, Nix, etc. also offer methods that are either specific or similar.
 
 ## Windows
+
+Out of the box, there is really no easy way to persist flags in a way to guarentee that they will be used... but, with some reg hacking and a launch script it is possible (thanks to chrlauncher).
+\
+Using another project of mine, [chromewrapper](https://github.com/RKNF404/chromewrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any chromium-based browser.
+\
+\
+To do this project, run the install script `chromewrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
+\
+Then add `chromewrapper.bat` to `CHROMEWRAPPER_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be `C:\Program Files\Google\Chrome\Application\chromewrapper.bat`.
+> [!NOTE]
+> Don't forget to update the flags present in `chromewrapper.bat`, they are not frequently updated because... lazy... see the flags and features files for this
+
+After this, create a desktop shotcut with the following entry:
+\
+`explorer.exe "C:\Program Files\Google\Chrome\Application\chromewrapper.bat"`
+\
+Then right click that shortcut and click `Pin To Taskbar`.
+\
+And that's it, your browser will now launch with the flags in the wrapper script whenever it is opened from the icon or invoked as a handler. (The shortcut can be deleted by the way, the taskbar pin will be unaffected)
+\
+\
+If you no longer wish to use the wrapper, simply run the `chromewrapperRegCleaner.reg` registry file. It will delete all instances where chromewrapper is a handler. You can also deselect it as the default browser in the settings to retain the functionality for later.
 
 ## MacOS
 
