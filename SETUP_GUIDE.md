@@ -173,6 +173,8 @@ As well as [ENABLE_FEATURES.md](/configs/ENABLE_FEATURES.md) and [DISABLE_FEATUR
 There is no one answer, most Linux distibutions offer a way to persist flags for their build of chromium, and sometimes even offer a way to persist for Google Chrome as well.
 \
 For example, Arch notably offers a [flag persistence method](https://wiki.archlinux.org/title/Chromium#Configuration) for both chromium and Chrome. Fedora also offers a method via `/etc/chromium/chromium.conf`. Most other common distros like Ubuntu, Debian, Gentoo, Nix, etc. also offer methods that are either specific or similar.
+\
+Research into your specific distro and find out how it handles flag persistence. It can sometimes help to just search around `/etc` for a chromium directory or set of chromium files.
 
 ## Windows
 
