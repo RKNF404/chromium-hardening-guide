@@ -57,7 +57,7 @@ A very highly regarded option, Edge makes decent security improvements on-top of
 \
 The main issue with Edge is telemetry, it is *mandatory* without Windows Enterprise/Educational editions. This makes it a non-contender for privacy but decent for security. It's update cycle can occasionally be spotty, skipping release every now-and-again. Overall, it's about equal to Chrome.
 \
-This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies).
+This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and MacOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
 
 ### Opera
 
