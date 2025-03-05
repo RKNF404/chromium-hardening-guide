@@ -66,10 +66,6 @@ Strengthens origin isolation
 ***(performance LINUX_ONLY NVIDIA_ONLY)***\
 Enable hardware accelerated video decoding on Nvidia GPUs
 
-##### `WinSboxFilterServiceEnvironment`
-***(security WINDOWS_ONLY)***\
-Filters environment variables from service processes
-
 ##### `WinSboxRestrictCoreSharingOnRenderer`
 ***(security WINDOWS_ONLY)***\
 Prevents renderers from sharing a core with other processes, to prevent Hyperthreading/SMT based side-channel attacks
