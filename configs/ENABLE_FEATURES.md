@@ -66,6 +66,10 @@ Strengthens origin isolation
 ***(performance LINUX_ONLY NVIDIA_ONLY)***\
 Enable hardware accelerated video decoding on Nvidia GPUs
 
+##### `ValidateNetworkServiceProcessIdentity`
+***(security MAC_ONLY NOT_TESTED)***\
+Mandates code signing on the network process on MacOS
+
 ##### `WinSboxRestrictCoreSharingOnRenderer`
 ***(security WINDOWS_ONLY)***\
 Prevents renderers from sharing a core with other processes, to prevent Hyperthreading/SMT based side-channel attacks
