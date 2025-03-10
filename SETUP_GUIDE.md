@@ -206,7 +206,7 @@ Then add `chromewrapper.bat` to the location given by `CHROMEWRAPPER_PATH` prese
 > [!NOTE]
 > Don't forget to update the flags present in `chromewrapper.bat`, they are not frequently updated because... lazy... see the flags and features files for this
 
-After this, create a desktop shotcut with the following entry:
+After this, create a desktop shortcut with the following entry:
 \
 `explorer.exe "C:\Program Files\Google\Chrome\Application\chromewrapper.bat"`
 \
