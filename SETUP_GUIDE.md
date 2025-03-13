@@ -75,7 +75,7 @@ To give some credit where it is due, Brave does have some decent changes. For ex
 
 ### Vivaldi
 
-**HORRIFIC** update cycle. It is proprietary, which isn't the worst, but it is difficult to analyze how good it really is, build-wise. Though they do publish gapped [source code](https://vivaldi.com/source) (meaning some parts of the code are missing, for reference vanilla chromium is around 3.5-4 gigs when compressed). It makes little improvements on Chrome, it does allow you to disable some intrusive integrations and has a content-blocker, but these are minor additions. It also has **MASSIVE** feature bloat. Again, mandatory telemetry which is surprisingly common.
+**HORRIFIC** update cycle. It is proprietary, which isn't the worst, but it is difficult to analyze how good it really is, build-wise. Though they do publish gapped [source code](https://vivaldi.com/source) (meaning some parts of the code are missing, for reference vanilla chromium is around 3.5-4 gigs when compressed, Vivali is around 2 if I recall correctly). It makes little improvements on Chrome, it does allow you to disable some intrusive integrations and has a content-blocker, but these are minor additions. It also has **MASSIVE** feature bloat. Again, mandatory telemetry which is surprisingly common.
 
 ### Vanilla Chromium
 
