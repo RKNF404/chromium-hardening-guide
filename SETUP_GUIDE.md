@@ -169,7 +169,7 @@ Windows policies rely on using the registry. Most browsers, similar to Linux, ha
 \
 To add a policy, you need to make sure to add the right value type. Most often, there are only 2 reg values used, string value and DWORD (32-bit).
 \
-For any instance of a boolean value (true or false), use a DWORD and set it to `0` for true and `1` for false. The result under the `Data` column should look like `0x00000001` or `0x00000000` for true and false respectively.
+For any instance of a boolean value (true or false), use a DWORD and set it to `1` for true and `0` for false. The result under the `Data` column should look like `0x00000001` or `0x00000000` for true and false respectively.
 \
 Any policy using an integer (1, 2, 5, etc.), use a DWORD and set the value to that number. It should look similar to a boolean policy in the `Data` column but with the number you used at the end.
 \
