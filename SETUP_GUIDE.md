@@ -183,7 +183,7 @@ Policy arrays and dictionaries also use the string values, they have the same fo
 
 See [FLAGS.md](/configs/FLAGS.md) for what flags to include.
 \
-As well as [ENABLE_FEATURES.md](/configs/ENABLE_FEATURES.md) and [DISABLE_FEATURES.md](/configs/DISABLE_FEATURES.md) to see what features to enable and disable respectively
+As well as [ENABLE_FEATURES.md](/configs/ENABLE_FEATURES.md) and [DISABLE_FEATURES.md](/configs/DISABLE_FEATURES.md) to see what features to enable and disable respectively.
 
 ## Linux
 
