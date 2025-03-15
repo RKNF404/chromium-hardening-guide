@@ -44,7 +44,6 @@ Please note that while I intend for this to be as comprehensive as possible, the
 - [Flags](#persisting-flags)
   - [Linux](#linux-1)
   - [Windows](#windows-1)
-  - [MacOS](#macos-1)
   - [Android](#android)
 
 # Selecting a browser
@@ -239,10 +238,6 @@ And that's it, your browser will now launch with the flags in the wrapper script
 \
 \
 If you no longer wish to use the wrapper, simply run the `chromewrapperRegCleaner.reg` registry file. It will delete all instances where chromewrapper is a handler. You can also deselect it as the default browser in the settings to retain the functionality for later.
-
-## MacOS
-
-I am aware there is a method to persist flags, I am not aware of how to do it nor do I have a way to test it.
 
 ## Android
 
