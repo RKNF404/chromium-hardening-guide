@@ -201,6 +201,14 @@ Policy arrays and dictionaries also use the string values, they have the same fo
 
 ## MacOS
 
+Policies for Mac are similar to Linux in the sense that they are formatted files located in a global config directory. Instead of JSON, MacOS uses plist (XML formatted) files to handle prefs and policies.
+\
+\
+Aa far as I can tell, mandatory policies always go under `/Library/Managed Preferences/` and recommended go under `/Library/Preferences/`. The variance between browsers would be the file names, since they are related to the application identifier.
+\
+For Google Chrome, to apply policies, create a file `com.google.Chrome.plist` in the respective directory, i.e. managed or recommended. Then add policies in the proper formatting.
+\
+\
 MacOS policies follow this format:
 
 ```
@@ -234,6 +242,9 @@ MacOS policies follow this format:
   </dict>
 </plist>
 ```
+
+> [!NOTE]
+> I do not have a Mac, I have zero idea if this is correct or works. If this doesn't work, open an issue.
 
 # Persisting Flags
 
