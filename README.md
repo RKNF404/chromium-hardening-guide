@@ -177,7 +177,7 @@ The structure of Linux policy files is standard `json` with each policy represen
   "PolicyBoolean": true,
   "PolicyInteger": 22,
   "PolicyArray": ["array", "input"],
-  "PolicyDictionary": { "BooleanEntry": false, "StringEntry": "dictionary", "DictionaryEntry": { "TestEntry": 0 } }
+  "PolicyDictionary": { "BooleanEntry": false, "StringEntry": "dictionary_string", "DictionaryEntry": { "TestEntry": 0 } }
 }
 ```
 The formatting is very strict and will result in your policies not loading if they are formatted incorrectly.
@@ -200,6 +200,40 @@ For strings, just enter them directly without quotes. For example, the policy `H
 Policy arrays and dictionaries also use the string values, they have the same formatting as presented, nothing special.
 
 ## MacOS
+
+MacOS policies follow this format:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>PolicyString</key>
+    <string>string_value</string>
+    <key>PolicyBoolean</key>
+    <true />
+    <key>PolicyInteger</key>
+    <integer>2</integer>
+    <key>PolicyArray</key>
+    <array>
+      <string>string_value1</string>
+      <string>string_value2</string>
+    </array>
+    <key>PolicyDictionary</key>
+    <dict>
+      <key>BooleanEntry</key>
+      <false />
+      <key>StringEntry</key>
+      <string>dictionary_string</string>
+      <keyDictionaryEntry</key>
+      <dict>
+        <key>TestEntry<key>
+        <integer>0</integer>
+      </dict>
+    </dict>
+  </dict>
+</plist>
+```
 
 # Persisting Flags
 
