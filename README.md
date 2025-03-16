@@ -206,10 +206,10 @@ Policies for Mac are similar to Linux in the sense that they are formatted files
 \
 Aa far as I can tell, mandatory policies always go under `/Library/Managed Preferences/` and recommended go under `/Library/Preferences/`. The variance between browsers would be the file names, since they are related to the application identifier.
 \
-For Google Chrome, to apply policies, create a file `com.google.Chrome.plist` in the respective directory, i.e. managed or recommended. Then add policies in the proper formatting.
+For Google Chrome, to apply policies, create a file `com.google.Chrome.plist` in the respective directory, i.e. managed or recommended. Then add policies in the proper formatting (see below).
 \
 \
-MacOS policies follow this format:
+MacOS policies follow this format (this policy do nothing, they just demonstrate how to format each policy value type):
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
