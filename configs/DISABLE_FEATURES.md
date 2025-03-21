@@ -5,6 +5,18 @@
 ***(privacy)***\
 Disables autofill server data exchange
 
+##### `BrowsingTopics`
+***(privacy)***\
+Disables privacy sandbox feature
+
+##### `BrowsingTopicsDocumentAPI`
+***(privacy)***\
+Disables privacy sandbox feature
+
+##### `BrowsingTopicsParameters`
+***(privacy)***\
+Disables privacy sandbox feature
+
 ##### `DisableThirdPartyStoragePartitioning3DeprecationTrial`
 ***(privacy)***\
 Prevent bypass of third-party storage partitioning
@@ -25,10 +37,13 @@ Prevents DRM related communication before needed
 ***(privacy)***\
 Disables Optimization Guides, which includes certain AI features
 
+##### `PrivacySandboxSettings4`
+***(privacy)***\
+Disables privacy sandbox feature
+
 ##### `Reporting,CrashReporting,DocumentReporting`
 ***(privacy)***\
 Disables the use of the Reporting API in various contexts
-
 
 ##### `TabHoverCardImages`
 ***(security)***\
