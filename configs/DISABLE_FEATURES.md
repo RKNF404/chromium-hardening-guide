@@ -28,3 +28,8 @@ Disables Optimization Guides, which includes certain AI features
 ##### `Reporting,CrashReporting,DocumentReporting`
 ***(privacy)***\
 Disables the use of the Reporting API in various contexts
+
+
+##### `TabHoverCardImages`
+***(security)***\
+Prevents rendering sites in the hover card
