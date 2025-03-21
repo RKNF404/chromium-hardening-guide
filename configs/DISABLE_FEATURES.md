@@ -5,7 +5,11 @@
 ***(privacy)***\
 Disables autofill server data exchange
 
-##### `InterestFeedV2`
+##### `DisableThirdPartyStoragePartitioning3DeprecationTrial`
+***(privacy)***\
+Prevent bypass of third-party storage partitioning
+
+##### `InterestFeedV2,NTPPopularSitesBakedInContent,UsePopularSitesSuggestions`
 ***(privacy)***\
 Disable content suggestions
 
