@@ -1,10 +1,6 @@
 # Features (Enable)
 (`--enable-features=`)
 
-##### `AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder`
-***(performance LINUX_ONLY)***\
-Enable hardware accelerated video decoding and encoding on Linux platforms
-
 ##### `BlockCrossPartitionBlobUrlFetching`
 ***(privacy)***\
 Enhances site partitioning
@@ -26,6 +22,10 @@ Isolate Content Settings by Origin
 ***(security WINDOWS_ONLY)***\
 Prevents renderer processes from having access to the CSRSS service
 
+##### `HstsTopLevelNavigationsOnly`
+***(privacy)***\
+Prevents third-party tracking using HSTS
+
 ##### `MacSyscallSandbox`
 ***(security MACOS_ONLY NOT_TESTED)***\
 Enables syscall filtering for the sandbox on MacOS
@@ -45,6 +45,10 @@ Isolates the visited status of sites to prevent history leaks
 ##### `PrefetchPrivacyChanges`
 ***(privacy)***\
 Limits what information is sent to prefetched sites, such as clearing the referrer and prevent access to cookies
+
+##### `ReduceAcceptLanguage`
+***(privacy)***\
+Reduces data transmitted by the Accept-Language header
 
 ##### `RendererAppContainer`
 ***(security WINDOWS_ONLY)***\
