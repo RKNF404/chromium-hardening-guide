@@ -4,6 +4,8 @@ Last updated for: `134` (policies only)
 
 Hardening guide for (theoretically) any Chromium browser.
 
+Some of the toggled come from other projects such as [Vanadium](https://github.com/GrapheneOS/Vanadium) or [Trivalent](https://github.com/secureblue/Trivalent).
+
 ## Config Priority
 
 1) Upstream Default
