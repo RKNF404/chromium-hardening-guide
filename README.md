@@ -1,1 +1,0 @@
-Lmao, use firefox ;)
