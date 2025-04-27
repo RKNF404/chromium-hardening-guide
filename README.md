@@ -2,9 +2,9 @@
 
 Last updated for: `136` (policies only)
 
-Changes in 136:
+Changes in latest version:
 ```
-No new policies added or removed, so 135 for policies should be ok
+No new policies added or removed, so policies should be ok
 ```
 
 Hardening guide for (theoretically) any Chromium browser.
