@@ -78,11 +78,6 @@ Value: `false`\
 ***(privacy)***\
 Disables sharing printers with Google
 
-#### `CreateThemesSettings`
-Value: `2`\
-***(privacy)***\
-Disables AI for theme creation
-
 #### `DefaultBrowserSettingEnabled`
 Value: `false`\
 ***(annoyance)***
@@ -99,11 +94,6 @@ Value: `2`\
 #### `DesktopSharingHubEnabled`
 Value: `false`\
 ***(annoyance)***
-
-#### `DevToolsGenAiSettings`
-Value: `2`\
-***(privacy)***\
-Disables AI for dev tools/console
 
 #### `DnsOverHttpsMode`
 ***(privacy ~security)***\
@@ -149,6 +139,11 @@ Value: `{"*":{"installation_mode":"blocked",}}`\
 ***(security OPTIONAL)***\
 Block all extensions
 
+#### `GenAiDefaultSettings`
+Value: `2`\
+***(privacy)***\
+Disable all AI generation features
+
 #### `GenAILocalFoundationalModelSettings`
 Value: `1`\
 ***(privacy)***\
@@ -159,19 +154,9 @@ Value: `false`\
 ***(privacy)***\
 Disables some other AI features that deal with Google search and the side-panel
 
-#### `HelpMeWriteSettings`
-Value: `2`\
-***(privacy)***\
-Disables AI for writing
-
 #### `HistoryClustersVisible`
 Value: `false`\
 ***(annoyance)***
-
-#### `HistorySearchSettings`
-Value: `2`\
-***(privacy)***\
-Disables AI for history searches
 
 #### `HttpsOnlyMode`
 Value: `force_enabled`\
@@ -308,16 +293,6 @@ Value: `false`\
 #### `ShowFullUrlsInAddressBar`
 Value: `true`\
 ***(annoyance OPTIONAL)***
-
-#### `TabCompareSettings`
-Value: `2`\
-***(privacy)***\
-Disables AI for tab analysis
-
-#### `TabOrganizerSettings`
-Value: `2`\
-***(privacy)***\
-Disables AI for tab organization
 
 #### `TranslateEnabled`
 Value: `false`\
