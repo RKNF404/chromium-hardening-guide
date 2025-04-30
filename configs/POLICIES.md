@@ -219,7 +219,6 @@ Value: `false`\
 ***(privacy)***\
 Disable privacy sandbox ad tracking
 
-
 #### `PrivacySandboxAdTopicEnabled`
 Value: `false`\
 ***(privacy)***\
@@ -282,11 +281,19 @@ Value: `false`\
 ***(privacy -security OPTIONAL)***\
 Sacrifice minor security in favor of not sending websites to Google for Safe Browsing
 
+#### `SafeBrowsingSurveysEnabled`
+Value: `false`\
+***(privacy)***
+
 #### `SearchSuggestEnabled`
 Value: `false`\
 ***(privacy recommendable)***
 
 #### `SharedClipboardEnabled`
+Value: `false`\
+***(privacy)***
+
+#### `ShoppingListEnabled`
 Value: `false`\
 ***(privacy)***
 
