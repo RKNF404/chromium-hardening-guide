@@ -124,20 +124,20 @@ Value: `false`\
 ***(privacy)***\
 Disable Chrome Cast
 
-#### `ExtensionSettings`
+#### `ExtensionAllowedTypes`
+Value: `["extension", "theme"]`\
 ***(security)***\
-Technically *optional*, but it should not be\
-Limits extensions that can be installed, depending on which **one-of** the following 2 options you choose
+Block extensions that are not either themes or regular extensions (example of blocked type, user script)
 
-###### `ExtensionSettings (Option 1)`
-Value: `{"*":{"allowed_types":["extension"],"installation_mode":"blocked",},"ddkjiahejlhfcafbddmgiahcphecmpfh":{"installation_mode":"allowed","override_update_url": true,"update_url":"https://clients2.google.com/service/update2/crx",}}`\
+#### `ExtensionInstallAllowlist`
+Value: `["ddkjiahejlhfcafbddmgiahcphecmpfh"]`\
+***(-security OPTIONAL)***\
+Allow an extension, this specific value only allows uBlock Origin Lite
+
+#### `ExtensionInstallBlocklist`
+Value: `["*"]`\
 ***(security)***\
-Block all extensions and extension types but allow uBlock Origin Lite, sets the update source to a trusted location
-
-###### `ExtensionSettings (Option 2)`
-Value: `{"*":{"installation_mode":"blocked",}}`\
-***(security OPTIONAL)***\
-Block all extensions
+Block all extensions by default
 
 #### `GenAiDefaultSettings`
 Value: `2`\
@@ -301,9 +301,17 @@ Value: `false`\
 Value: `true`\
 ***(annoyance OPTIONAL)***
 
+#### `SyncDisabled`
+Value: `true`\
+***(privacy)***
+
 #### `TranslateEnabled`
 Value: `false`\
 ***(privacy recommendable)***
+
+#### `TranslatorAPIAllowed`
+Value: `false`\
+***(privacy)***
 
 #### `WebRtcIPHandling`
 Value: `"disable_non_proxied_udp"`\
