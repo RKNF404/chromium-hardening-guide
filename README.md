@@ -17,7 +17,7 @@ Some of the flips and toggles come from other projects such as [Vanadium](https:
 2) Preferences
 3) Management Policy / Feature Toggle / Flag
 
-I intend to add more redundancy in the policies, UI flips, and flags/features. Mainly because in some cases not every kind of configuration is available (i.e. on some platforms policies or flags or both may not be an option to enable hardening features). I want to account for cases where one is missing
+I intend to add more redundancy in the policies, UI flips, and flags/features. Mainly because in some cases not every kind of configuration is available (i.e. on some platforms policies or flags or both may not be an option to enable hardening features). I want to account for cases where one is missing. Because currently, if say a policy does the same thing as a flag, I won't add the flag. In future I will add both.
 
 ## Quick Links
 
