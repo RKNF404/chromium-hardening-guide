@@ -14,10 +14,10 @@ Some of the flips and toggles come from other projects such as [Vanadium](https:
 ## Config Priority
 
 1) Upstream Default
-2) Management Policy
-3) Preferences
-4) Feature Toggle
-5) Flag
+2) Preferences
+3) Management Policy / Feature Toggle / Flag
+
+I intend to add more redundancy in the policies, UI flips, and flags/features. Mainly because in some cases not every kind of configuration is available (i.e. on some platforms policies or flags or both may not be an option to enable hardening features). I want to account for cases where one is missing
 
 ## Quick Links
 
