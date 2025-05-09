@@ -84,8 +84,8 @@ Value: `false`\
 
 #### `DefaultJavaScriptOptimizerSetting`
 Value: `1`\
-***(~security)***\
-Locks the V8 security setting so the [JITless](https://github.com/RKNF404/chromium-hardening-guide/blob/main/configs/FLAGS.md#--js-flags--jitless) flag can properly disable JIT for all sites, disabling V8 optimizers acts as a whitelist for WebAssembly
+***(~security OPTIONAL)***\
+Locks the V8 security setting so the [JITless](https://github.com/RKNF404/chromium-hardening-guide/blob/main/configs/FLAGS.md#--js-flags--jitless) flag can properly disable JIT for all sites, disabling V8 optimizers acts as a whitelist for WebAssembly. if you need to configure JIT/WASM per-site, do not set this policy
 
 #### `DefaultSensorsSetting`
 Value: `2`\
