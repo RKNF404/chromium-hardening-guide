@@ -16,15 +16,20 @@ Restricts to more secure authentication schemes
 
 #### `AutofillAddressEnabled`
 Value: `false`\
-***(security recommendable)***
+***(security RECOMMENDABLE)***
 
 #### `AutofillCreditCardEnabled`
 Value: `false`\
-***(security recommendable)***
+***(security RECOMMENDABLE)***
+
+#### `AutofillPredictionSettings`
+Value: `2`\
+***(privacy)***\
+Disables AI for autofill
 
 #### `BackgroundModeEnabled`
 Value: `false`\
-***(annoyance performance privacy recommendable)***
+***(annoyance performance privacy RECOMMENDABLE)***
 
 #### `BlockExternalExtensions`
 Value: `true`\
@@ -32,7 +37,7 @@ Value: `true`\
 
 #### `BlockThirdPartyCookies`
 Value: `true`\
-***(privacy recommendable)***
+***(privacy RECOMMENDABLE)***
 
 #### `BrowserLabsEnabled`
 Value: `false`\
@@ -66,7 +71,7 @@ Clears all data on exit, **WILL RESULT IN DATA LOSS**
 #### `ClickToCallEnabled`
 Value: `false`\
 ***(privacy)***\
-Disables phone number sharing for Chromium browser across devices
+Disables phone number sharing for Chromium browsers across devices
 
 #### `CloudAPAuthEnabled`
 Value: `false`\
@@ -78,22 +83,47 @@ Value: `false`\
 ***(privacy)***\
 Disables sharing printers with Google
 
+#### `CreateThemesSettings`
+Value: `2`\
+***(privacy)***\
+Disables AI for theme creation
+
 #### `DefaultBrowserSettingEnabled`
 Value: `false`\
 ***(annoyance)***
 
+#### `DefaultJavaScriptJitSetting`
+Value: `2`\
+***(security OPTIONAL)***\
+This can also be used to disable JIT, the only difference between this and the flag is that the flag disables JIT for extensions and internal (`chrome://` and `file://`) pages as well whereas this policy only disables it for websites. If you have an extension that requires JIT (i.e. not compatible with the flag), use this policy to compensate, you can whitelist sites using the `JavaScriptJitAllowedForSites` policy.
+
 #### `DefaultJavaScriptOptimizerSetting`
 Value: `1`\
 ***(~security OPTIONAL)***\
-Locks the V8 security setting so the [JITless](https://github.com/RKNF404/chromium-hardening-guide/blob/main/configs/FLAGS.md#--js-flags--jitless) flag can properly disable JIT for all sites, disabling V8 optimizers acts as a whitelist for WebAssembly. if you need to configure JIT/WASM per-site, do not set this policy
+Locks the V8 security setting so the [JITless](https://github.com/RKNF404/chromium-hardening-guide/blob/main/configs/FLAGS.md#--js-flags--jitless) flag can properly disable JIT for all sites, disabling V8 optimizers acts as a whitelist for WebAssembly. If you need to configure JIT/WASM per-site, do not set this policy
 
 #### `DefaultSensorsSetting`
 Value: `2`\
 ***(security privacy)***
 
+#### `DefaultWebUsbGuardSetting`
+Value: `2`\
+***(security privacy)***\
+Block access to WebUSB
+
 #### `DesktopSharingHubEnabled`
 Value: `false`\
 ***(annoyance)***
+
+#### `DevToolsGenAiSettings`
+Value: `2`\
+***(privacy)***\
+Disables AI for dev tools/console
+
+#### `Disable3DAPIs`
+Value: `true`\
+***(privacy security)***\
+Disables Pepper 3D and WebGL
 
 #### `DnsOverHttpsMode`
 ***(privacy ~security)***\
@@ -129,6 +159,11 @@ Value: `["extension", "theme"]`\
 ***(security)***\
 Block extensions that are not either themes or regular extensions (example of blocked type, user script)
 
+#### `ExtensionDeveloperModeSettings`
+Value: `1`\
+***(privacy)***\
+Disables extension developer mode
+
 #### `ExtensionInstallAllowlist`
 Value: `["ddkjiahejlhfcafbddmgiahcphecmpfh"]`\
 ***(-security OPTIONAL)***\
@@ -139,10 +174,10 @@ Value: `["*"]`\
 ***(security)***\
 Block all extensions by default
 
-#### `GenAiDefaultSettings`
-Value: `2`\
+#### `GeminiSettings`
+Value: `1`\
 ***(privacy)***\
-Disable all AI generation features
+Disables Gemini integrations
 
 #### `GenAILocalFoundationalModelSettings`
 Value: `1`\
@@ -154,12 +189,27 @@ Value: `false`\
 ***(privacy)***\
 Disables some other AI features that deal with Google search and the side-panel
 
+#### `HardwareAccelerationModeEnabled`
+Value: `false`\
+***(security ~privacy OPTIONAL)***\
+Disable HWAccel, reduces attack surface and prevents some HW based fingerprinting but reduces performance, also disable WebGL and WebGPU
+
+#### `HelpMeWriteSettings`
+Value: `2`\
+***(privacy)***\
+Disables AI for writing
+
 #### `HistoryClustersVisible`
 Value: `false`\
 ***(annoyance)***
 
+#### `HistorySearchSettings`
+Value: `2`\
+***(privacy)***\
+Disables AI for history searches
+
 #### `HttpsOnlyMode`
-Value: `force_enabled`\
+Value: `"force_enabled"`\
 ***(security)***
 
 #### `LensOverlaySettings`
@@ -177,6 +227,10 @@ Value: `false`\
 ***(privacy)***\
 Disables translation in realtime through a Google service
 
+#### `MediaRecommendationsEnabled`
+Value: `false`\
+***(privacy annoyance)***
+
 #### `MetricsReportingEnabled`
 Value: `false`\
 ***(privacy)***
@@ -188,7 +242,7 @@ Prevents extensions from communicating with native apps
 
 #### `NetworkPredictionOptions`
 Value: `2`\
-***(privacy -performance recommendable)***
+***(privacy -performance RECOMMENDABLE)***
 
 #### `NetworkServiceSandboxEnabled`
 Value: `true`\
@@ -205,9 +259,14 @@ Value: `false`\
 ***(privacy annoyance)***\
 Disables new tab page service integrations and utilities
 
+#### `PasswordLeakDetectionEnabled`
+Value: `false`\
+***(-security ~privacy OPTIONAL)***\
+Dubious benefit to having it available
+
 #### `PasswordManagerEnabled`
 Value: `false`\
-***(security recommendable)***\
+***(security RECOMMENDABLE)***\
 Technically *optional*, but you should really just use a dedicated app or something
 
 #### `PaymentMethodQueryEnabled`
@@ -219,7 +278,7 @@ Value: `false`\
 ***(privacy)***\
 Disable privacy sandbox ad tracking
 
-#### `PrivacySandboxAdTopicEnabled`
+#### `PrivacySandboxAdTopicsEnabled`
 Value: `false`\
 ***(privacy)***\
 Disable privacy sandbox ad personalization
@@ -276,6 +335,15 @@ Value: `false`\
 ***(privacy -security OPTIONAL)***\
 Sending downloaded files to the cloud to be scanned is not a good idea privacy-wise and has little security benefit
 
+#### `SafeBrowsingExtendedReportingEnabled`
+Value: `false`\
+***(privacy)***
+
+#### `SafeBrowsingProtectionLevel`
+Value: `1`\
+***(security OPTIONAL RECOMMENDABLE)***\
+Enable safe browsing, not needed but still better than nothing
+
 #### `SafeBrowsingProxiedRealTimeChecksAllowed`
 Value: `false`\
 ***(privacy -security OPTIONAL)***\
@@ -287,7 +355,7 @@ Value: `false`\
 
 #### `SearchSuggestEnabled`
 Value: `false`\
-***(privacy recommendable)***
+***(privacy RECOMMENDABLE)***
 
 #### `SharedClipboardEnabled`
 Value: `false`\
@@ -301,23 +369,68 @@ Value: `false`\
 Value: `true`\
 ***(annoyance OPTIONAL)***
 
+#### `SitePerProcess`
+Value: `true`\
+***(security)***\
+Make site isolation mandatory, disables opt-out
+
+#### `SpellCheckServiceEnabled`
+Value: `false`\
+***(privacy)***\
+Disables Google spellcheck service
+
 #### `SyncDisabled`
 Value: `true`\
 ***(privacy)***
 
+#### `TabCompareSettings`
+Value: `2`\
+***(privacy)***\
+Disables AI for tab analysis
+
 #### `TranslateEnabled`
 Value: `false`\
-***(privacy recommendable)***
+***(privacy RECOMMENDABLE)***
 
 #### `TranslatorAPIAllowed`
 Value: `false`\
 ***(privacy)***
 
-#### `WebRtcIPHandling`
-Value: `"disable_non_proxied_udp"`\
-***(privacy OPTIONAL)***\
-Prevents IP leakage from WebRTC, can cause issues with web calling services like Discord
+#### `UrlKeyedAnonymizedDataCollectionEnabled`
+Value: `false`\
+***(privacy)***\
+Disables URL based data reporting
+
+#### `UrlKeyedMetricsAllowed`
+Value: `false`\
+***(privacy)***\
+Ibid
+
+#### `UserAgentReduction`
+Value: `2`\
+***(privacy)***\
+Reduce information in the user agent header
+
+#### `UserFeedbackAllowed`
+Value: `false`\
+***(privacy)***
+
+#### `WebRtcIPHandlingUrl`
+Value: `[{"url": "*", "handling": "disable_non_proxied_udp"}]`\
+***(privacy)***\
+Prevents IP leakage from WebRTC, can cause issues with web calling services like Discord.
+\
+You can add sites to this list to allowlist WebRTC, e.g.:
+\
+`[{"url":"*","handling":"disable_non_proxied_udp"},{"url":"https://[*.]discord.com","handling":"default"}]`
+\
+Which will allow Discord access to proper WebRTC but other sites will be denied.
 
 #### `WebRtcTextLogCollectionAllowed`
 Value: `false`\
 ***(privacy)***
+
+#### `WebUsbAskForUrls`
+Value: `["https://[*.]grapheneos.org"]`
+***(security)***\
+Allow GrapheneOS access to ask for WebUSB, to allow for the web-based installation
