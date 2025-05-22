@@ -431,6 +431,6 @@ Value: `false`\
 ***(privacy)***
 
 #### `WebUsbAskForUrls`
-Value: `["https://[*.]grapheneos.org"]`
+Value: `["https://grapheneos.org"]`
 ***(security)***\
 Allow GrapheneOS access to ask for WebUSB, to allow for the web-based installation
