@@ -1,6 +1,10 @@
 # Features (Disable)
 (`--disable-features=`)
 
+##### `AllowD3D11WarpFallback,AllowSwiftShaderFallback,AllowSoftwareGLFallbackDueToCrash`
+***(security)***\
+Disable software fallback for graphical rendering
+
 ##### `AutofillServerCommunication`
 ***(privacy)***\
 Disables autofill server data exchange
@@ -48,3 +52,7 @@ Disables the use of the Reporting API in various contexts
 ##### `TabHoverCardImages`
 ***(security)***\
 Prevents rendering sites in the hover card
+
+##### `WebGPUBlobCache,WebGPUService`
+***(security privacy)***\
+Disable WebGPU, not provably secure yet
