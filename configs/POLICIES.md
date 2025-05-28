@@ -49,6 +49,11 @@ Value: `0`\
 ***(privacy annoyance)***\
 Disables account sign-in with the browser
 
+#### `BuiltInAIAPIsEnabled`
+Value: `false`\
+***(annoyance privacy)***\
+Disables exposing local AI models to websites
+
 #### `ChromeVariations`
 Value: `2`\
 ***(privacy annoyance)***\
@@ -122,7 +127,7 @@ Disables AI for dev tools/console
 
 #### `Disable3DAPIs`
 Value: `true`\
-***(privacy security)***\
+***(privacy security OPTIONAL)***\
 Disables Pepper 3D and WebGL
 
 #### `DnsOverHttpsMode`
@@ -192,7 +197,7 @@ Disables some other AI features that deal with Google search and the side-panel
 #### `HardwareAccelerationModeEnabled`
 Value: `false`\
 ***(security ~privacy OPTIONAL)***\
-Disable HWAccel, reduces attack surface and prevents some HW based fingerprinting but reduces performance, also disable WebGL and WebGPU
+Disable HWAccel, reduces attack surface and prevents some HW based fingerprinting but reduces performance, also disables WebGL and WebGPU
 
 #### `HelpMeWriteSettings`
 Value: `2`\
@@ -416,7 +421,7 @@ Value: `false`\
 ***(privacy)***
 
 #### `WebRtcIPHandlingUrl`
-Value: `[{"url": "*", "handling": "disable_non_proxied_udp"}]`\
+Value: `[{"url":"*","handling":"disable_non_proxied_udp"}]`\
 ***(privacy)***\
 Prevents IP leakage from WebRTC, can cause issues with web calling services like Discord.
 \
@@ -431,6 +436,6 @@ Value: `false`\
 ***(privacy)***
 
 #### `WebUsbAskForUrls`
-Value: `["https://grapheneos.org"]`
+Value: `["https://grapheneos.org"]`\
 ***(security)***\
 Allow GrapheneOS access to ask for WebUSB, to allow for the web-based installation
