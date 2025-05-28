@@ -420,16 +420,10 @@ Reduce information in the user agent header
 Value: `false`\
 ***(privacy)***
 
-#### `WebRtcIPHandlingUrl`
-Value: `[{"url":"*","handling":"disable_non_proxied_udp"}]`\
+#### `WebRtcIPHandling`
+Value: `"disable_non_proxied_udp"`\
 ***(privacy)***\
 Prevents IP leakage from WebRTC, can cause issues with web calling services like Discord.
-\
-You can add sites to this list to allowlist WebRTC, e.g.:
-\
-`[{"url":"*","handling":"disable_non_proxied_udp"},{"url":"https://[*.]discord.com","handling":"default"}]`
-\
-Which will allow Discord access to proper WebRTC but other sites will be denied.
 
 #### `WebRtcTextLogCollectionAllowed`
 Value: `false`\
