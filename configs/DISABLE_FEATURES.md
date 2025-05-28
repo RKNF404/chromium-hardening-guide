@@ -33,7 +33,7 @@ Disable Lens search (Google integrated image search)
 ***(privacy)***\
 Prevents DRM related communication before needed
 
-##### `OptimizationHints`
+##### `OptimizationHints,OptimizationHintsFetching,OptimizationHintsFetchingAnonymousDataConsent,OptimizationPersonalizedHintsFetching,OptimizationGuideModelDownloading,TextSafetyClassifier`
 ***(privacy)***\
 Disables Optimization Guides, which includes certain AI features
 
