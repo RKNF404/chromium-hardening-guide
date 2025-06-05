@@ -9,11 +9,6 @@ Value: `false`\
 Value: `true`\
 ***(security)***
 
-#### `AuthSchemes`
-Value: `"ntlm,negotiate"`\
-***(security)***\
-Restricts to more secure authentication schemes
-
 #### `AutofillAddressEnabled`
 Value: `false`\
 ***(security RECOMMENDABLE)***
