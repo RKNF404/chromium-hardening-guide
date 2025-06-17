@@ -43,6 +43,7 @@ Please note that while I intend for this to be as comprehensive as possible, the
   - [Baseline](#baseline)
   - [Proprietary vs Open-Source](#proprietary-vs-open-source)
   - [Popular Options](#popular-options)
+  - [Security Options](#security-options)
   - [Other Browsers](#other-browsers)
 - [Basic Setup](#basic-setup)
   - [Content Blocking](#content-blocking)
@@ -129,13 +130,13 @@ As mentioned in the [Brave](#brave) section, ***AVOID***! Flatpak's security is.
 
 #### Firefox
 
-Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "2/3 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 3 years. To be fair, there has been improvement but not enough of it to make it comparible to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where there is no website sandbox at all. The current Android implementation of the Firefox sandbox (Fission) is not enabled by default (except by [IronFox](https://gitlab.com/ironfox-oss/IronFox/-/blob/19a251e506afc775b34446a92c53c2b3e0548f5d/patches/preferences/phoenix-android.js#L1463)), even if it was enabled the implementation does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. Equivalent to Android, Firefox does not have complete sandboxing in Flatpak, it doesn't even offer a compatibility layer alike to zypak, it just opts to cripple its own security.
+Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "2/3 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 3 years. To be fair, there has been improvement but not enough of it to make it comparible to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where there is no website sandbox at all. The current Android implementation of the Firefox sandbox (Fission) is not enabled by default (except by [IronFox](https://gitlab.com/ironfox-oss/IronFox/-/blob/19a251e506afc775b34446a92c53c2b3e0548f5d/patches/preferences/phoenix-android.js#L1463)), even if it was enabled the implementation does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. Equivalent to Android, Firefox does not have complete sandboxing in Flatpak, it doesn't even offer a compatibility layer alike to zypak, it just opts to cripple its own security (only recently have they begun offering a warning in envionments without user namespaces that sandbox may be degraded, I'm not sure if this shows up in Flatpak or not).
 
 ##### Firefox Forks
 
 I don't think I need to go too much in depth, most FF forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer slower update cycles.
 \
-I will talk about 2 specifically, Librewolf and Palemoon. Librewolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some changes but fundamentally it is just arkenfox built-into Firefox with a slower update cycle. Palemoon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features FF adds (as rare as that is) will not get properly added if they get added at all.
+Although, I will talk about 2 specifically, Librewolf and Palemoon. Librewolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built-into Firefox with a slower update cycle. Palemoon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features FF adds (as rare as that is) will not get properly added if they get added at all.
 
 #### Safari (Webkit)
 
@@ -148,6 +149,26 @@ WebkitGTK is the (I think) official Webkit port to Linux. It shares many of the 
 #### Android Webview Browsers
 
 These browsers cannot offer site-isolation due to how Android webview is designed, websites are only isolated from the system not each other. Typically they do not have strong partitioning and are very minimal in their feature set.
+
+### Popular Security-Centric Options
+
+This section is dedicated to a few options people often recommend explicitly for security reasons, but the options themselves are rather niche. For example, Brave is *not* a security option but it is a very popular recommendation for "security" but it is not itself a security focused browser. Same follows for other projects claiming the same thing, such as Librewolf. This section has projects that actually *try* to improve browser security.
+
+#### Vanadium
+
+This is the GrapheneOS default browser. I feel I don't need to explain why it is one of the, if not the, best option currently for privsec. Very few browsers are as comprehensive with their hardening or as consistent with their update cycle. Unfortunately, the browser is only available on GrapheneOS so most may not be able to use it. Android-wide release is planned but the expected release of that is unknown (at least to me).
+
+#### Cromite
+
+(WIP)
+
+#### Trivalent
+
+(WIP)
+
+#### Ironfox
+
+[See](#firefox) [here](#firefox-forks). Firefox based browsers, especially on Android, have terrible security. Ironfox isn't exactly free of these issues. It does do some work to reduce some attack surface of base Firefox, but this is not significant or substantial enough to justify its use over any chromium based browser. But, if you are for some unholy reason forced to use a Firefox based browser, Ironfox is your best bet, still note it's nothing to depend on security-wise.
 
 ## Basic Setup
 
