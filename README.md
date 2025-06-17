@@ -43,7 +43,7 @@ Please note that while I intend for this to be as comprehensive as possible, the
   - [Baseline](#baseline)
   - [Proprietary vs Open-Source](#proprietary-vs-open-source)
   - [Popular Options](#popular-options)
-  - [Security Options](#security-options)
+  - [Popular Security-Centric Options](#popular-security-centric-options)
   - [Other Browsers](#other-browsers)
 - [Basic Setup](#basic-setup)
   - [Content Blocking](#content-blocking)
