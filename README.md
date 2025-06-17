@@ -97,11 +97,13 @@ Avoid. It has mandatory telemetry, poor update cycle, and tons of feature bloat.
 
 #### Brave
 
-Not terrible, but a weak option. It has one central advantage, the content-blocker. Everything else is either matching vanilla chromium, a degredation, or modifies a default. For example, they enable MV2 support when that format is actively being deprecated in chromium. MV2 is awful for security, since it allows unrestricted access to all websites and all features to extensions. MV3, while not perfect, fixes many of these issues. In general extensions are bad for security but enabling MV2 is a step backwards. 
+Not terrible, but a weak option. Most of this browser is either matching vanilla chromium, a degredation, or modifies a default. For example, they enable MV2 support when that format is actively being deprecated in chromium. MV2 is awful for security, since it allows unrestricted access to all websites and all features to extensions. MV3, while not perfect, fixes many of these issues. In general extensions are bad for security but enabling MV2 is a step backwards. 
 \
 They also verified their Flathub app. See the [Flatpak](#flatpak-linux) section as to why that is a problem. The issue is not that Brave is packaged as a Flatpak, many chromium browsers are, but they officially endorse it, which is a flagrant disregard for security.
 \
 Also lots of attack surface related to crypto stuff and heavy privacy marketing (despite being rather intrusive by default), and rather ineffective fingerprinting resistance (has gaps making the mitigations bypassable). The company itself is also questionable in its practices, but that is for you to decide.
+\
+In the realm of attack surface, the content blocker can be a problem. It is written in Rust and all, but Rust only prevents exploits targeting the adblock engine itself, not the browser or sites. See the [content blocking](#content-blocking) section for more details.
 \
 To give some credit where it is due, Brave does have some decent changes. For example they proxy [a large number of requests](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers), for which they have a better pivacy policy on their services than Google. This does have some issues but it is still nice, none-the-less. They do also offer some partitioning improvements, though the amount of which isn't too big since upstream has added a lot of said improvements themselves.
 
