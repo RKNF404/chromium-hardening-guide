@@ -1,6 +1,11 @@
 # Policies
 Windows note: All policies with a value of `true` and `false` are represented as `1` and `0` in the registry respectively
 
+#### `AIModeSettings`
+Value: `1`\
+***(privacy)***\
+Disable AI integration in search boxes
+
 #### `AlternateErrorPagesEnabled`
 Value: `false`\
 ***(privacy)***
@@ -227,6 +232,11 @@ Value: `false`\
 ***(privacy)***\
 Disables translation in realtime through a Google service
 
+#### `LocalNetworkAccessRestrictionsEnabled`
+Value: `true`\
+***(security)***\
+Restricts access to local (private) addresses for websites
+
 #### `MediaRecommendationsEnabled`
 Value: `false`\
 ***(privacy annoyance)***
@@ -292,11 +302,6 @@ Disables Privacy Sandbox prompt, needed for other privacy sandbox options
 Value: `false`\
 ***(privacy)***\
 Disable privacy sandbox ad personalization
-
-#### `PrivateNetworkAccessRestrictionsEnabled`
-Value: `true`\
-***(security)***\
-Restricts access to local (private) addresses for websites
 
 #### `PromotionsEnabled`
 Value: `false`\
