@@ -1,6 +1,6 @@
 # Chromium Hardening Guide
 
-Last updated for: `137`
+Last updated for: `139`
 
 Changes in latest version:
 ```
