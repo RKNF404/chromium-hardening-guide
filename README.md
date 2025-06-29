@@ -6,8 +6,6 @@ Changes in latest version:
 ```
 Added policy TLS13EarlyDataEnabled set to false (disabled)
 Added policy AIModeSettings set to 1 (disabled)
-Added policy LocalNetworkAccessRestrictionsEnabled set to true (enabled)
-Removed policy PrivateNetworkAccessRestrictionsEnabled
 ```
 
 Hardening guide for (theoretically) any Chromium browser.
