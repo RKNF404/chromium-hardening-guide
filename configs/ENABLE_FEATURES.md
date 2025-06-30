@@ -1,10 +1,6 @@
 # Features (Enable)
 (`--enable-features=`)
 
-##### `BlockCrossPartitionBlobUrlFetching`
-***(privacy)***\
-Enhances site partitioning
-
 ##### `CapReferrerToOriginOnCrossOrigin`
 ***(privacy)***\
 Limits the referrer to only send the origin of the URL\
@@ -65,10 +61,6 @@ Isolates cache to prevent cross-site tracking
 ##### `StrictOriginIsolation`
 ***(security)***\
 Strengthens origin isolation
-
-##### `VaapiOnNvidiaGPUs`
-***(performance LINUX_ONLY NVIDIA_ONLY)***\
-Enable hardware accelerated video decoding on Nvidia GPUs
 
 ##### `ValidateNetworkServiceProcessIdentity`
 ***(security MAC_ONLY NOT_TESTED)***\
