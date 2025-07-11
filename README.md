@@ -165,7 +165,9 @@ This is the GrapheneOS default browser. I feel I don't need to explain why it is
 
 #### Trivalent
 
-(WIP)
+Full disclosure, I am a frequent contributor to Trivalent. This wouldn't affect my opinion of it anyway, as it is currently. The explanation is below.
+\
+Essentially, this is Vanadium for desktop Linux, somewhat literally. Many patches from Vanadium that are not Android-specific are used. Not only that but it expands on many desktop and Linux centric hardening. I won't go too in depth because it will sound more like marketing than a "review"... which I guess these are now... so just know, it's good. Use.
 
 #### Ironfox
 
