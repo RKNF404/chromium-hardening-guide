@@ -108,6 +108,8 @@ Also lots of attack surface related to crypto stuff and heavy privacy marketing 
 In the realm of attack surface, the content blocker can be a problem. It is written in Rust and all, but Rust only prevents exploits targeting the adblock engine itself, not the browser or sites. See the [content blocking](#content-blocking) section for more details.
 \
 To give some credit where it is due, Brave does have some decent changes. For example they proxy [a large number of requests](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers), for which they have a better pivacy policy on their services than Google. This does have some issues but it is still nice, none-the-less. They do also offer some partitioning improvements, though the amount of which isn't too big since upstream has added a lot of said improvements themselves.
+\
+Overall though, on desktop Brave is rather useless. It is filled with bloat and any security or privacy advantages, even the adblocker, can be achieved with Chrome. On Android though, if you do not have access to Vanadium then Brave is probably the next best choice. Chrome on Android isn't bad but Brave actually offers more there and the bloat is way less noticeable and easier to turn off.
 
 #### Vivaldi
 
