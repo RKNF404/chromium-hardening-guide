@@ -1,7 +1,7 @@
 # Features (Disable)
 (`--disable-features=`)
 
-##### `AllowD3D11WarpFallback,AllowSwiftShaderFallback,AllowSoftwareGLFallbackDueToCrash`
+##### `AllowSwiftShaderFallback,AllowSoftwareGLFallbackDueToCrash`
 ***(security)***\
 Disable software fallback for graphical rendering
 
