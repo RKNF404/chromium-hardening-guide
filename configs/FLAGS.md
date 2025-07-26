@@ -29,8 +29,3 @@ Disables hyperlink auditing
 ##### `--ozone-platform=$XDG_SESSION_TYPE`
 ***(security functionality LINUX_ONLY)***\
 This will set your browser to launch with Wayland or X11 depending on your session default, ideally though you should use Wayland
-
-##### `--use-gl=angle --use-angle=gl`
-***(performance LINUX_ONLY)***\
-Mostly targeted at Linux, but any platform should be able to use this without issues, used for hardware acceleration\
-But, some platforms offer alternate rendering methods which may be better, such as Metal on Mac or Vulkan on Android and Linux
