@@ -12,6 +12,10 @@ Hardening guide for (theoretically) any Chromium browser.
 
 Some of the flips and toggles come from other projects such as [Vanadium](https://github.com/GrapheneOS/Vanadium) or [Trivalent](https://github.com/secureblue/Trivalent).
 
+If you're having any trouble applying the guide or have any general questions or inquiries, please feel free to open a discussion thread.
+If want to suggest something, please open an issue for it.
+If you have my Discord, feel free to message me there about this guide.
+
 ## Config Priority
 
 1) Upstream Default
