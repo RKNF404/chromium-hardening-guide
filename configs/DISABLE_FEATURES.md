@@ -21,10 +21,6 @@ Disables privacy sandbox feature
 ***(privacy)***\
 Disables privacy sandbox feature
 
-##### `DisableThirdPartyStoragePartitioning3DeprecationTrial`
-***(privacy)***\
-Prevent bypass of third-party storage partitioning
-
 ##### `InterestFeedV2,NTPPopularSitesBakedInContent,UsePopularSitesSuggestions`
 ***(privacy)***\
 Disable content suggestions
