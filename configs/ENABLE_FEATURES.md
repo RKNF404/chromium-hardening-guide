@@ -34,10 +34,6 @@ Enable Code Integrity Guard (CIG) in the Network Service process pre-launch
 ***(privacy)***\
 Isolates connection information to prevent cross-site tracking
 
-##### `PartitionVisitedLinkDatabase`
-***(privacy)***\
-Isolates the visited status of sites to prevent history leaks
-
 ##### `PrefetchPrivacyChanges`
 ***(privacy)***\
 Limits what information is sent to prefetched sites, such as clearing the referrer and prevent access to cookies
