@@ -347,12 +347,7 @@ Value: `false`\
 #### `SafeBrowsingProtectionLevel`
 Value: `1`\
 ***(security OPTIONAL RECOMMENDABLE)***\
-Enable safe browsing, not needed but still better than nothing
-
-#### `SafeBrowsingProxiedRealTimeChecksAllowed`
-Value: `false`\
-***(privacy -security OPTIONAL)***\
-Sacrifice minor security in favor of not sending websites to Google for Safe Browsing
+Enable safe browsing, not needed but still better than nothing, to disable set the value to `0`
 
 #### `SafeBrowsingSurveysEnabled`
 Value: `false`\
