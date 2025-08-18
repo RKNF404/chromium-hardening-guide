@@ -1,11 +1,10 @@
 # Chromium Hardening Guide
 
-Last updated for: `138`
+Last updated for: `139`
 
 Changes in latest version:
 ```
-Added policy TLS13EarlyDataEnabled set to false (disabled)
-Added policy AIModeSettings set to 1 (disabled)
+N/A
 ```
 
 Hardening guide for (theoretically) any Chromium browser.
