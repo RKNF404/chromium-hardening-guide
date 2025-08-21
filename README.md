@@ -166,7 +166,7 @@ This is the GrapheneOS default browser. I feel I don't need to explain why it is
 
 #### Cromite
 
-(WIP)
+[Avoid](https://discuss.grapheneos.org/d/16562-browser-mulch-vs-cromite/10). Cromite has very problematic changes included which substantially reduce privacy and security. For example, it includes the highly problematic Eyeo filtering engine from the company behind Acceptable Ads, Adblock Plus, etc. which took over the forked uBlock extension misleading people with the name pretending to be the uBlock Origin project among other extensions. [Cromite adds JPEG-XL](https://github.com/uazo/cromite/issues/351), which is a lot of additional attack surface over Chromium. [Cromite also does not support CFI](https://github.com/uazo/cromite/issues/1537). It used to, but then it broke, and instead of fixing the issue, they simply stopped using it.
 
 #### Trivalent
 
