@@ -41,7 +41,7 @@ The following guide will assist in setting up and using a Chromium based browser
 \
 Please note that while I intend for this to be as comprehensive as possible, there will be gaps. For example, I do not have a Mac so I am not capable of offering up-to-date info on methods or options for those systems.
 
-## Quick Links
+## Contents
 
 - [Selecting a browser](#selecting-a-browser)
   - [Baseline](#baseline)
