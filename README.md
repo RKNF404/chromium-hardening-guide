@@ -166,13 +166,19 @@ This is the GrapheneOS default browser. I feel I don't need to explain why it is
 
 #### Cromite
 
-[Avoid](https://discuss.grapheneos.org/d/16562-browser-mulch-vs-cromite/10). Cromite has very problematic changes included which substantially reduce privacy and security. For example, it includes the highly problematic Eyeo filtering engine, and [adds JPEG-XL](https://github.com/uazo/cromite/issues/351), which is a lot of additional attack surface over Chromium. [Cromite also does not support CFI](https://github.com/uazo/cromite/issues/1537). It used to, but then it broke, and instead of fixing the issue, they simply stopped using it. The maintainer size is pretty small, so updates can be inconsistent.
+[Avoid](https://discuss.grapheneos.org/d/16562-browser-mulch-vs-cromite/10). Cromite has very problematic changes included which substantially reduce privacy and security. For example, it includes the highly problematic Eyeo filtering engine which has all the [issues of Brave's adblock-rs](#content-blocking) but is written in C++ (so memory unsafe), essentially increasing the attack surface massively. Additionally, Cromite [enables Manifest V2 Extensions](https://github.com/uazo/cromite/blob/6d6ce62db92b0a6b415c55e9b8fd861da13bfd6e/docs/FEATURES.md?plain=1#L165) in full, which adds a lot of additional attack surface over Chrome/Chromium. So they add a very risky adblocking engine to avoid extensions, but then enable MV2 likely for the purpose of content blocking, which results in adding a bunch of attack surface with only the benefit of one or the other. Cromite also used to enable [JPEG-XL](https://github.com/uazo/cromite/issues/351), which isn't a good sign for security since JXL adds a lot of attack surface. The patch to add it was removed but its an indication of less-than-desirable security concern.
+\
+[Cromite also does not enable CFI on Android](https://github.com/uazo/cromite/issues/1537). It used to, but it caused a few issues. Instead of fixing and working through these issues, they simply disabled it. Maintenance is done in a very complicated manner with little automation, which can cause updates to be very inconsistent. And some coding practices are very questionable, making code less readable and harder to maintain, only adding on more tech debt.
+\
+There are many points and gripes to pick at with Cromite, and it is mostly feature redundant with Brave which is more established, more feature rich, and better maintained. Not that Brave is a good option, but it has more to offer for less risk. Most of my criticisms about Brave equally apply here, some to greater degrees, some to lesser. Point is, this isn't any more a "security-focused" option as Brave is, and Brave really isn't.
 
 #### Trivalent
 
 Full disclosure, I am a frequent contributor to Trivalent. This wouldn't affect my opinion of it anyway, as it is currently. The explanation is below.
 \
-Essentially, this is Vanadium for desktop Linux, somewhat literally. Many patches from Vanadium that are not Android-specific are used. Not only that, it expands on many desktop and Linux-centric hardening. I won't go too in depth because it will sound more like marketing than a "review"... which I guess these are now... so just know, it's good. Use.
+Essentially, this is Vanadium for desktop Linux, somewhat literally. Many patches from Vanadium that are not Android-specific are used. Not only that, it expands on many desktop and Linux-centric hardening. Additionally, due to a decent amount of automation work, weekly updates are often shipped same-day as upstream or the day after, at a very consistent pace.
+\
+Beyond that, I won't go too in depth because it will sound more like marketing than a "review"... which I guess these are now... so just know, it's good. Use.
 
 #### Ironfox
 
