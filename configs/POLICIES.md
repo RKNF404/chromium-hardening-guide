@@ -27,6 +27,11 @@ Value: `2`\
 ***(privacy)***\
 Disables AI for autofill
 
+#### `AutomatedPasswordChangeSettings`
+Value: `2`\
+***(privacy)***\
+Disables AI agent for changing passwords
+
 #### `BackgroundModeEnabled`
 Value: `false`\
 ***(annoyance performance privacy RECOMMENDABLE)***
@@ -311,6 +316,11 @@ Value: `false`\
 Value: `true`\
 ***(security)***
 
+#### `ProtectedContentIdentifiersAllowed`
+Value: `false`\
+***(privacy)***\
+Disables sharing and storing IDs used for DRM enforcement
+
 #### `RelatedWebsiteSetsEnabled`
 Value: `false`\
 ***(privacy)***\
@@ -334,6 +344,10 @@ Disables firewall awareness for remote access connections
 #### `RemoteDebuggingAllowed`
 Value: `false`\
 ***(security)***
+
+#### `RestrictCoreSharingOnRenderer`
+Value: `true`\
+***(security WINDOWS_ONLY)***
 
 #### `SafeBrowsingDeepScanningEnabled`
 Value: `false`\
@@ -387,6 +401,10 @@ Value: `true`\
 Value: `2`\
 ***(privacy)***\
 Disables AI for tab analysis
+
+#### `TabGroupSharingSettings`
+Value: `1`\
+***(annoyance)***
 
 #### `TLS13EarlyDataEnabled`
 Value: `false`\
