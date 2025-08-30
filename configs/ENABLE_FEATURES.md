@@ -22,6 +22,10 @@ Prevents renderer processes from having access to the CSRSS service
 ***(privacy)***\
 Prevents third-party tracking using HSTS
 
+##### `LocalNetworkAccessChecks,LocalNetworkAccessChecksWebRTC`
+***(security privacy)***\
+Prevents sites from being able to access localhost addresses
+
 ##### `MacSyscallSandbox`
 ***(security MACOS_ONLY NOT_TESTED)***\
 Enables syscall filtering for the sandbox on MacOS
@@ -33,10 +37,6 @@ Enable Code Integrity Guard (CIG) in the Network Service process pre-launch
 ##### `PartitionConnectionsByNetworkIsolationKey`
 ***(privacy)***\
 Isolates connection information to prevent cross-site tracking
-
-##### `PrefetchPrivacyChanges`
-***(privacy)***\
-Limits what information is sent to prefetched sites, such as clearing the referrer and prevent access to cookies
 
 ##### `ReduceAcceptLanguage`
 ***(privacy)***\
