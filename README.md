@@ -1,10 +1,12 @@
 # Chromium Hardening Guide
 
-Last updated for: `139`
+Last updated for: `140`
 
 Changes in latest version:
 ```
-N/A
+Added Enable Feature: LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC\
+Removed Enable Feature: PrefetchPrivacyChanges
+Added Policies: AutomatedPasswordChangeSettings , ProtectedContentIdentifiersAllowed , RestrictCoreSharingOnRenderer , TabGroupSharingSettings
 ```
 
 Hardening guide for (theoretically) any Chromium browser.
