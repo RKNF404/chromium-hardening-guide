@@ -22,7 +22,7 @@ Prevents renderer processes from having access to the CSRSS service
 ***(privacy)***\
 Prevents third-party tracking using HSTS
 
-##### `LocalNetworkAccessChecks,LocalNetworkAccessChecksWebRTC`
+##### `LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC`
 ***(security privacy)***\
 Prevents sites from being able to access localhost addresses
 
