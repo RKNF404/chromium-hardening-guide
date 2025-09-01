@@ -237,11 +237,6 @@ Value: `false`\
 ***(privacy)***\
 Disables translation in realtime through a Google service
 
-#### `LocalNetworkAccessRestrictionsEnabled`
-Value: `true`\
-***(security)***\
-Restricts access to local (private) addresses for websites
-
 #### `MediaRecommendationsEnabled`
 Value: `false`\
 ***(privacy annoyance)***
