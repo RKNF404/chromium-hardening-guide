@@ -4,7 +4,7 @@ Last updated for: `140`
 
 Changes in latest version:
 ```
-Added Enable Feature: LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC\
+Added Enable Feature: LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC
 Removed Enable Feature: PrefetchPrivacyChanges
 Added Policies: AutomatedPasswordChangeSettings , ProtectedContentIdentifiersAllowed , RestrictCoreSharingOnRenderer , TabGroupSharingSettings
 ```
