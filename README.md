@@ -172,7 +172,7 @@ This is the GrapheneOS default browser. I feel I don't need to explain why it is
 \
 [Cromite also does not enable CFI on Android](https://github.com/uazo/cromite/issues/1537). It used to, but it caused a few issues. Instead of fixing and working through these issues, they simply disabled it. Maintenance is done in a very complicated manner with little automation, which can cause updates to be very inconsistent. And some coding practices are very questionable, making code less readable and harder to maintain, only adding on more tech debt.
 \
-There are many points and gripes to pick at with Cromite, and it is mostly feature redundant with Brave which is more established, more feature rich, and better maintained. Not that Brave is a good option, but it has more to offer for less risk. Most of my criticisms about Brave equally apply here, some to greater degrees, some to lesser. Point is, this isn't any more a "security-focused" option as Brave is, and Brave really isn't.
+There are many points and gripes to pick at with Cromite, and it is mostly feature redundant with Brave which is more established, more feature rich, and better maintained. Not that Brave is a good option, but it has more to offer for less risk. Most of my criticisms about Brave equally apply here, some to greater degrees, some to lesser. Point is, this isn't any more a "security-focused" option than Brave, and Brave really isn't security-focused.
 
 #### Trivalent
 
