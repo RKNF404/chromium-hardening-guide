@@ -9,15 +9,7 @@ Disable software fallback for graphical rendering
 ***(privacy)***\
 Disables autofill server data exchange
 
-##### `BrowsingTopics`
-***(privacy)***\
-Disables privacy sandbox feature
-
-##### `BrowsingTopicsDocumentAPI`
-***(privacy)***\
-Disables privacy sandbox feature
-
-##### `BrowsingTopicsParameters`
+##### `BrowsingTopics,BrowsingTopicsDocumentAPI,BrowsingTopicsParameters`
 ***(privacy)***\
 Disables privacy sandbox feature
 
