@@ -397,10 +397,6 @@ Value: `2`\
 ***(privacy)***\
 Disables AI for tab analysis
 
-#### `TabGroupSharingSettings`
-Value: `1`\
-***(annoyance)***
-
 #### `TLS13EarlyDataEnabled`
 Value: `false`\
 ***(security)***\
