@@ -184,7 +184,7 @@ Beyond that, I won't go too in depth because it will sound more like marketing t
 
 #### Ironfox
 
-[See](#firefox) [here](#firefox-forks). Firefox based browsers, especially on Android, have terrible security. Ironfox isn't exactly free of these issues. It does do some work to reduce some attack surface of base Firefox, but this is not significant or substantial enough to justify its use over any chromium based browser. But, if you are for some unholy reason forced to use a Firefox based browser, Ironfox is your best bet, still note it's nothing to depend on security-wise.
+[See](#firefox) [here](#firefox-forks). Firefox based browsers, especially on Android, have terrible security. Ironfox isn't exactly free of these issues. It does do some work to reduce some attack surface of base Firefox, but this is not significant or substantial enough to justify its use over any chromium based browser. But, if you are for some unholy reason forced to use a Firefox based browser on Android, Ironfox is your best bet, but still note it's nothing to depend on security-wise.
 
 ## Basic Setup
 
