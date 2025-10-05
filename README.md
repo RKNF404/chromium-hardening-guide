@@ -209,6 +209,22 @@ There is technically a sub-category of network filtering that is more comprehens
 \
 Last note on remotely updated filters for systems like Brave, Opera, and uBlock Origin (MV2). The main problem here is that filters can still modify requests, run regex (which can be exploited in the browser engine), use cosmetic filters (which has been used to exfil data from sites in the past), and execute JavaScript via scriptlets. While scriptlets themselves aren't risky, even when limiting execution capabilities it is still arbitrary execution and therefore has massive risk. These filters are themselves arbitrary and unsigned, meaning you are OTA downloading random files that are an exploit away from reading the contents on all sites or worse. At least with MV3 extensions the filters have to bundled, so they are effectively signed along with the rest of the extension, so much better than most integrated engines.
 
+### Tracking and Fingerprinting Protections
+
+[Browser fingerprints](https://mullvad.net/en/browser/browser-fingerprinting) are the information your browser collects and shares with a website when you visit it. A website simply ‘asks’ your browser things like which browser you have, which graphics card you use, which plugins you have installed, what resolution your screen has, which fonts you have downloaded, etc. This practice is used to give you the ‘right’ web experience, but also for legitimate purposes like combating fraud. The number of questions and the combination of answers make it possible to build a fingerprint and uniquely identify you.
+
+Browser tracking through cookies can be negated by blocking third party cookies and clearing site data, while browser tracking through IP addresses can be negated by using VPNs. In contrast, fingerprinting is more difficult to detect and target.
+
+If you do nothing on desktop, [you are already uniquely identifiable](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-fingerprinting) - screen, window and font metrics alone are probably enough - add timezone name, preferred languages, and several dozen other metrics and it is game over. Here is a link to the results of a study done in 2016 showing a 99.24% unique hit rate (and that is excluding IP addresses).
+
+Only Tor Browser can confidently address more advanced scripts: enough metrics covered and a large crowd. The best any other browser can confidently do is fool naive scripts - if you're not convinced, add the loose data points from your IP/VPN. We also don’t recommend Tor Browser for most users due to its security issues inherited from Firefox.
+
+Unfortunately, out of our recommended browsers - Chrome, Edge, Trivalent, and Vanadium - [Vanadium](https://grapheneos.org/features#vanadium) is the only browser [with built-in fingerprinting protections by default](https://discuss.privacyguides.net/t/any-advantage-in-using-cromite-instead-of-vanadium-if-youre-on-grapheneos-or-should-you-just-copy-the-recommended-configuration-of-cromite-to-vanadium/27764/18). Even then, [GrapheneOS has admitted](https://xcancel.com/GrapheneOS/status/1827557014391726440) that Brave currently has stronger protections than Vanadium.
+
+There is still some hope; [GrapheneOS is planning for Vanadium](https://grapheneos.org/usage#web-browsing) to implement fingerprinting protections just as strong as Tor Browser’s. Any working browser has access to [Startpage Anonymous View](https://support.startpage.com/hc/en-us/articles/4455317663764-How-does-Anonymous-View-work), which may be useful against naive fingerprinting scripts, especially on browsers without built-in fingerprinting protection. However, it causes lots of site breakage, and it only works on sites searchable on Startpage as well as the links from those sites.
+
+
+
 ## Policies
 
 See [POLICIES.md](/configs/POLICIES.md) for what policies can be used and their respective values
