@@ -340,7 +340,7 @@ There is a way to add flags via ADB, but I know very little about it and would a
 In case you are curious, this is my personal setup. The main purpose is to demonstrate the usage of this guide.
 \
 \
-Lets start with OSs. I have an Android, Linux, and Windows machines. They are GrapheneOS, Fedora Workstation, and Windows 11 respectively. Because of this, your setup may vary.
+Lets start with OSs. I have an Android, Linux, and Windows machines. They are GrapheneOS, Fedora Workstation, and Windows 11 respectively. Because of this, your setup may vary. Also yes, I will swap to secureblue eventually, it is on the agenda for me.
 \
 \
 On GrapheneOS, I use Vanadium. It is without a doubt the best option on Android, but due to a lack of availability outside of GrapheneOS, it is difficult to recommend. Therefore, the next best option I would use is Chrome. Yes, Chrome with some settings changed and some flags altered in `chrome://flags`. Is this ideal? Not really, but it's the next best thing below Vanadium. For watching Youtube without ads, I use NewPipe, so adblocking isn't a big enough deal for my browsing to justify selecting a browser based around it. *Not-so-subtle suggestion against Brave.*
