@@ -80,6 +80,16 @@ TLDR; If the variant does something worse than Chrome, avoid it. The only leeway
 
 Long story short, it makes no difference. Open-source is preferable for transparency reasons, but has little effect on anything in the baseline criteria. Consider the option more like a tie-breaker than a genuine advantage to consider.
 
+### Resisting Fingerprinting
+
+(WIP)
+
+Quick Summary:
+- Nice to have, not a priority
+- Should not be focal point of the selection process
+- Generally very ineffective, even something more comprehensive like Brave is very flawed
+- If you absolutely need it, use a VM and use Tor Browser, do not use Tor outside a VM
+
 ### Popular Options
 
 #### Chrome
