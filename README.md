@@ -23,7 +23,9 @@ If you have my Discord, feel free to message me there about this guide.
 
 I intend to add more redundancy in the policies, UI flips, and flags/features. Mainly because in some cases not every kind of configuration is available (i.e. on some platforms policies or flags or both may not be an option to enable hardening features). I want to account for cases where one is missing. Because currently, if say a policy does the same thing as a flag, I won't add the flag. In future I will add both.
 \
-This will likely result in a rewrite where I create a table where each entry is a desired effect and the corresponding flag, policy, and preference to get said effect. For example disabling default browser checks has both a flag and policy, both do the same thing.
+~~This will likely result in a rewrite where I create a table where each entry is a desired effect and the corresponding flag, policy, and preference to get said effect. For example disabling default browser checks has both a flag and policy, both do the same thing.~~
+\
+So, this didn't seem viable, instead I will unify the configuration documents into one database file and generate a script to generate configs for the various platforms (i.e. WINDOWS_ONLY, LINUX_ONLY, etc), flag/policy tags (i.e. annoyance, privacy, security, etc), by optional, and creating a recommended config. This will probably take some time. "Why not a seperate file for every config?" Because I don't intend to maintain 15 different files at once where half of them have the same entries.
 
 ## Quick Links
 
