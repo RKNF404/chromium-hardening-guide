@@ -188,7 +188,7 @@ Cromite from what I have seen is mostly feature redundant with Brave, not that B
 
 Full disclosure, I am a frequent contributor to Trivalent. This wouldn't affect my opinion of it anyway, as it is currently. The explanation is below.
 \
-Essentially, this is Vanadium for desktop Linux, somewhat literally. Many patches from Vanadium that are not Android-specific are used. Not only that, it expands on many desktop and Linux-centric hardening. Additionally, due to a decent amount of automation work, weekly updates are often shipped same-day as upstream or the day after, at a very consistent pace.
+Essentially, this is Vanadium for desktop Linux, somewhat literally. Do note that despite getting as close as possible, it does not match to Vanadium currently due to poor security in the desktop Linux ecosystem and a lack of availability of hardware security features like MTE. Many patches from Vanadium that are not Android-specific are used. Not only that, it expands on many desktop and Linux-centric hardening. Additionally, due to a decent amount of automation work, weekly updates are often shipped same-day as upstream or the day after, at a very consistent pace.
 \
 Beyond that, I won't go too in depth because it will sound more like marketing than a "review"... which I guess these are now... so just know, it's good. Use.
 
