@@ -144,6 +144,10 @@ It suffers the issues of typical vanilla builds, but with the added issues of un
 
 As mentioned in the [Brave](#brave) section, ***AVOID***! Flatpak's security is... questionable for a number of reasons, but what's worse is Chromium's security in Flatpak. Because Flatpak restricts the usage of Linux namespaces and prevents the use of SUID (for good reason), Chromium's sandbox will literally not work. The solution is [zypak](https://github.com/refi64/zypak) or a [direct patch](https://github.com/flathub/org.chromium.Chromium/blob/master/patches/chromium/flatpak-Add-initial-sandbox-support.patch), the problem is these methods are very poorly configured to the point they essentially break the typically very strong sandboxing chromium provides. These solutions are closer to compatibility layers than they are genuine [security solutions](https://issues.chromium.org/issues/40753165#comment11). Upstream (chromium devs) have expressed they do no intend to support Flatpak [anytime soon](https://issues.chromium.org/issues/40928753#comment5) for reasons alike to this. Flatpak *significantly* inhibits chromium's sandboxing, and there is no faithful implementation currently.
 
+##### Qt WebEngine
+
+Browsers based on Qt WebEngine (for example [KDE’s Falkon](https://apps.kde.org/falkon/)) should generally be avoided. Qt WebEngine forks a specific Chromium version at feature freeze and then [cherry‑picks security fixes](https://www.qt.io/blog/putting-updates-of-chromium-in-qtwebengine-on-a-timeline) from newer upstream releases. That approach can leave a longer exposure window than browsers that track Chromium directly. Cherry‑picking is error‑prone and may miss fixes that rely on broader refactors or API changes, increasing the likelihood that patches are incomplete.
+
 ### Other Browsers
 
 #### Firefox
