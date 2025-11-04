@@ -105,12 +105,7 @@ Value: `false`\
 #### `DefaultJavaScriptJitSetting`
 Value: `2`\
 ***(security OPTIONAL)***\
-This can also be used to disable JIT, the only difference between this and the flag is that the flag disables JIT for extensions and internal (`chrome://` and `file://`) pages as well whereas this policy only disables it for websites. If you have an extension that requires JIT (i.e. not compatible with the flag), use this policy to compensate, you can whitelist sites using the `JavaScriptJitAllowedForSites` policy.
-
-#### `DefaultJavaScriptOptimizerSetting`
-Value: `1`\
-***(~security OPTIONAL)***\
-Locks the V8 security setting so the [JITless](https://github.com/RKNF404/chromium-hardening-guide/blob/main/configs/FLAGS.md#--js-flags--jitless) flag can properly disable JIT for all sites, disabling V8 optimizers acts as a whitelist for WebAssembly. If you need to configure JIT/WASM per-site, do not set this policy
+This can also be used to disable JIT, the only difference between this and the flag is that the flag disables JIT for extensions and internal (`chrome://` and `file://`) pages as well whereas this policy only disables it for websites. If you have an extension that requires JIT (i.e. not compatible with the flag), use this policy to compensate, you can whitelist sites using the `JavaScriptJitAllowedForSites` policy, note that extensions are not affected by this policy, neither are internal pages (`chrome://`), non-PDF `file://` pages (PDF files always have JIT disabled).
 
 #### `DefaultSensorsSetting`
 Value: `2`\
