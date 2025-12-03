@@ -1,10 +1,10 @@
 # Chromium Hardening Guide
 
-Last updated for: `141`
+Last updated for: `143`
 
 Changes in latest version:
 ```
-N/A
+PartitionAllocWithAdvancedChecks:enabled-processes/all-processes
 ```
 
 Hardening guide for (theoretically) any Chromium browser.
