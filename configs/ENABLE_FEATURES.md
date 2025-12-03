@@ -34,6 +34,10 @@ Enables syscall filtering for the sandbox on MacOS
 ***(security WINDOWS_ONLY)***\
 Enable Code Integrity Guard (CIG) in the Network Service process pre-launch
 
+##### `PartitionAllocWithAdvancedChecks:enabled-processes/all-processes`
+***(security)***\
+Enable stricter memory security checks
+
 ##### `PartitionConnectionsByNetworkIsolationKey`
 ***(privacy)***\
 Isolates connection information to prevent cross-site tracking
