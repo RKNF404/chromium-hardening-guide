@@ -10,10 +10,6 @@ E.g. just "google.com" instead of "google.com/search"
 ***(privacy DISFUNCTIONAL)***\
 Prevents the window.name property from being leaked across sites
 
-##### `ContentSettingsPartitioning`
-***(privacy)***\
-Isolate Content Settings by Origin
-
 ##### `EnableCsrssLockdown`
 ***(security WINDOWS_ONLY)***\
 Prevents renderer processes from having access to the CSRSS service
