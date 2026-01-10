@@ -30,7 +30,3 @@ The above no longer works, js-flags are no longer overwritten by the V8 optimize
 ##### `--no-pings`
 ***(privacy)***\
 Disables hyperlink auditing
-
-##### `--ozone-platform=$XDG_SESSION_TYPE`
-***(security functionality LINUX_ONLY)***\
-This will set your browser to launch with Wayland or X11 depending on your session default, ideally though you should use Wayland
