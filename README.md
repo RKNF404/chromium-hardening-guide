@@ -7,8 +7,8 @@ Changes in latest version:
 removed Enable feature ContentSettingsPartitioning
 added policy SearchContentSharingSettings
 updated:
--LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC
-+LocalNetworkAccessChecksWebRTC,LocalNetworkAccessChecksWebSockets,LocalNetworkAccessChecksWebTransport
+  -LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC
+  +LocalNetworkAccessChecksWebRTC,LocalNetworkAccessChecksWebSockets,LocalNetworkAccessChecksWebTransport
 added Enable feature PrintCompositorLPAC
 added Enable feature WinSboxNetworkServiceSandboxIsLPAC
 added Enable feature WinSboxStrictHandleChecks
