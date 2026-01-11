@@ -54,7 +54,7 @@ Enables the use of AppContainers on renderers to improve the sandboxing
 ***(privacy DISFUNCTIONAL)***\
 Limits memory cache access to the context it was created from
 
-##### `SplitCodeCacheByNetworkIsolationKey,SplitCacheByNetworkIsolationKey,SplitCacheByIncludeCredentials,SplitCacheByNavigationInitiator`
+##### `SplitCodeCacheByNetworkIsolationKey,SplitCacheByNetworkIsolationKey,SplitCacheByIncludeCredentials`
 ***(privacy)***\
 Isolates cache to prevent cross-site tracking
 
