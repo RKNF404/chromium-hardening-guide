@@ -392,11 +392,6 @@ Value: `2`\
 ***(privacy)***\
 Disables AI for tab analysis
 
-#### `TLS13EarlyDataEnabled`
-Value: `false`\
-***(security)***\
-Disable 0-RTT, it is vulnerable replay attacks
-
 #### `TranslateEnabled`
 Value: `false`\
 ***(privacy RECOMMENDABLE)***
@@ -414,11 +409,6 @@ Disables URL based data reporting
 Value: `false`\
 ***(privacy)***\
 Ibid
-
-#### `UserAgentReduction`
-Value: `2`\
-***(privacy)***\
-Reduce information in the user agent header
 
 #### `UserFeedbackAllowed`
 Value: `false`\
