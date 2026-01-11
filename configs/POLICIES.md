@@ -365,6 +365,11 @@ Value: `false`\
 Value: `false`\
 ***(privacy)***
 
+#### `SearchContentSharingSettings`
+Value: `false`\
+***(privacy)***\
+Disable AI search sharing
+
 #### `ShoppingListEnabled`
 Value: `false`\
 ***(privacy)***
