@@ -12,6 +12,8 @@ updated:
 added Enable feature PrintCompositorLPAC
 added Enable feature WinSboxNetworkServiceSandboxIsLPAC
 added Enable feature WinSboxStrictHandleChecks
+removed policy TLS13EarlyDataEnabled
+removed policy UserAgentReduction
 ```
 
 Hardening guide for (theoretically) any Chromium browser.
