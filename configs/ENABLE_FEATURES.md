@@ -18,7 +18,7 @@ Prevents renderer processes from having access to the CSRSS service
 ***(privacy)***\
 Prevents third-party tracking using HSTS
 
-##### `LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC`
+##### `LocalNetworkAccessChecksWebRTC,LocalNetworkAccessChecksWebSockets,LocalNetworkAccessChecksWebTransport`
 ***(security privacy)***\
 Prevents sites from being able to access localhost addresses
 
@@ -37,6 +37,10 @@ Enable stricter memory security checks
 ##### `PartitionConnectionsByNetworkIsolationKey`
 ***(privacy)***\
 Isolates connection information to prevent cross-site tracking
+
+##### `PrintCompositorLPAC`
+***(security WINDOWS_ONLY)***\
+Enables various mitigations and restrictions for the printing process
 
 ##### `ReduceAcceptLanguage`
 ***(privacy)***\
@@ -62,7 +66,14 @@ Strengthens origin isolation
 ***(security MAC_ONLY NOT_TESTED)***\
 Mandates code signing on the network process on MacOS
 
+##### `WinSboxNetworkServiceSandboxIsLPAC`
+***(security WINDOWS_ONLY)***\
+Enable LPAC restrictions on the network service process (if enabled)
+
 ##### `WinSboxRestrictCoreSharingOnRenderer`
 ***(security WINDOWS_ONLY)***\
 Prevents renderers from sharing a core with other processes, to prevent Hyperthreading/SMT based side-channel attacks
 
+##### `WinSboxStrictHandleChecks`
+***(security WINDOWS_ONLY)***\
+Enables Windows process mitigation for sandboxed processes
