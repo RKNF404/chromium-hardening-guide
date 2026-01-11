@@ -9,11 +9,11 @@ Disable software fallback for graphical rendering
 ***(privacy)***\
 Disables autofill server data exchange
 
-##### `BrowsingTopics,BrowsingTopicsDocumentAPI,BrowsingTopicsParameters`
+##### `PrivacySandboxSettings4,BrowsingTopics,BrowsingTopicsDocumentAPI,BrowsingTopicsParameters`
 ***(privacy)***\
-Disables privacy sandbox feature
+Disables privacy sandbox features
 
-##### `InterestFeedV2,NTPPopularSitesBakedInContent,UsePopularSitesSuggestions`
+##### `InterestFeedV2,NTPPopularSitesBakedInContent`
 ***(privacy)***\
 Disable content suggestions
 
@@ -25,13 +25,9 @@ Disable Lens search (Google integrated image search)
 ***(privacy)***\
 Prevents DRM related communication before needed
 
-##### `OptimizationHints,OptimizationHintsFetching,OptimizationHintsFetchingAnonymousDataConsent,OptimizationPersonalizedHintsFetching,OptimizationGuideModelDownloading,TextSafetyClassifier`
+##### `OptimizationHints,OptimizationHintsFetchingSRP`
 ***(privacy)***\
 Disables Optimization Guides, which includes certain AI features
-
-##### `PrivacySandboxSettings4`
-***(privacy)***\
-Disables privacy sandbox feature
 
 ##### `Reporting,CrashReporting,DocumentReporting`
 ***(privacy)***\
