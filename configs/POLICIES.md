@@ -222,11 +222,6 @@ Value: `1`\
 ***(privacy)***\
 Disables performing Google searches using webpage screenshots
 
-#### `LensRegionSearchEnabled`
-Value: `false`\
-***(privacy)***\
-Disables context menu image searches with Lens
-
 #### `LiveTranslateEnabled`
 Value: `false`\
 ***(privacy)***\
