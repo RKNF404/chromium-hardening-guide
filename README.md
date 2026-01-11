@@ -1,10 +1,17 @@
 # Chromium Hardening Guide
 
-Last updated for: `143`
+Last updated for: `144`
 
 Changes in latest version:
 ```
-PartitionAllocWithAdvancedChecks:enabled-processes/all-processes
+removed Enable feature ContentSettingsPartitioning
+added policy SearchContentSharingSettings
+updated:
+-LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC
++LocalNetworkAccessChecksWebRTC,LocalNetworkAccessChecksWebSockets,LocalNetworkAccessChecksWebTransport
+added Enable feature PrintCompositorLPAC
+added Enable feature WinSboxNetworkServiceSandboxIsLPAC
+added Enable feature WinSboxStrictHandleChecks
 ```
 
 Hardening guide for (theoretically) any Chromium browser.
