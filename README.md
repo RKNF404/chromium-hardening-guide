@@ -10,7 +10,6 @@ updated:
   -LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC
   +LocalNetworkAccessChecksWebRTC,LocalNetworkAccessChecksWebSockets,LocalNetworkAccessChecksWebTransport
 added Enable feature PrintCompositorLPAC
-added Enable feature WinSboxNetworkServiceSandboxIsLPAC
 added Enable feature WinSboxStrictHandleChecks
 removed policy TLS13EarlyDataEnabled
 removed policy UserAgentReduction
