@@ -66,10 +66,6 @@ Strengthens origin isolation
 ***(security MAC_ONLY NOT_TESTED)***\
 Mandates code signing on the network process on MacOS
 
-##### `WinSboxNetworkServiceSandboxIsLPAC`
-***(security WINDOWS_ONLY)***\
-Enable LPAC restrictions on the network service process (if enabled)
-
 ##### `WinSboxRestrictCoreSharingOnRenderer`
 ***(security WINDOWS_ONLY)***\
 Prevents renderers from sharing a core with other processes, to prevent Hyperthreading/SMT based side-channel attacks
