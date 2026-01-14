@@ -217,11 +217,6 @@ Disables AI for history searches
 Value: `"force_enabled"`\
 ***(security)***
 
-#### `LensOverlaySettings`
-Value: `1`\
-***(privacy)***\
-Disables performing Google searches using webpage screenshots
-
 #### `LiveTranslateEnabled`
 Value: `false`\
 ***(privacy)***\
