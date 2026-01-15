@@ -1,0 +1,1081 @@
+{
+	"adjust-safe-browsing-level": {
+		"Description": "Enable safe browsing, not needed but still better than nothing, to disable set the Value to 0",
+		"Tags": ["SECURITY", "OPTIONAL"],
+		"Configs": {
+			"SafeBrowsingProtectionLevel": {
+				"Type": "Policy",
+				"Value": 1,
+				"Recommenable": true
+			}
+		}
+	},
+	"block-external-extensions": {
+		"Description": "",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"BlockExternalExtensions": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"block-native-messaging": {
+		"Description": "Prevents extensions from communicating with native apps",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"NativeMessagingBlocklist": {
+				"Type": "Policy",
+				"Value": ["*"]
+			}
+		}
+	},
+	"block-third-party-cookies": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"BlockThirdPartyCookies": {
+				"Type": "Policy",
+				"Value": true,
+				"Recommendable": true
+			}
+		}
+	},
+	"clear-site-data-on-exit": {
+		"Description": "Clears data on exit",
+		"Tags": ["PRIVACY", "SECURITY", "OPTIONAL"],
+		"Configs": {
+			"ClearBrowsingDataOnExitList": {
+				"Type": "Policy",
+				"Value": ["browsing_history","download_history","cookies_and_other_site_data","cached_images_and_files","password_signin","autofill","site_settings","hosted_app_data"],
+				"Negates": ["clear-site-data-on-exit-partial"]
+			}
+		}
+	},
+	"clear-site-data-on-exit-partial": {
+		"Description": "Clears data on exit",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"ClearBrowsingDataOnExitList": {
+				"Type": "Policy",
+				"Value": ["download_history","cached_images_and_files","autofill","hosted_app_data"]
+			}
+		}
+	},
+	"clear-windowname-property": {
+		"Description": "Prevents the window.name property from being leaked across sites",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"ClearCrossSiteCrossBrowsingContextGroupWindowName": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"disable-ai-features": {
+		"Description": "Disable AI integrations",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"AIModeSettings": {
+				"Type": "Policy",
+				"Value": 1
+			},
+			"AutofillPredictionSettings": {
+				"Type": "Policy",
+				"Value": 2
+			},
+			"AutomatedPasswordChangeSettings": {
+				"Type": "Policy",
+				"Value": 2
+			},
+			"BuiltInAIAPIsEnabled": {
+				"Type": "Policy",
+				"Value": false
+			},
+			"CreateThemesSettings": {
+				"Type": "Policy",
+				"Value": 2
+			},
+			"DevToolsGenAiSettings": {
+				"Type": "Policy",
+				"Value": 2
+			},
+			"GeminiSettings": {
+				"Type": "Policy",
+				"Value": 1
+			},
+			"GoogleSearchSidePanelEnabled": {
+				"Type": "Policy",
+				"Value": false
+			},
+			"HelpMeWriteSettings": {
+				"Type": "Policy",
+				"Value": 2
+			},
+			"HistorySearchSettings": {
+				"Type": "Policy",
+				"Value": 2
+			},
+			"SearchContentSharingSettings": {
+				"Type": "Policy",
+				"Value": false
+			},
+			"TabCompareSettings": {
+				"Type": "Policy",
+				"Value": 2
+			},
+			"TranslatorAPIAllowed": {
+				"Type": "Policy",
+				"Value": false
+			},
+			"AimEnabled": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"StarterPackExpansion": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"LensStandalone": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"LensOverlay": {
+				"Type": "Feature",
+				"Enable": false
+			},
+		}
+	},
+	"disable-alternate-error-pages": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"AlternateErrorPagesEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-autofill": {
+		"Description": "Disable autofill, credential, and password management, as well as related features",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"AutofillAddressEnabled": {
+				"Type": "Policy",
+				"Value": false,
+				"Recommendable": true
+			},
+			"AutofillCreditCardEnabled": {
+				"Type": "Policy",
+				"Value": false,
+				"Recommendable": true
+			},
+			"PasswordLeakDetectionEnabled": {
+				"Type": "Policy",
+				"Value": false
+			},
+			"PasswordManagerEnabled": {
+				"Type": "Policy",
+				"Value": false,
+				"Recommendable": true
+			},
+			"PaymentMethodQueryEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-background-mode": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"BackgroundModeEnabled": {
+				"Type": "Policy",
+				"Value": false,
+				"Recommendable": true
+			}
+		}
+	},
+	"disable-browser-labs": {
+		"Description": "Hide browser labs UI",
+		"Tags": ["ANNOYANCE"],
+		"Configs": {
+			"BrowserLabsEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-browser-signin": {
+		"Description": "Disables account sign-in with the browser",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"BrowserSignin": {
+				"Type": "Policy",
+				"Value": 0
+			}
+		}
+	},
+	"disable-chrome-variations": {
+		"Description": "Prevents Chromium from overriding features remotely",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"ChromeVariations": {
+				"Type": "Policy",
+				"Value": 2
+			}
+		}
+	},
+	"disable-random-features": {
+		"Description": "Disables random features that can reduce privacy",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"ClickToCallEnabled": {
+				"Type": "Policy",
+				"Value": false
+			},
+			"SharedClipboardEnabled": {
+				"Type": "Policy",
+				"Value": false
+			},
+			"ShoppingListEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-cloudapauth": {
+		"Description": "Disables automatic Microsoft cloud identity authentication",
+		"Tags": ["PRIVACY", "WINDOWS_ONLY"],
+		"Configs": {
+			"CloudAPAuthEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-cloud-print-proxy": {
+		"Description": "Disables sharing printers with Google",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"CloudPrintProxyEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-component-pings": {
+		"Description": "Reduces data sent to the component updater",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"component-updater": {
+				"Type": "Flag",
+				"Arguments": ["--disable-pings"]
+			}
+		}
+	},
+	"disable-content-settings-sensors": {
+		"Description": "Disable sensors permission",
+		"Tags": ["SECURITY", "PRIVACY"],
+		"Configs": {
+			"DefaultSensorsSetting": {
+				"Type": "Policy",
+				"Value": 2
+			}
+		}
+	},
+	"disable-content-suggesion-feeds": {
+		"Description": "Disable content suggestions",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"InterestFeedV2": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"NTPPopularSitesBakedInContent": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
+	"disable-crash-reporting": {
+		"Description": "Disable crash reporting",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"disable-breakpad": {
+				"Type": "Flag"
+			},
+			"disable-crash-reporter": {
+				"Type": "Flag"
+			}
+		}
+	},
+	"disable-default-browser-check": {
+		"Description": "Disable default browser check",
+		"Tags": ["ANNOYANCE"],
+		"Configs": {
+			"no-default-browser-check": {
+				"Type": "Flag"
+			},
+			"DefaultBrowserSettingEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-extension-developer-settings": {
+		"Description": "Disables extension developer mode",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"ExtensionDeveloperModeSettings": {
+				"Type": "Policy",
+				"Value": 1
+			}
+		}
+	},
+	"disable-extensions": {
+		"Description": "Disable all extensions",
+		"Tags": ["SECURITY", "OPTIONAL"],
+		"Configs": {
+			"disable-extensions": {
+				"Type": "Flag",
+				"Negates": ["extensions-deny-all", "extensions-allowlist"]
+			}
+		}
+	},
+	"disable-hardware-acceleration": {
+		"Description": "Disable HWAccel, reduces attack surface and prevents some HW based fingerprinting but reduces performance, also disables WebGL and WebGPU",
+		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
+		"Configs": {
+			"disable-gpu": {
+				"Type": "Flag"
+			},
+			"HardwareAccelerationModeEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-history-clusters": {
+		"Description": "Disable history journeys",
+		"Tags": ["ANNOYANCE"],
+		"Configs": {
+			"Journeys": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"HistoryClustersVisible": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-hyperlink-auditing": {
+		"Description": "Disables hyperlink auditing",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"no-pings": {
+				"Type": "Flag"
+			}
+		}
+	},
+	"disable-javascript-jit": {
+		"Description": "Disables Just-In-Time (JIT) compiled JavaScript, JIT is a massive security risk, it should be disabled by default, but it can risk approx 5-50% performance loss depending on the website. Also disables WebAssembly on most browsers. For Windows, uses Arbitrary Code Guard (ACG) to prevent renderer processes from violating W^X, and enables the Intel hardware shadow stack to enforce backward-edge CFI",
+		"Tags": ["SECURITY", "CONFIG_OPTIONS"],
+		"Configs": {
+			"js-flags": {
+				"Type": "Flag",
+				"Arguments": ["--jitless"],
+				"Negates": ["disable-javascript-optimizers"]
+			},
+			"DefaultJavaScriptJitSetting": {
+				"Type": "Policy",
+				"Value": 2,
+				"Recommends": ["disable-javascript-optimizers"]
+			}
+		}
+	},
+	"disable-javascript-optimizers": {
+		"Description": "Disables optimizers for JavaScript, reduces security risk of JIT compilation without fully disabling it",
+		"Tags": ["SECURITY", "OPTIONAL", "CONFIG_OPTIONS"],
+		"Configs": {
+			"js-flags": {
+				"Type": "Flag",
+				"Arguments": ["--disable-optimizing-compilers"]
+			},
+			"DefaultJavaScriptOptimizersSetting": {
+				"Type": "Policy",
+				"Value": 2
+			}
+		}
+	},
+	"disable-media-drm-preconnection": {
+		"Description": "Prevents DRM related communication before needed",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"MediaDrmPreprovisioning": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
+	"disable-media-recommendations": {
+		"Description": "",
+		"Tags": ["PRIVACY", "ANNOYANCE"],
+		"Configs": {
+			"MediaRecommendationsEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-media-router": {
+		"Description": "Disable Chrome Cast",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"EnableMediaRouter": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-ntp-cards": {
+		"Description": "Disables new tab page service integrations and utilities",
+		"Tags": ["PRIVACY", "ANNOYANCE"],
+		"Configs": {
+			"NTPCardsVisible": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-optimization-guides": {
+		"Description": "Disables Optimization Guides, which includes certain AI features",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"OptimizationHints": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"OptimizationHintsFetchingSRP": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
+	"disable-preloading": {
+		"Description": "Disable network predictions",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"NetworkPredictionOptions": {
+				"Type": "Policy",
+				"Value": 2,
+				"Recommendable": true
+			}
+		}
+	},
+	"disable-privacy-sandbox-features": {
+		"Description": "Disables privacy sandbox features, these are on the way out so they are here until the deprecation process is complete (est. v150)",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"BrowsingTopics": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"BrowsingTopicsDocumentAPI": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"BrowsingTopicsParameters": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"PrivacySandboxSettings4": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"PrivacySandboxAdMeasurementEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"PrivacySandboxAdTopicsEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"PrivacySandboxPromptEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"PrivacySandboxSiteEnabledAdsEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"RelatedWebsiteSetsEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			}
+		}
+	},
+	"disable-promotions": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"PromotionsEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			}
+		}
+	},
+	"disable-protected-content-ids": {
+		"Description": "Disables sharing and storing IDs used for DRM enforcement",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"ProtectedContentIdentifiersAllowed": {
+				"Type": "Policy",
+				"Enable": false
+			}
+		}
+	},
+	"disable-reporting-apis": {
+		"Description": "Disables the use of the Reporting API in various contexts",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"Reporting": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"CrashReporting": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"DocumentReporting": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
+	"disable-remote-features": {
+		"Description": "Why is there remote access in a browser?",
+		"Tags": ["SECURITY", "PRIVACY"],
+		"Configs": {
+			"RemoteAccessHostAllowRemoteAccessConnections": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"RemoteAccessHostFirewallTraversal": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"RemoteDebuggingAllowed": {
+				"Type": "Policy",
+				"Enable": false
+			}
+		}
+	},
+	"disable-safe-browsing-features": {
+		"Description": "Disable privacy intrusive features features related to safe browsing",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"SafeBrowsingDeepScanningEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"SafeBrowsingExtendedReportingEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			},
+			"SafeBrowsingSurveysEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			}
+		}
+	},
+	"disable-search-suggestions": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"SearchSuggestEnabled": {
+				"Type": "Policy",
+				"Enable": false
+			}
+		}
+	},
+	"disable-sharing-hub": {
+		"Description": "Hide sharing hub UI",
+		"Tags": ["ANNOYANCE"],
+		"Configs": {
+			"DesktopSharingHubEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-software-rendering-accel": {
+		"Description": "Disable software fallback for graphical rendering",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"AllowSwiftShaderFallback": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"AllowSoftwareGLFallbackDueToCrash": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
+	"disable-spellcheck-service": {
+		"Description": "Disables Google spellcheck service",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"SpellCheckServiceEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-sync": {
+		"Description": "Disable sync services",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"SyncDisabled": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"disable-tab-hover-cards": {
+		"Description": "Prevents rendering sites in the hover card",
+		"Tags": ["SECURITY", "ANNOYANCE"],
+		"Configs": {
+			"TabHoverCardImages": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
+	"disable-telemetry": {
+		"Description": "Disable in-browser telemetry and reporting",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"MetricsReportingEnabled": {
+				"Type": "Policy",
+				"Value": false,
+				"Recommendable": true
+			},
+			"UrlKeyedAnonymizedDataCollectionEnabled": {
+				"Type": "Policy",
+				"Value": false,
+				"Recommendable": true
+			},
+			"UrlKeyedMetricsAllowed": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-translations": {
+		"Description": "Disable in-browser telemetry and reporting",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"TranslateEnabled": {
+				"Type": "Policy",
+				"Value": false,
+				"Recommendable": true
+			},
+			"LiveTranslateEnabled": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-user-feedback": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"UserFeedbackAllowed": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	"disable-webgl": {
+		"Description": "Disables Pepper 3D and WebGL",
+		"Tags": ["SECURITY", "PRIVACY"],
+		"Configs": {
+			"disable-webgl": {
+				"Type": "Flag"
+			},
+			"disable-3d-apis": {
+				"Type": "Flag"
+			},
+			"Disable3DAPIs": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"disable-webgpu": {
+		"Description": "Disable WebGPU, not provably secure yet",
+		"Tags": ["SECURITY", "PRIVACY"],
+		"Configs": {
+			"WebGPUBlobCache": {
+				"Type": "Feature",
+				"Enable": false
+			},
+			"WebGPUService": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
+	"disable-webrtc-ip-sharing": {
+		"Description": "Prevents IP leakage from WebRTC, can cause issues with web calling services like Discord.",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"WebRtcIPHandling": {
+				"Type": "Policy",
+				"Value": "disable_non_proxied_udp"
+			},
+			"webrtc-ip-handling-policy": {
+				"Type": "Flag",
+				"Arguments": ["disable_non_proxied_udp"]
+			}
+		}
+	},
+	"disable-webrtc-reporting": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"WebRtcTextLogCollectionAllowed": {
+				"Type": "Policy",
+				"Value": false
+			}
+		}
+	},
+	
+	"dns-over-https": {
+		"Description": "Enable encrypted DNS to specific resolver",
+		"Tags": ["SECURITY", "PRIVACY"],
+		"Configs": {
+			"DnsOverHttpsMode": {
+				"Type": "Policy",
+				"Value": "secure",
+				"Negates": ["dns-over-https-automatic"]
+			},
+			"DnsOverHttpsTemplates": {
+				"Type": "Policy",
+				"Value": "https://freedns.controld.com/p2"
+			}
+		}
+	},
+	"dns-over-https-automatic": {
+		"Description": "Enable automatic use of encrypted DNS if available by the system/network DNS",
+		"Tags": ["SECURITY", "PRIVACY"],
+		"Configs": {
+			"DnsOverHttpsMode": {
+				"Type": "Policy",
+				"Value": "automatic"
+			}
+		}
+	},
+	"enable-audio-service-sandbox": {
+		"Description": "Enable process mitigations for the audio service process",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"AudioServiceSandbox": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"AudioSandboxEnabled": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"enable-csrss-lockdown": {
+		"Description": "Prevents renderer processes from having access to the CSRSS service",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
+			"EnableCsrssLockdown": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"enable-download-prompt": {
+		"Description": "",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"PromptForDownloadLocation": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"enable-dynamic-code-restriction": {
+		"Description": "Uses ACG for the browser process to enforce W^X",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
+			"DynamicCodeSettings": {
+				"Type": "Policy",
+				"Value": 1
+			}
+		}
+	},
+	"extensions-allowlist": {
+		"Description": "Allow specific extensions, this specific value only allows uBlock Origin Lite",
+		"Tags": [],
+		"Configs": {
+			"ExtensionInstallAllowlist": {
+				"Type": "Policy",
+				"Value": ["ddkjiahejlhfcafbddmgiahcphecmpfh"]
+			}
+		}
+	},
+	"extensions-deny-all": {
+		"Description": "Block all extensions by default",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"ExtensionInstallBlocklist": {
+				"Type": "Policy",
+				"Value": ["*"]
+			}
+		}
+	},
+	"extensions-limit-types": {
+		"Description": "Block extensions that are not either themes or regular extensions (example of blocked type, user script)",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"ExtensionAllowedTypes": {
+				"Type": "Policy",
+				"Value": ["extension", "theme"]
+			}
+		}
+	},
+	"https-only-mode": {
+		"Description": "Force HTTPS-only mode",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"HttpsOnlyMode": {
+				"Type": "Policy",
+				"Value": "force_enabled"
+			}
+		}
+	},
+	"incognito-launch": {
+		"Description": "To encourage ephemerality, with globally persistent flags it can also launch external links in Incognito",
+		"Tags": ["PRIVACY", "OPTIONAL"],
+		"Configs": {
+			"incognito": {
+				"Type": "Flag"
+			}
+		}
+	},
+	"limit-referrer-to-origin": {
+		"Description": "Limits the referrer to only send the origin of the URL. E.g. just 'google.com' instead of 'google.com/search'",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"CapReferrerToOriginOnCrossOrigin": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"local-network-access-checks": {
+		"Description": "Prevents sites from being able to access localhost addresses",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"LocalNetworkAccessChecksWebRTC": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"LocalNetworkAccessChecksWebSockets": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"LocalNetworkAccessChecksWebTransport": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"mac-syscall-sandbox": {
+		"Description": "Enables syscall filtering for the sandbox on MacOS",
+		"Tags": ["SECURITY", "MACOS_ONLY", "EXPERIMENTAL"],
+		"Configs": {
+			"MacSyscallSandbox": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"mac-network-process-code-signing": {
+		"Description": "Mandates code signing on the network process on MacOS",
+		"Tags": ["SECURITY", "MACOS_ONLY", "EXPERIMENTAL"],
+		"Configs": {
+			"ValidateNetworkServiceProcessIdentity": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"network-service-sandbox": {
+		"Description": "Enables various mitigations and restrictions for the network process",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"NetworkServiceSandbox": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"NetworkServiceSandboxEnabled": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"network-service-sandbox-windows": {
+		"Description": "Improve restrictions on the network service sandbox on Windows",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
+			"NetworkServiceCodeIntegrity": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"WinSboxNetworkServiceSandboxIsLPAC": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"partitionalloc-advanced-checks": {
+		"Description": "Enable stricter memory security checks",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"PartitionAllocWithAdvancedChecks:enabled-processes/all-processes": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"partitioning-improvements": {
+		"Description": "Isolates various pieces of data to prevent cross-site tracking",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"HstsTopLevelNavigationsOnly": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"PartitionConnectionsByNetworkIsolationKey": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"ScopeMemoryCachePerContext": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"SplitCacheByIncludeCredentials": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"SplitCacheByNetworkIsolationKey": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"SplitCodeCacheByNetworkIsolationKey": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"printing-process-lpac": {
+		"Description": "Enables various mitigations and restrictions for the printing process",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
+			"PrintCompositorLPAC": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"reduce-accept-language-header": {
+		"Description": "Reduces data transmitted by the Accept-Language header",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"reduce-accept-language": {
+				"Type": "Flag"
+			},
+			"ReduceAcceptLanguage": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"renderer-app-container": {
+		"Description": "Enables AppContainer restrictions for renderer processes",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
+			"RendererAppContainer": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"renderer-restrict-core-sharing": {
+		"Description": "Enables core sharing restrictions for renderer processes to improve SMT/Hyperthreading related mitigations",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
+			"WinSboxRestrictCoreSharingOnRenderer": {
+				"Type": "Feature",
+				"Enable": true
+			},
+			"RestrictCoreSharingOnRenderer": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"show-full-urls": {
+		"Description": "Strengthens origin isolation",
+		"Tags": ["ANNOYANCE"],
+		"Configs": {
+			"ShowFullUrlsInAddressBar": {
+				"Type": "Policy",
+				"Value": true
+			}
+		}
+	},
+	"site-per-process": {
+		"Description": "Make site isolation mandatory, disables opt-out",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"SitePerProcess": {
+				"Type": "Policy",
+				"Value": true
+			},
+			"site-per-process": {
+				"Type": "Flags"
+			}
+		}
+	},
+	"strict-origin-isolation": {
+		"Description": "Strengthens origin isolation",
+		"Tags": ["SECURITY"],
+		"Configs": {
+			"StrictOriginIsolation": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	},
+	"windows-strict-handle-checks": {
+		"Description": "Enables a mitigation on sandboxed processes on windows for better exception handling",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
+			"WinSboxStrictHandleChecks": {
+				"Type": "Feature",
+				"Enable": true
+			}
+		}
+	}
+}
