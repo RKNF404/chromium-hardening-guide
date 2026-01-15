@@ -23,17 +23,7 @@ If you're having any trouble applying the guide or have any general questions or
 If want to suggest something, please open an [issue](https://github.com/RKNF404/chromium-hardening-guide/issues) for it.
 If you have my Discord, feel free to message me there about this guide.
 
-## Config Priority
-
-1) Upstream Default
-2) Preferences
-3) Management Policy / Feature Toggle / Flag
-
-I intend to add more redundancy in the policies, UI flips, and flags/features. Mainly because in some cases not every kind of configuration is available (i.e. on some platforms policies or flags or both may not be an option to enable hardening features). I want to account for cases where one is missing. Because currently, if say a policy does the same thing as a flag, I won't add the flag. In future I will add both.
-\
-~~This will likely result in a rewrite where I create a table where each entry is a desired effect and the corresponding flag, policy, and preference to get said effect. For example disabling default browser checks has both a flag and policy, both do the same thing.~~
-\
-So, this didn't seem viable, instead I will unify the configuration documents into one database file and generate a script to generate configs for the various platforms (i.e. WINDOWS_ONLY, LINUX_ONLY, etc), flag/policy tags (i.e. annoyance, privacy, security, etc), by optional, and creating a recommended config. This will probably take some time. "Why not a seperate file for every config?" Because I don't intend to maintain 15 different files at once where half of them have the same entries.
+All markdown files are licensed under the Microsoft Public License (`MS-PL`), all configuration files are licensed under the Apache version 2.0 (`Apache-2.0`).
 
 ## Quick Links
 
