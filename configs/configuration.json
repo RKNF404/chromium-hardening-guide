@@ -33,6 +33,7 @@
 	"clear-site-data-on-exit": {
 		"Description": "Clears data on exit",
 		"Tags": ["PRIVACY", "SECURITY", "OPTIONAL"],
+		"Option": "Do you want to clear all history, website data, site settings, and passwords when closing the browser?",
 		"Configs": {
 			"ClearBrowsingDataOnExitList": {
 				"Type": "Policy",
@@ -270,7 +271,7 @@
 		"Configs": {
 			"component-updater": {
 				"Type": "Flag",
-				"Arguments": ["--disable-pings"]
+				"Arguments": "--disable-pings"
 			}
 		}
 	},
@@ -336,6 +337,7 @@
 	"disable-extensions": {
 		"Description": "Disable all extensions",
 		"Tags": ["SECURITY", "OPTIONAL"],
+		"Option": "Do you want to block all extensions?",
 		"Configs": {
 			"disable-extensions": {
 				"Type": "Flag",
@@ -346,6 +348,7 @@
 	"disable-hardware-acceleration": {
 		"Description": "Disable HWAccel, reduces attack surface and prevents some HW based fingerprinting but reduces performance, also disables WebGL and WebGPU if a software rendering alternative isn't available",
 		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
+		"Option": "Do you want to disable hardware acceleration? (this can cause performance slowdowns)",
 		"Configs": {
 			"disable-gpu": {
 				"Type": "Flag"
@@ -382,10 +385,11 @@
 	"disable-javascript-jit": {
 		"Description": "Disables Just-In-Time (JIT) compiled JavaScript, JIT is a massive security risk, it should be disabled by default, but it can risk approx 5-50% performance loss depending on the website. Also disables WebAssembly on most browsers. For Windows, uses Arbitrary Code Guard (ACG) to prevent renderer processes from violating W^X, and enables the Intel hardware shadow stack to enforce backward-edge CFI",
 		"Tags": ["SECURITY", "OPTIONAL"],
+		"Option": "Do you want to disable Just-In-Time (JIT) compiled JavaScript? (this can cause performance slowdowns, this cannot be excepted per-site)",
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
-				"Arguments": ["--jitless"],
+				"Arguments": "--jitless",
 				"Negates": ["disable-javascript-optimizers", "disable-javascript-jit-policy"]
 			}
 		}
@@ -393,21 +397,22 @@
 	"disable-javascript-jit-policy": {
 		"Description": "",
 		"Tags": ["SECURITY", "OPTIONAL"],
+		"Option": "Do you want to disable Just-In-Time (JIT) compiled JavaScript via policy? (this can cause performance slowdowns, this can be excepted per-site with the policy JavaScriptJitAllowedForSites)",
 		"Configs": {
 			"DefaultJavaScriptJitSetting": {
 				"Type": "Policy",
-				"Value": 2,
-				"Recommends": ["disable-javascript-optimizers", "disable-javascript-optimizers-policy"]
+				"Value": 2
 			}
 		}
 	},
 	"disable-javascript-optimizers": {
 		"Description": "Disables optimizers for JavaScript, reduces security risk of JIT compilation without fully disabling it",
 		"Tags": ["SECURITY", "OPTIONAL"],
+		"Option": "Do you want to disable optimizations for Just-In-Time (JIT) compiled JavaScript? (this can cause minor performance slowdowns)",
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
-				"Arguments": ["--disable-optimizing-compilers"],
+				"Arguments": "--disable-optimizing-compilers",
 				"Negates": ["disable-javascript-optimizers-policy"]
 			}
 		}
@@ -415,6 +420,7 @@
 	"disable-javascript-optimizers-policy": {
 		"Description": "",
 		"Tags": ["SECURITY", "OPTIONAL"],
+		"Option": "Do you want to disable optimizations for Just-In-Time (JIT) compiled JavaScript? via policy? (this can cause minor performance slowdowns, this can be excepted per-site with the policy JavaScriptOptimizerAllowedForSites)",
 		"Configs": {
 			"DefaultJavaScriptOptimizersSetting": {
 				"Type": "Policy",
@@ -588,6 +594,7 @@
 	"disable-safe-browsing": {
 		"Description": "Disable safe browsing",
 		"Tags": ["PRIVACY", "OPTIONAL"],
+		"Option": "Do you want to disable safe browsing? (this can reduce security in favor of privacy, since some sites and some site info will be sent to Google to asses the site as a threat or not)",
 		"Configs": {
 			"SafeBrowsingProtectionLevel": {
 				"Type": "Policy",
@@ -721,8 +728,9 @@
 		}
 	},
 	"disable-webgl": {
-		"Description": "Disables Pepper 3D and WebGL",
+		"Description": "",
 		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
+		"Option": "Do you want to disable WebGL? (websites depending on this feature will not work)",
 		"Configs": {
 			"disable-webgl": {
 				"Type": "Flag"
@@ -760,7 +768,7 @@
 			},
 			"webrtc-ip-handling-policy": {
 				"Type": "Flag",
-				"Arguments": ["disable_non_proxied_udp"]
+				"Arguments": "disable_non_proxied_udp"
 			}
 		}
 	},
@@ -778,6 +786,7 @@
 	"dns-over-https": {
 		"Description": "Enable encrypted DNS to specific resolver",
 		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
+		"Option": "Do you want to enable DoH in the browser?",
 		"Configs": {
 			"DnsOverHttpsMode": {
 				"Type": "Policy",
@@ -894,6 +903,7 @@
 	"incognito-launch": {
 		"Description": "To encourage ephemerality, with globally persistent flags it can also launch external links in Incognito",
 		"Tags": ["PRIVACY", "OPTIONAL"],
+		"Option": "Do you want to launch in Incognito mode?",
 		"Configs": {
 			"incognito": {
 				"Type": "Flag"
@@ -1081,7 +1091,7 @@
 				"Type": "Policy",
 				"Value": true,
 				"Negates": ["site-per-process-flag"]
-			},
+			}
 		}
 	},
 	"site-per-process-flag": {
