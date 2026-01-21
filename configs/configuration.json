@@ -386,12 +386,7 @@
 			"js-flags": {
 				"Type": "Flag",
 				"Arguments": ["--jitless"],
-				"Negates": ["disable-javascript-optimizers"]
-			},
-			"DefaultJavaScriptJitSetting": {
-				"Type": "Policy",
-				"Value": 2,
-				"Recommends": ["disable-javascript-jit-policy", "disable-javascript-optimizers"]
+				"Negates": ["disable-javascript-optimizers", "disable-javascript-jit-policy"]
 			}
 		}
 	},
@@ -402,7 +397,7 @@
 			"DefaultJavaScriptJitSetting": {
 				"Type": "Policy",
 				"Value": 2,
-				"Recommends": ["disable-javascript-optimizers"]
+				"Recommends": ["disable-javascript-optimizers", "disable-javascript-optimizers-policy"]
 			}
 		}
 	},
@@ -412,11 +407,8 @@
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
-				"Arguments": ["--disable-optimizing-compilers"]
-			},
-			"DefaultJavaScriptOptimizersSetting": {
-				"Type": "Policy",
-				"Value": 2
+				"Arguments": ["--disable-optimizing-compilers"],
+				"Negates": ["disable-javascript-optimizers-policy"]
 			}
 		}
 	},
