@@ -1,15 +1,4 @@
 {
-	"adjust-safe-browsing-level": {
-		"Description": "Enable safe browsing, not needed but still better than nothing, to disable set the Value to 0",
-		"Tags": ["SECURITY", "OPTIONAL"],
-		"Configs": {
-			"SafeBrowsingProtectionLevel": {
-				"Type": "Policy",
-				"Value": 1,
-				"Recommenable": true
-			}
-		}
-	},
 	"block-external-extensions": {
 		"Description": "",
 		"Tags": ["SECURITY"],
@@ -76,6 +65,10 @@
 		"Description": "Disable AI integrations",
 		"Tags": ["PRIVACY"],
 		"Configs": {
+			"AimEnabled": {
+				"Type": "Feature",
+				"Enable": false
+			},
 			"AIModeSettings": {
 				"Type": "Policy",
 				"Value": 1
@@ -116,9 +109,18 @@
 				"Type": "Policy",
 				"Value": 2
 			},
+			"LensStandalone": {
+				"Type": "Feature",
+				"Enable": false
+			},
 			"SearchContentSharingSettings": {
 				"Type": "Policy",
-				"Value": false
+				"Value": false,
+				"Negates": ["disable-lens-overlay"]
+			},
+			"StarterPackExpansion": {
+				"Type": "Feature",
+				"Enable": false
 			},
 			"TabCompareSettings": {
 				"Type": "Policy",
@@ -127,23 +129,17 @@
 			"TranslatorAPIAllowed": {
 				"Type": "Policy",
 				"Value": false
-			},
-			"AimEnabled": {
-				"Type": "Feature",
-				"Enable": false
-			},
-			"StarterPackExpansion": {
-				"Type": "Feature",
-				"Enable": false
-			},
-			"LensStandalone": {
-				"Type": "Feature",
-				"Enable": false
-			},
+			}
+		}
+	},
+	"disable-lens-overlay": {
+		"Description": "Disable AI integration with image search",
+		"Tags": ["PRIVACY"],
+		"Configs": {
 			"LensOverlay": {
 				"Type": "Feature",
 				"Enable": false
-			},
+			}
 		}
 	},
 	"disable-alternate-error-pages": {
@@ -156,9 +152,9 @@
 			}
 		}
 	},
-	"disable-autofill": {
+	"disable-autofill-features": {
 		"Description": "Disable autofill, credential, and password management, as well as related features",
-		"Tags": ["SECURITY"],
+		"Tags": ["SECURITY", "PRIVACY"],
 		"Configs": {
 			"AutofillAddressEnabled": {
 				"Type": "Policy",
@@ -182,6 +178,10 @@
 			"PaymentMethodQueryEnabled": {
 				"Type": "Policy",
 				"Value": false
+			},
+			"AutofillServerCommunication": {
+				"Type": "Feature",
+				"Enable": false
 			}
 		}
 	},
@@ -284,7 +284,7 @@
 			}
 		}
 	},
-	"disable-content-suggesion-feeds": {
+	"disable-content-suggestion-feeds": {
 		"Description": "Disable content suggestions",
 		"Tags": ["PRIVACY"],
 		"Configs": {
@@ -344,7 +344,7 @@
 		}
 	},
 	"disable-hardware-acceleration": {
-		"Description": "Disable HWAccel, reduces attack surface and prevents some HW based fingerprinting but reduces performance, also disables WebGL and WebGPU",
+		"Description": "Disable HWAccel, reduces attack surface and prevents some HW based fingerprinting but reduces performance, also disables WebGL and WebGPU if a software rendering alternative isn't available",
 		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
 		"Configs": {
 			"disable-gpu": {
@@ -381,7 +381,7 @@
 	},
 	"disable-javascript-jit": {
 		"Description": "Disables Just-In-Time (JIT) compiled JavaScript, JIT is a massive security risk, it should be disabled by default, but it can risk approx 5-50% performance loss depending on the website. Also disables WebAssembly on most browsers. For Windows, uses Arbitrary Code Guard (ACG) to prevent renderer processes from violating W^X, and enables the Intel hardware shadow stack to enforce backward-edge CFI",
-		"Tags": ["SECURITY", "CONFIG_OPTIONS"],
+		"Tags": ["SECURITY", "OPTIONAL"],
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
@@ -391,18 +391,39 @@
 			"DefaultJavaScriptJitSetting": {
 				"Type": "Policy",
 				"Value": 2,
+				"Recommends": ["disable-javascript-jit-policy", "disable-javascript-optimizers"]
+			}
+		}
+	},
+	"disable-javascript-jit-policy": {
+		"Description": "",
+		"Tags": ["SECURITY", "OPTIONAL"],
+		"Configs": {
+			"DefaultJavaScriptJitSetting": {
+				"Type": "Policy",
+				"Value": 2,
 				"Recommends": ["disable-javascript-optimizers"]
 			}
 		}
 	},
 	"disable-javascript-optimizers": {
 		"Description": "Disables optimizers for JavaScript, reduces security risk of JIT compilation without fully disabling it",
-		"Tags": ["SECURITY", "OPTIONAL", "CONFIG_OPTIONS"],
+		"Tags": ["SECURITY", "OPTIONAL"],
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
 				"Arguments": ["--disable-optimizing-compilers"]
 			},
+			"DefaultJavaScriptOptimizersSetting": {
+				"Type": "Policy",
+				"Value": 2
+			}
+		}
+	},
+	"disable-javascript-optimizers-policy": {
+		"Description": "",
+		"Tags": ["SECURITY", "OPTIONAL"],
+		"Configs": {
 			"DefaultJavaScriptOptimizersSetting": {
 				"Type": "Policy",
 				"Value": 2
@@ -554,7 +575,7 @@
 			}
 		}
 	},
-	"disable-remote-features": {
+	"disable-remoting-features": {
 		"Description": "Why is there remote access in a browser?",
 		"Tags": ["SECURITY", "PRIVACY"],
 		"Configs": {
@@ -569,6 +590,18 @@
 			"RemoteDebuggingAllowed": {
 				"Type": "Policy",
 				"Enable": false
+			}
+		}
+	},
+	"disable-safe-browsing": {
+		"Description": "Disable safe browsing",
+		"Tags": ["PRIVACY", "OPTIONAL"],
+		"Configs": {
+			"SafeBrowsingProtectionLevel": {
+				"Type": "Policy",
+				"Value": 1,
+				"Recommenable": true,
+				"Negates": ["disable-safe-browsing-features"]
 			}
 		}
 	},
@@ -667,10 +700,6 @@
 				"Type": "Policy",
 				"Value": false,
 				"Recommendable": true
-			},
-			"UrlKeyedMetricsAllowed": {
-				"Type": "Policy",
-				"Value": false
 			}
 		}
 	},
@@ -701,7 +730,7 @@
 	},
 	"disable-webgl": {
 		"Description": "Disables Pepper 3D and WebGL",
-		"Tags": ["SECURITY", "PRIVACY"],
+		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
 		"Configs": {
 			"disable-webgl": {
 				"Type": "Flag"
@@ -756,7 +785,7 @@
 	
 	"dns-over-https": {
 		"Description": "Enable encrypted DNS to specific resolver",
-		"Tags": ["SECURITY", "PRIVACY"],
+		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
 		"Configs": {
 			"DnsOverHttpsMode": {
 				"Type": "Policy",
@@ -785,8 +814,15 @@
 		"Configs": {
 			"AudioServiceSandbox": {
 				"Type": "Feature",
-				"Enable": true
-			},
+				"Enable": true,
+				"Negates": ["enable-audio-service-sandbox-policy"]
+			}
+		}
+	},
+	"enable-audio-service-sandbox-policy": {
+		"Description": "",
+		"Tags": ["SECURITY"],
+		"Configs": {
 			"AudioSandboxEnabled": {
 				"Type": "Policy",
 				"Value": true
@@ -941,10 +977,6 @@
 			"NetworkServiceCodeIntegrity": {
 				"Type": "Feature",
 				"Enable": true
-			},
-			"WinSboxNetworkServiceSandboxIsLPAC": {
-				"Type": "Feature",
-				"Enable": true
 			}
 		}
 	},
@@ -1002,9 +1034,6 @@
 		"Description": "Reduces data transmitted by the Accept-Language header",
 		"Tags": ["PRIVACY"],
 		"Configs": {
-			"reduce-accept-language": {
-				"Type": "Flag"
-			},
 			"ReduceAcceptLanguage": {
 				"Type": "Feature",
 				"Enable": true
@@ -1027,8 +1056,15 @@
 		"Configs": {
 			"WinSboxRestrictCoreSharingOnRenderer": {
 				"Type": "Feature",
-				"Enable": true
-			},
+				"Enable": true,
+				"Negates": ["renderer-restrict-core-sharing-policy"]
+			}
+		}
+	},
+	"renderer-restrict-core-sharing-policy": {
+		"Description": "",
+		"Tags": ["SECURITY", "WINDOWS_ONLY"],
+		"Configs": {
 			"RestrictCoreSharingOnRenderer": {
 				"Type": "Policy",
 				"Value": true
@@ -1051,10 +1087,17 @@
 		"Configs": {
 			"SitePerProcess": {
 				"Type": "Policy",
-				"Value": true
+				"Value": true,
+				"Negates": ["site-per-process-flag"]
 			},
+		}
+	},
+	"site-per-process-flag": {
+		"Description": "",
+		"Tags": ["SECURITY"],
+		"Configs": {
 			"site-per-process": {
-				"Type": "Flags"
+				"Type": "Flag"
 			}
 		}
 	},
