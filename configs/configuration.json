@@ -271,7 +271,7 @@
 		"Configs": {
 			"component-updater": {
 				"Type": "Flag",
-				"Arguments": "--disable-pings"
+				"Arguments": ["--disable-pings"]
 			}
 		}
 	},
@@ -389,7 +389,7 @@
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
-				"Arguments": "--jitless",
+				"Arguments": ["--jitless"],
 				"Negates": ["disable-javascript-optimizers", "disable-javascript-jit-policy"]
 			}
 		}
@@ -412,7 +412,7 @@
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
-				"Arguments": "--disable-optimizing-compilers",
+				"Arguments": ["--disable-optimizing-compilers"],
 				"Negates": ["disable-javascript-optimizers-policy"]
 			}
 		}
@@ -515,23 +515,23 @@
 			},
 			"PrivacySandboxAdMeasurementEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"PrivacySandboxAdTopicsEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"PrivacySandboxPromptEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"PrivacySandboxSiteEnabledAdsEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"RelatedWebsiteSetsEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			}
 		}
 	},
@@ -541,7 +541,7 @@
 		"Configs": {
 			"PromotionsEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			}
 		}
 	},
@@ -551,7 +551,7 @@
 		"Configs": {
 			"ProtectedContentIdentifiersAllowed": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			}
 		}
 	},
@@ -579,15 +579,15 @@
 		"Configs": {
 			"RemoteAccessHostAllowRemoteAccessConnections": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"RemoteAccessHostFirewallTraversal": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"RemoteDebuggingAllowed": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			}
 		}
 	},
@@ -599,7 +599,7 @@
 			"SafeBrowsingProtectionLevel": {
 				"Type": "Policy",
 				"Value": 1,
-				"Recommenable": true,
+				"Recommendable": true,
 				"Negates": ["disable-safe-browsing-features"]
 			}
 		}
@@ -610,15 +610,15 @@
 		"Configs": {
 			"SafeBrowsingDeepScanningEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"SafeBrowsingExtendedReportingEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			},
 			"SafeBrowsingSurveysEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			}
 		}
 	},
@@ -628,7 +628,7 @@
 		"Configs": {
 			"SearchSuggestEnabled": {
 				"Type": "Policy",
-				"Enable": false
+				"Value": false
 			}
 		}
 	},
@@ -768,7 +768,7 @@
 			},
 			"webrtc-ip-handling-policy": {
 				"Type": "Flag",
-				"Arguments": "disable_non_proxied_udp"
+				"Arguments": ["disable_non_proxied_udp"]
 			}
 		}
 	},
