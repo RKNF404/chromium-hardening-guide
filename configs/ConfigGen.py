@@ -74,7 +74,7 @@ def WriteFlagsFile(fileFormat, flags):
             os.makedirs('flags')
         with open(Files['flags'], 'w') as flagsOutput:
             if fileFormat == FlagFileFormat.GENERIC:
-                flagsOutput.write('\n'.join(Flags))
+                flagsOutput.write('\n'.join(flags))
             if fileFormat == FlagFileFormat.VARIABLE:
                 flagsOutput.write('CHROMIUM_FLAGS="' + '"\nCHROMIUM_FLAGS+=" '.join(flags) + '"')
     else:
@@ -280,8 +280,6 @@ def ParseConfig(data, args):
     return
 
 def main() -> int:
-    print('NOTE: This is still WIP, if you do use this, please report any bugs and verify the correctness of output')
-
     platform_os = platform.system()
     if platform_os == 'Darwin':
         platform_os = System.MAC
