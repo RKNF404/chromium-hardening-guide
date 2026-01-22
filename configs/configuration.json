@@ -413,8 +413,7 @@
 	},
 	"disable-javascript-optimizers": {
 		"Description": "Disables optimizers for JavaScript, reduces security risk of JIT compilation without fully disabling it",
-		"Tags": ["SECURITY", "OPTIONAL"],
-		"Option": "Do you want to disable optimizations for Just-In-Time (JIT) compiled JavaScript? (this can cause minor performance slowdowns)",
+		"Tags": ["SECURITY"],
 		"Configs": {
 			"js-flags": {
 				"Type": "Flag",
@@ -425,8 +424,7 @@
 	},
 	"disable-javascript-optimizers-policy": {
 		"Description": "",
-		"Tags": ["SECURITY", "OPTIONAL"],
-		"Option": "Do you want to disable optimizations for Just-In-Time (JIT) compiled JavaScript via policy? (this can cause minor performance slowdowns, this can be excepted per-site with the policy JavaScriptOptimizerAllowedForSites)",
+		"Tags": ["SECURITY"],
 		"Configs": {
 			"DefaultJavaScriptOptimizersSetting": {
 				"Type": "Policy",
