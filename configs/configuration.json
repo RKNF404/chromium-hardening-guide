@@ -396,7 +396,7 @@
 			"js-flags": {
 				"Type": "Flag",
 				"Arguments": ["--jitless"],
-				"Negates": ["disable-javascript-optimizers", "disable-javascript-jit-policy"]
+				"Negates": ["disable-javascript-optimizers", "disable-javascript-jit-policy", "disable-javascript-optimizers-policy"]
 			}
 		}
 	},
@@ -426,7 +426,7 @@
 	"disable-javascript-optimizers-policy": {
 		"Description": "",
 		"Tags": ["SECURITY", "OPTIONAL"],
-		"Option": "Do you want to disable optimizations for Just-In-Time (JIT) compiled JavaScript? via policy? (this can cause minor performance slowdowns, this can be excepted per-site with the policy JavaScriptOptimizerAllowedForSites)",
+		"Option": "Do you want to disable optimizations for Just-In-Time (JIT) compiled JavaScript via policy? (this can cause minor performance slowdowns, this can be excepted per-site with the policy JavaScriptOptimizerAllowedForSites)",
 		"Configs": {
 			"DefaultJavaScriptOptimizersSetting": {
 				"Type": "Policy",
@@ -600,7 +600,7 @@
 	"disable-safe-browsing": {
 		"Description": "Disable safe browsing",
 		"Tags": ["PRIVACY", "OPTIONAL"],
-		"Option": "Do you want to disable safe browsing? (this can reduce security in favor of privacy, since some sites and some site info will be sent to Google to asses the site as a threat or not)",
+		"Option": "Do you want to disable safe browsing? (this can reduce security in favor of privacy, since some sites and some site info will be sent to Google to assess the site as a threat or not)",
 		"Configs": {
 			"SafeBrowsingProtectionLevel": {
 				"Type": "Policy",
