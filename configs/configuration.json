@@ -153,6 +153,16 @@
 			}
 		}
 	},
+	"disable-autofill-server-communication": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
+			"AutofillServerCommunication": {
+				"Type": "Feature",
+				"Enable": false
+			}
+		}
+	},
 	"disable-autofill-features": {
 		"Description": "Disable autofill, credential, and password management, as well as related features",
 		"Tags": ["SECURITY", "PRIVACY"],
@@ -179,10 +189,6 @@
 			"PaymentMethodQueryEnabled": {
 				"Type": "Policy",
 				"Value": false
-			},
-			"AutofillServerCommunication": {
-				"Type": "Feature",
-				"Enable": false
 			}
 		}
 	},
@@ -759,13 +765,20 @@
 		}
 	},
 	"disable-webrtc-ip-sharing": {
-		"Description": "Prevents IP leakage from WebRTC, can cause issues with web calling services like Discord.",
+		"Description": "Prevents IP leakage from WebRTC, can cause issues with web calling services like Discord",
 		"Tags": ["PRIVACY"],
 		"Configs": {
 			"WebRtcIPHandling": {
 				"Type": "Policy",
-				"Value": "disable_non_proxied_udp"
-			},
+				"Value": "disable_non_proxied_udp",
+				"Negates": ["disable-webrtc-ip-sharing-flag"]
+			}
+		}
+	},
+	"disable-webrtc-ip-sharing-flag": {
+		"Description": "",
+		"Tags": ["PRIVACY"],
+		"Configs": {
 			"webrtc-ip-handling-policy": {
 				"Type": "Flag",
 				"Arguments": ["disable_non_proxied_udp"]
@@ -782,7 +795,6 @@
 			}
 		}
 	},
-	
 	"dns-over-https": {
 		"Description": "Enable encrypted DNS to specific resolver",
 		"Tags": ["SECURITY", "PRIVACY", "OPTIONAL"],
