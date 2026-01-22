@@ -113,22 +113,6 @@ def WritePlistPolicy(recommend, policies, recommendedPolicies):
     '''
     return
 
-# Add a Policy entry
-def AddPolicy(policy, value, recommendable, policies, recommendedPolicies):
-    if not recommendable:
-        policies[policy] = value
-    else:
-        recommendedPolicies[policy] = value
-    return policies, recommendedPolicies
-
-# Add a Feature entry
-def AddFeature(feature, enable, enableFeatures, disableFeatures):
-    if enable:
-        enableFeatures.append(feature)
-    else:
-        disableFeatures.append(feature)
-    return enableFeatures, disableFeatures
-
 # Check if a certain config has a certain tag
 def TagMatch(confEntry, tag):
     return not tag or tag.upper() in (t.upper() for t in confEntry['Tags'])
