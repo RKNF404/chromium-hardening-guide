@@ -23,7 +23,7 @@ If you're having any trouble applying the guide or have any general questions or
 If want to suggest something, please open an [issue](https://github.com/RKNF404/chromium-hardening-guide/issues) for it.
 If you have my Discord, feel free to message me there about this guide.
 
-In the short future, the manual style of creating config files will be deprecated. I am actively working on a script to generate configuration outputs from a formatted json database as input. The configuration input file is already in the repository, just as a preview
+In the short future, the manual style of creating config files will be deprecated. I am actively working on a script to generate configuration outputs from a formatted json database as input. The configuration input file and the python script are already in `configs/`, though only Linux is currently supported. Once at least Windows is also supported, I will update the guide to account for script usage instead of manual creation of the configs. After which point the current markdown files with all the flags/features/policies will be removed. Manual creation of configs will still be present in the guide, but downplayed compared to the ConfigGen method.
 
 All markdown files are licensed under the Microsoft Public License (`MS-PL`), all Python scripts and configuration files are licensed under the Apache version 2.0 (`Apache-2.0`).
 
