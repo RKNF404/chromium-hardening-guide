@@ -92,7 +92,7 @@ def WriteJsonPolicy(recommend, policies, recommendedPolicies):
         json.dump(policies, policyOutput, indent=4)
     return
 
-def ConvertToReg(value):
+def ConvertToRegValue(value):
     vt = type(value)
     match vt:
         case _:
