@@ -42,12 +42,10 @@ class ConfigType(StrEnum):
 class FlagFileFormat(StrEnum):
     GENERIC = 'generic'
     VARIABLE = 'variable'
-    CHRWRAP = 'chromewrapper'
 
 # Globals
 Files = {
     'flags': 'flags/80-hardening-guide-flags.conf',
-    'windows_flags': 'flags/flags.txt',
     'linux_policy': 'policy/80-hardening-guide-policy.json',
     'linux_recommended_policy': 'recommended-policy/81-hardening-guide-policy-recommended.json',
     'macos_policy': 'policy/com.google.Chrome.plist',
@@ -71,19 +69,11 @@ def ParseConfigFile(dbFile):
 def WriteFlagsFile(fileFormat, flags):
     if not os.path.exists('flags'):
         os.makedirs('flags')
-    if fileFormat.lower() in [FlagFileFormat.GENERIC, FlagFileFormat.VARIABLE]:
-        if not os.path.exists('flags'):
-            os.makedirs('flags')
-        with open(Files['flags'], 'w') as flagsOutput:
-            if fileFormat == FlagFileFormat.GENERIC:
-                flagsOutput.write('\n'.join(flags))
-            if fileFormat == FlagFileFormat.VARIABLE:
-                flagsOutput.write('CHROMIUM_FLAGS="' + '"\nCHROMIUM_FLAGS+=" '.join(flags) + '"')
-    else:
-        with open(Files['windows_flags'], 'a') as flagsOutput:
-            launcherCmd = 'start "Chrome" "C:\Program Files\Google\Chrome\Application\chrome.exe" --start-maximized --no-default-browser-check %CHROMEWRAPPER_FLAGS% %*'
-            flagsOutput.write('set "CHROMEWRAPPER_FLAGS=' + ' '.join(flags) + '"')
-            flagsOutput.write(launcherCmd)
+    with open(Files['flags'], 'w') as flagsOutput:
+        if fileFormat == FlagFileFormat.VARIABLE:
+            flagsOutput.write('CHROMIUM_FLAGS="' + '"\nCHROMIUM_FLAGS+=" '.join(flags) + '"')
+        else:
+            flagsOutput.write('\n'.join(flags))
     return
 
 # Generate Linux policy file
@@ -274,7 +264,8 @@ def main() -> int:
         platform_os = System.MAC
 
     parser = argparse.ArgumentParser(
-        prog='ConfigGen', description='Parse a chromium policy and flag database (Configuration.json), outputs flags to a folder `flags/`, outputs policies to a folder `policy/`, and recommended policies to a folder `recommended-policy/` in the current working directory.'
+        prog='ConfigGen',
+        description='Parse a chromium policy and flag database (Configuration.json), outputs flags to a folder `flags/`, outputs policies to a folder `policy/`, and recommended policies to a folder `recommended-policy/` in the current working directory.'
     )
     parser.add_argument(
         '--system', '-s',
@@ -290,7 +281,7 @@ def main() -> int:
     )
     parser.add_argument(
         '--format',
-        choices=[FlagFileFormat.GENERIC, FlagFileFormat.VARIABLE, FlagFileFormat.CHRWRAP],
+        choices=[FlagFileFormat.GENERIC, FlagFileFormat.VARIABLE],
         default=FlagFileFormat.GENERIC,
         help='Output format for the flag file. Generic is just each flag separated by a new line, Variable is in the form of shell variable declarations, Chromewrapper is in the form of my chromewrapper project\'s wrapper flags file. If not specified then generic.')
     parser.add_argument(
@@ -315,11 +306,11 @@ def main() -> int:
         help='Separate recommended policies from regular ones.'
     )
     args = parser.parse_args()
+    
+    if args.system.lower() == System.WIN:
+        args.format = FlagFileFormat.GENERIC
 
-    if not args.system:
-        print('ERROR: missing target system, see -h')
-
-    if args.system.lower() in [System.WIN, System.MAC]:
+    if args.system.lower() == System.MAC:
         print('TODO: ' + args.system + ' support not implemented')
         return 1
 
