@@ -69,6 +69,8 @@ def ParseConfigFile(dbFile):
 
 # Generate flags file
 def WriteFlagsFile(fileFormat, flags):
+    if not os.path.exists('flags'):
+        os.makedirs('flags')
     if fileFormat.lower() in [FlagFileFormat.GENERIC, FlagFileFormat.VARIABLE]:
         if not os.path.exists('flags'):
             os.makedirs('flags')
@@ -78,7 +80,10 @@ def WriteFlagsFile(fileFormat, flags):
             if fileFormat == FlagFileFormat.VARIABLE:
                 flagsOutput.write('CHROMIUM_FLAGS="' + '"\nCHROMIUM_FLAGS+=" '.join(flags) + '"')
     else:
-        raise NotImplementedError('Chromewrapper flags output not implemented')
+        with open(Files['windows_flags'], 'a') as flagsOutput:
+            launcherCmd = 'start "Chrome" "C:\Program Files\Google\Chrome\Application\chrome.exe" --start-maximized --no-default-browser-check %CHROMEWRAPPER_FLAGS% %*'
+            flagsOutput.write('set "CHROMEWRAPPER_FLAGS=' + ' '.join(flags) + '"')
+            flagsOutput.write(launcherCmd)
     return
 
 # Generate Linux policy file
