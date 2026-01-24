@@ -92,17 +92,26 @@ def WriteJsonPolicy(recommend, policies, recommendedPolicies):
         json.dump(policies, policyOutput, indent=4)
     return
 
+def ConvertToReg(value):
+    vt = type(value)
+    match vt:
+        case _:
+            print(vt)
+
 # Generate a reg policy file for Windows
 def WriteRegPolicy(recommend, policies, recommendedPolicies):
     raise NotImplementedError('Windows registry policy generation not implemented')
-    '''
-    Need to implement a system to translate regular policy values to Windows registry-compatible values
-    '''
+    ### WILL NOT HIT
+    if not recommend:
+        policies.update(recommendedPolicies)
+    with open(Files['windows_policy'], 'a') as policyOutput:
+        json.dump(policies, policyOutput, indent=4)
     return
 
 # Generate MacOS policy file
 def WritePlistPolicy(recommend, policies, recommendedPolicies):
     raise NotImplementedError('MacOS policy generation not implemented')
+    ### WILL NOT HIT
     '''
     Should be simple with the plist library handler
     '''
