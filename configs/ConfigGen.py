@@ -51,7 +51,6 @@ Files = {
     'macos_policy': 'policy/com.google.Chrome.plist',
     'macos_recommended_policy': 'recommended-policy/com.google.Chrome.plist',
     'windows_policy': 'policy/hardening-guide-policy.reg',
-    'windows_recommended_policy': 'recommended-policy/hardening-guide-recommended-policy.reg'
 }
 
 # Parse input file into a dictionary structure
@@ -92,20 +91,31 @@ def WriteJsonPolicy(recommend, policies, recommendedPolicies):
         json.dump(policies, policyOutput, indent=4)
     return
 
+# Convert python typed inputs into
 def ConvertToRegValue(value):
     vt = type(value)
-    match vt:
-        case _:
-            print(vt)
+    if vt is int or vt is bool:
+        return "dword:%0.8X" % value
+    elif vt is str or vt is list or vt is dict:
+        return f'"{str(value).replace('\'', '\\"')}"'
+    else:
+        print('ERROR: Unknown type used for registry')
+        return '""'
 
 # Generate a reg policy file for Windows
 def WriteRegPolicy(recommend, policies, recommendedPolicies):
-    raise NotImplementedError('Windows registry policy generation not implemented')
-    ### WILL NOT HIT
     if not recommend:
         policies.update(recommendedPolicies)
     with open(Files['windows_policy'], 'a') as policyOutput:
-        json.dump(policies, policyOutput, indent=4)
+        regPath = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Google\\Chrome'
+        policyOutput.write('Windows Registry Editor Version 5.00\n\n')
+        if recommend:
+            policyOutput.write(f'[{regPath}\\Recommended]\n')
+            for e in recommendedPolicies:
+                policyOutput.write(f'"{e}"={ConvertToRegValue(recommendedPolicies[e])}\n')
+        policyOutput.write(f'\n[{regPath}]\n')
+        for e in policies:
+            policyOutput.write(f'"{e}"={ConvertToRegValue(policies[e])}\n')
     return
 
 # Generate MacOS policy file
@@ -320,11 +330,13 @@ def main() -> int:
         args.format = FlagFileFormat.GENERIC
 
     if args.system.lower() == System.MAC:
-        print('TODO: ' + args.system + ' support not implemented')
+        print(f'TODO: {args.system} support not implemented')
         return 1
+    elif args.system.lower() == System.WIN:
+        print(f'WARNING: {args.system} support is untested')
 
     if not os.path.isfile(args.file):
-        print('ERROR: file "' + args.file + '" does not exist')
+        print('ERROR: file "{args.file}" does not exist')
         return 1
 
     data = ParseConfigFile(args.file)
