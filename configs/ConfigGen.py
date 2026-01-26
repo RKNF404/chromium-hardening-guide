@@ -106,6 +106,8 @@ def ConvertToRegValue(value):
 def WriteRegPolicy(recommend, policies, recommendedPolicies):
     if not recommend:
         policies.update(recommendedPolicies)
+    if not os.path.exists('policy'):
+        os.makedirs('policy')
     with open(Files['windows_policy'], 'a') as policyOutput:
         regPath = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Google\\Chrome'
         policyOutput.write('Windows Registry Editor Version 5.00\n\n')
@@ -113,7 +115,8 @@ def WriteRegPolicy(recommend, policies, recommendedPolicies):
             policyOutput.write(f'[{regPath}\\Recommended]\n')
             for e in recommendedPolicies:
                 policyOutput.write(f'"{e}"={ConvertToRegValue(recommendedPolicies[e])}\n')
-        policyOutput.write(f'\n[{regPath}]\n')
+            policyOutput.write('\n')
+        policyOutput.write(f'[{regPath}]\n')
         for e in policies:
             policyOutput.write(f'"{e}"={ConvertToRegValue(policies[e])}\n')
     return
