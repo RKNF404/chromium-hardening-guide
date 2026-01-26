@@ -335,8 +335,6 @@ def main() -> int:
     if args.system.lower() == System.MAC:
         print(f'TODO: {args.system} support not implemented')
         return 1
-    elif args.system.lower() == System.WIN:
-        print(f'WARNING: {args.system} support is untested')
 
     if not os.path.isfile(args.file):
         print('ERROR: file "{args.file}" does not exist')
