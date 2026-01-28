@@ -273,14 +273,13 @@ def ParseConfig(data, args):
         WriteFlagsFile(args.format, flags)
 
     if args.type in [ConfigOption.POLICY, ConfigOption.ALL]:
-        recommendable = args.recommended == 'y'
         match args.system.lower():
             case System.LIN:
-                WriteJsonPolicy(recommendable, policies, recommendedPolicies)
+                WriteJsonPolicy(args.recommend, policies, recommendedPolicies)
             case System.WIN:
-                WriteRegPolicy(recommendable, policies, recommendedPolicies)
+                WriteRegPolicy(args.recommend, policies, recommendedPolicies)
             case System.MAC:
-                WritePlistPolicy(recommendable, policies, recommendedPolicies)
+                WritePlistPolicy(args.recommend, policies, recommendedPolicies)
     return
 
 def main() -> int:
@@ -320,14 +319,13 @@ def main() -> int:
     )
     parser.add_argument(
         '--choice', '-c',
-        choices=['y', 'n', ''],
+        choices=['y', 'yes', 'n', 'no', ''],
         default='',
         help='Set the default choice for optional input. If unspecified, then each optional will be asked.'
     )
     parser.add_argument(
-        '--recommended', '-r',
-        default='n',
-        choices=['y', 'n'],
+        '--recommend', '-r',
+        action='store_true',
         help='Separate recommended policies from regular ones.'
     )
     args = parser.parse_args()
