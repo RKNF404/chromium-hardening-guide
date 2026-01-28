@@ -42,6 +42,9 @@ class ConfigType(StrEnum):
 class FlagFileFormat(StrEnum):
     GENERIC = 'generic'
     VARIABLE = 'variable'
+class FlagFileFormat(StrEnum):
+    GENERIC = 'generic'
+    VARIABLE = 'variable'
 
 # Globals
 Files = {
@@ -190,26 +193,26 @@ def ParseConfig(data, args):
                 if args.choice == '':
                     print(filteredData[e]['Option'] + ' [Y/n]')
                     yn = input()
-                    match yn.lower():
-                        case 'y' | 'yes' | '':
-                            # remove negations
-                            tempFiltData = dict(filteredData)
-                            configEntry = filteredData[e]['Configs']
-                            for c in configEntry:
-                                if 'Negates' in configEntry[c]:
-                                    for n in configEntry[c]['Negates']:
-                                        if n in tempFiltData:
-                                            del tempFiltData[n]
-                            filteredData = tempFiltData
-                            break
-                        case 'n' | 'no':
-                            del filteredData[e]
-                            break
-                        case _:
-                            print('WARNING: improper input, either hit enter for "Y" or choices are : ["y", "n", "yes", "no"]')
                 else:
                     yn = args.choice
                     break
+                match yn.lower():
+                    case 'y' | 'yes' | '':
+                        # remove negations
+                        tempFiltData = dict(filteredData)
+                        configEntry = filteredData[e]['Configs']
+                        for c in configEntry:
+                            if 'Negates' in configEntry[c]:
+                                for n in configEntry[c]['Negates']:
+                                    if n in tempFiltData:
+                                        del tempFiltData[n]
+                        filteredData = tempFiltData
+                        break
+                    case 'n' | 'no':
+                        del filteredData[e]
+                        break
+                    case _:
+                        print('WARNING: improper input, either hit enter for "Y" or choices are : ["y", "n", "yes", "no"]')
             else:
                 del filteredData[e]
 
