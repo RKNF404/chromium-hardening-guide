@@ -356,7 +356,7 @@ Value: `false`\
 ***(privacy)***
 
 #### `SearchContentSharingSettings`
-Value: `false`\
+Value: `1`\
 ***(privacy)***\
 Disable AI search sharing
 
