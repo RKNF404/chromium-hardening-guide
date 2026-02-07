@@ -1,7 +1,5 @@
 # Selecting a browser
 
-## Contents
-
 - [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs Open-Source](#proprietary-vs-open-source)
 - [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
