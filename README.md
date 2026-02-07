@@ -30,11 +30,6 @@ All markdown files are licensed under the Microsoft Public License (`MS-PL`), al
 ## Quick Links
 
 - [Setup Guide](#setup-guide)
-- [Preferences](/configs/PREFERENCES.md)
-- [Policies](/configs/POLICIES.md)
-- [Flags](/configs/FLAGS.md)
-- [Features (Enable)](/configs/ENABLE_FEATURES.md)
-- [Features (Disable)](/configs/DISABLE_FEATURES.md)
 
 # Setup Guide
 
