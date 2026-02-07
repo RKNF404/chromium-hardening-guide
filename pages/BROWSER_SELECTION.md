@@ -143,7 +143,7 @@ Despite Firefox's poor security, the browser does have some form of sandboxing, 
 
 #### Firefox Forks
 
-I don't think I need to go too much in depth, most FF forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles.
+I don't think I need to go too much in depth, most FF forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles. There are no Firefox-based browsers that are except to this, except maybe Tor Browser.
 \
 Although, I will talk about 2 desktop forks specifically, Librewolf and Pale Moon. Librewolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features FF adds (as rare as that is) will not get properly added if they get added at all.
 
@@ -186,3 +186,7 @@ Beyond that, I won't go too in depth because it will sound more like marketing t
 ### IronFox
 
 [See](#firefox) [here](#firefox-forks). Firefox based browsers, especially on Android, have terrible security. IronFox isn't exactly free of these issues. It does do some work to reduce some attack surface of base Firefox, but this is not significant or substantial enough to justify its use over any Chromium based browser. But, if you are for some unholy reason forced to use a Firefox based browser on Android, IronFox is your best bet, but still note it's nothing to depend on security-wise.
+
+### Mullvad
+
+(WIP)
