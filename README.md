@@ -65,7 +65,7 @@ Please note that while I intend for this to be as comprehensive as possible, the
 
 ## Basic Setup
 
-This is just preferences, so see [PREFERENCES.md](/configs/PREFERENCES.md). Everything else is covered by policies.
+This is just preferences, so see [PREFERENCES.md](pages/PREFERENCES.md). Everything else is covered by policies.
 
 ### Content Blocking
 
