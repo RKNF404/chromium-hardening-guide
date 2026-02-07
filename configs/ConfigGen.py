@@ -289,7 +289,7 @@ def main() -> int:
 
     parser = argparse.ArgumentParser(
         prog='ConfigGen',
-        description='Parse a chromium policy and flag database (Configuration.json), outputs flags to a folder `flags/`, outputs policies to a folder `policy/`, and recommended policies to a folder `recommended-policy/` in the current working directory.'
+        description='Parse a chromium policy and flag database (Configuration.json), outputs flags to a folder `flags/`, outputs policies to a folder in reference to the platform the policy is for (e.g. `macos_policy`)'
     )
     parser.add_argument(
         '--system', '-s',
