@@ -9,7 +9,7 @@ Please note that while I intend for this to be as comprehensive as possible, the
 
 - [Selecting a browser](BROWSER_SELECTION.md)
 - [Automatic Config Generation](CONFIG_GEN.md)
-- [Manual Config Creation](CONFIG_GEN.md)
+- [Manual Config Creation](MANUAL_CONFIG.md)
 - [Basic Setup](#basic-setup)
   - [Content Blocking](#content-blocking)
 - [My Setup](#my-setup) (in case you care)
