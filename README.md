@@ -10,5 +10,6 @@ If you're having any trouble applying the guide or have any general questions or
 If want to suggest something, please open an [issue](https://github.com/RKNF404/chromium-hardening-guide/issues) for it.
 If you have my Discord, feel free to message me there about this guide.
 
-# [Setup Guide](pages/SETUP_GUIDE.md)
+All files included in this repository are made available under the Microsoft Public License ([`MS-PL`](https://opensource.org/license/ms-pl-html))
 
+## [Setup Guide](pages/SETUP_GUIDE.md)
