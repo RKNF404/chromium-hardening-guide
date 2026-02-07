@@ -42,13 +42,10 @@ Last note on remotely updated filters for systems like Brave, Opera, and uBlock 
 In case you are curious, this is my personal setup. The main purpose is to demonstrate the usage of this guide.
 \
 \
-Lets start with OSs. I have an Android, Linux, and Windows machines. They are GrapheneOS, Fedora Workstation, and Windows 11 respectively. Because of this, your setup may vary. Also yes, I will swap to secureblue eventually, it is on the agenda for me.
+Lets start with OSs. I have an Android and a few Linux machines. They are GrapheneOS, Fedora Workstation, and a few laptops with secureblue. Because of this, your setup may vary.
 \
 \
 On GrapheneOS, I use Vanadium. It is without a doubt the best option on Android, but due to a lack of availability outside of GrapheneOS, it is difficult to recommend. Therefore, the next best option I would use is Chrome. Yes, Chrome with some settings changed and some flags altered in `chrome://flags`. Is this ideal? Not really, but it's the next best thing below Vanadium. For watching Youtube without ads, I use NewPipe, so adblocking isn't a big enough deal for my browsing to justify selecting a browser based around it. *Not-so-subtle suggestion against Brave.*
 \
 \
-On Fedora, I use Trivalent, secureblue's default browser. It is sort of a port of Vanadium to desktop Linux, as it comes with a lot of neat defaults and hardening. For RPM based distros, it is definitely the best option. Due to Trivalent's defaults, it requires no usage of this guide or its configs. Otherwise, say on a Debian-based distro, I would use Chrome with the application of this guide. It's the closest you can get to Trivalent/Vanadium.
-\
-\
-On Windows 11, I use Chrome. 90% of the time, Chrome is the best option, obviously with the application of [this guide](#windows-1) (including chromewrapper). I don't consider any other options to be better than Chrome. Edge is a decent contender, although I would not use it mainly because it is way more intregrated with MS services than Chrome is with Google services, some of those services cannot be turned off (or require Windows Enterprise to be turned off, like the Telemetry), and the update cycle is spotty (or it was when I used it). Some of these things may not be of concern for you, but they are for me, and the security benefits Edge offers is not too major when Chrome is configured properly (ideally the gap would be smaller if Chromium ***actually decided to maintain DrumBrake*** (the WebAssembly interpreter) ***properly***... but who knows when that will happen).
+On Fedora, I use Trivalent, secureblue's default browser. It is sort of a port of Vanadium to desktop Linux, as it comes with a lot of neat defaults and hardening. For RPM based distros, it is definitely the best option. Due to Trivalent's defaults, it requires no usage of this guide or its configs. Otherwise, say on a Debian-based distro, I would use Chrome with the application of this guide. It's the closest you can get to Trivalent/Vanadium. The same is true for secureblue, Trivalent is best used on secureblue due to the SELinux confinement offered specifically for Trivalent.
