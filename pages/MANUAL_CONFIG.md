@@ -1,7 +1,5 @@
 # Policies
 
-See [POLICIES.md](/configs/POLICIES.md) for what policies can be used and their respective values
-
 ## Linux
 
 Policies on Linux can vary in location, typically browsers will have their own directories under which to place policy files.
@@ -85,10 +83,6 @@ MacOS policies follow this format (this policy do nothing, they just demonstrate
 > I do not have a Mac, I have zero idea if this is correct or works. If this doesn't work, open an issue.
 
 # Persisting Flags
-
-See [FLAGS.md](/configs/FLAGS.md) for what flags to include.
-\
-As well as [ENABLE_FEATURES.md](/configs/ENABLE_FEATURES.md) and [DISABLE_FEATURES.md](/configs/DISABLE_FEATURES.md) to see what features to enable and disable respectively.
 
 ## Linux
 
