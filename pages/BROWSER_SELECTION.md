@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs Open-Source](#proprietary-vs-open-source)
 - [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
 - [Popular Options](#popular-options)
@@ -29,7 +30,7 @@
   - [Trivalent](#trivalent)
   - [IronFox](#ironfox)
 
-## Baseline
+## Baseline Criteria
 
 The most important security detail of a browser is 100% update cycle. Everything else security-wise is useless if the browser is updated once every few months. Vulnerabilities pile up, and the more they go unpatched, the worse it gets. For reference, Chromium/Chrome is usually updated weekly or biweekly excluding holidays. Each update usually has at least one high-severity vuln, or at least a few medium/low. 2 months without updates essentially results in 6+ high severity vulnerabilities, plus the other severity vulns. No amount of hardening will compensate for that.
 \
