@@ -1,21 +1,6 @@
 # Chromium Hardening Guide
 
-### CURRENTLY RESTRUCTURING
-
 Last updated for: `144`
-
-Changes in latest version:
-```
-removed Enable feature ContentSettingsPartitioning
-added policy SearchContentSharingSettings
-updated:
-  -LocalNetworkAccessChecks:LocalNetworkAccessChecksWarn/false,LocalNetworkAccessChecksWebRTC
-  +LocalNetworkAccessChecksWebRTC,LocalNetworkAccessChecksWebSockets,LocalNetworkAccessChecksWebTransport
-added Enable feature PrintCompositorLPAC
-added Enable feature WinSboxStrictHandleChecks
-removed policy TLS13EarlyDataEnabled
-removed policy UserAgentReduction
-```
 
 Hardening guide for (theoretically) any Chromium browser.
 
