@@ -1,5 +1,7 @@
 # Policies
 
+[>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+
 ## Linux
 
 Policies on Linux can vary in location, typically browsers will have their own directories under which to place policy files.
@@ -119,3 +121,5 @@ If you no longer wish to use the wrapper, simply run the `chromewrapperRegCleane
 ## Android
 
 There is a way to add flags via ADB, but I know very little about it and would advise against.
+
+# [>>> Back to guide <<<](SETUP_GUIDE.md#contents) 
