@@ -2,6 +2,8 @@
 
 [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
 
+## Summary
+
 This page explains how to use the config generation script.
 
 The script and the associated config database file is located in the [`configs`](/configs) folder. Both of these are required.
