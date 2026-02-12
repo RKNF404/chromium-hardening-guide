@@ -1,5 +1,9 @@
 # Selecting a browser
 
+[>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+
+## Contents
+
 - [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs Open-Source](#proprietary-vs-open-source)
 - [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
@@ -188,3 +192,5 @@ Beyond that, I won't go too in depth because it will sound more like marketing t
 ### Mullvad
 
 (WIP)
+
+# [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
