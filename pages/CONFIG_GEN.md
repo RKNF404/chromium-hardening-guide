@@ -1,5 +1,7 @@
 # Automatic Config Generation
 
+[>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+
 This page explains how to use the config generation script.
 
 The script and the associated config database file is located in the [`configs`](/configs) folder. Both of these are required.
@@ -60,3 +62,5 @@ For policies, simply double click the `hardening-guide-policy.reg` file, it will
 To verify the flags are properly being added, open `chrome://version`, under the `Command Line` the added flags should be visible.
 
 To verify policies, visit `chrome://policy`. You should see a list of applied policies. Scroll through them and check their statuses all say `Ok`. Some may say `Error, Ignored` on Windows, not much can be done about that, but they can be manually turned off in the browser's preferences anyway. If you do not see any policies or see more than a few with `Error` statuses, then something went wrong. If you are unsure, please feel free to open an issue. Include the `.reg` file used for the policies.
+
+# [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
