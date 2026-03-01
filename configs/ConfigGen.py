@@ -124,7 +124,7 @@ def TagMatch(confEntry, tag):
     return not tag or tag.upper() in (t.upper() for t in confEntry['Tags'])
 
 def TypeMatch(confEntry, confOption):
-    confType = confEntry['Type'].lower()
+    confType = confEntry['Type']
     retDict = {
         ConfigOption.ALL: True,
         ConfigOption.CMDLINE: confType == ConfigType.FEAT or confType == ConfigType.FLAG,
