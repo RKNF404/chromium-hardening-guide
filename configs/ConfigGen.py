@@ -318,7 +318,7 @@ def main() -> int:
         return 1
 
     if not os.path.isfile(args.file):
-        pprint('ERROR: file "' + args.file + '" does not exist')
+        print(f'ERROR: file "{args.file}" does not exist')
         return 1
 
     data = ParseConfigFile(args.file)
