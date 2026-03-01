@@ -26,7 +26,7 @@ ConfigOptions = {
 ConfigTypes = {
     'feat': 'Feature',
     'flag': 'Flag',
-    'pol': 'policy',
+    'pol': 'Policy',
 }
 FlagFileFormats = {
     'gen': 'generic',
