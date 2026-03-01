@@ -45,9 +45,9 @@ Files = {
 # Parse input file into a dictionary structure
 def ParseConfigFile(dbFile):
     data = {}
-    with open(dbFile, 'r') as config_data:
+    with open(dbFile, 'r') as configData:
         try:
-            data = json.load(config_data)
+            data = json.load(configData)
         except Exception as err:
             print('ERROR: parsing JSON db failed')
             print(err)
@@ -124,28 +124,25 @@ def TagMatch(confEntry, tag):
     return not tag or tag.upper() in (t.upper() for t in confEntry['Tags'])
 
 def TypeMatch(confEntry, confOption):
-    confType = confEntry['Type']
-    match confOption.lower():
-        case ConfigOption.ALL:
-            return True
-        case ConfigOption.CMDLINE:
-            return confType == ConfigType.FEAT or confType == ConfigType.FLAG
-        case ConfigOption.POLICY:
-            return confType == ConfigType.POL
-    return False
+    confType = confEntry['Type'].lower()
+    retDict = {
+        ConfigOption.ALL: True,
+        ConfigOption.CMDLINE: confType == ConfigType.FEAT or confType == ConfigType.FLAG,
+        ConfigOption.POLICY: confType == ConfigType.POL
+    }
+    return ret[confOption]
 
 # General parsing and filtering
 def ParseConfig(data, args):
     filteredData = {}
     optionalConfigs = []
 
-    match args.system.lower():
-        case System.LIN:
-            systemFilter = [SystemFilter.WIN, SystemFilter.MAC]
-        case System.WIN:
-            systemFilter = [SystemFilter.LIN, SystemFilter.MAC]
-        case System.MAC:
-            systemFilter = [SystemFilter.WIN, SystemFilter.LIN]
+    sysFiltDict = {
+        System.LIN: [SystemFilter.WIN, SystemFilter.MAC],
+        System.WIN: [SystemFilter.LIN, SystemFilter.MAC],
+        System.MAC: [SystemFilter.WIN, SystemFilter.LIN]
+    }
+    systemFilter = sysFiltDict[args.system]
 
     # Filter by tag and platform
     for e in data:
@@ -178,27 +175,26 @@ def ParseConfig(data, args):
             for i in range(5):
                 if args.choice == '':
                     print(filteredData[e]['Option'] + ' [Y/n]')
-                    yn = input()
+                    yn = input().lower()
                 else:
-                    yn = args.choice
+                    yn = args.choice.lower()
                     break
-                match yn.lower():
-                    case 'y' | 'yes' | '':
-                        # remove negations
-                        tempFiltData = dict(filteredData)
-                        configEntry = filteredData[e]['Configs']
-                        for c in configEntry:
-                            if 'Negates' in configEntry[c]:
-                                for n in configEntry[c]['Negates']:
-                                    if n in tempFiltData:
-                                        del tempFiltData[n]
-                        filteredData = tempFiltData
-                        break
-                    case 'n' | 'no':
-                        del filteredData[e]
-                        break
-                    case _:
-                        print('WARNING: improper input, either hit enter for "Y" or choices are : ["y", "n", "yes", "no"]')
+                if yn == 'y' or yn == 'yes' or yn == '':
+                    # remove negations
+                    tempFiltData = dict(filteredData)
+                    configEntry = filteredData[e]['Configs']
+                    for c in configEntry:
+                        if 'Negates' in configEntry[c]:
+                            for n in configEntry[c]['Negates']:
+                                if n in tempFiltData:
+                                    del tempFiltData[n]
+                    filteredData = tempFiltData
+                    break
+                elif yn == 'n' or yn == 'no':
+                    del filteredData[e]
+                    break
+                else:
+                    print('WARNING: improper input, either hit enter for "Y" or choices are : ["y", "n", "yes", "no"]')
             else:
                 del filteredData[e]
 
@@ -226,22 +222,22 @@ def ParseConfig(data, args):
         entry = filteredData[e]
         for c in entry['Configs']:
             config = entry['Configs'][c]
-            match config['Type']:
-                case ConfigType.POL:
-                    if 'Recommendable' in config and config['Recommendable']:
-                        recommendedPolicies[c] = config['Value']
-                    else:
-                        policies[c] = config['Value']
-                case ConfigType.FEAT:
-                    if config['Enable']:
-                        enableFeatures.append(c)
-                    else:
-                        disableFeatures.append(c)
-                case ConfigType.FLAG:
-                    flag = '--' + c
-                    if 'Arguments' in config:
-                        flag += '=' + ','.join(config['Arguments'])
-                    flags.append(flag)
+            confType = config['Type']
+            if confType == ConfigType.POL:
+                if 'Recommendable' in config and config['Recommendable']:
+                    recommendedPolicies[c] = config['Value']
+                else:
+                    policies[c] = config['Value']
+            elif confType == ConfigType.FEAT:
+                if config['Enable']:
+                    enableFeatures.append(c)
+                else:
+                    disableFeatures.append(c)
+            elif confType == ConfigType.FLAG:
+                flag = '--' + c
+                if 'Arguments' in config:
+                    flag += '=' + ','.join(config['Arguments'])
+                flags.append(flag)
 
     # Append features as flags
     if enableFeatures:
@@ -259,19 +255,18 @@ def ParseConfig(data, args):
         WriteFlagsFile(args.format, flags)
 
     if args.type in [ConfigOption.POLICY, ConfigOption.ALL]:
-        match args.system.lower():
-            case System.LIN:
-                WriteJsonPolicy(args.recommend, policies, recommendedPolicies)
-            case System.WIN:
-                WriteRegPolicy(args.recommend, policies, recommendedPolicies)
-            case System.MAC:
-                WritePlistPolicy(args.recommend, policies, recommendedPolicies)
+        if args.system == System.LIN:
+            WriteJsonPolicy(args.recommend, policies, recommendedPolicies)
+        elif args.system == System.WIN:
+            WriteRegPolicy(args.recommend, policies, recommendedPolicies)
+        elif args.system == System.MAC:
+            WritePlistPolicy(args.recommend, policies, recommendedPolicies)
     return
 
 def main() -> int:
-    platform_os = platform.system()
-    if platform_os == 'Darwin':
-        platform_os = System.MAC
+    platformOS = platform.system().lower()
+    if platformOS == 'darwin':
+        platformOS = System.MAC
 
     parser = argparse.ArgumentParser(
         prog='ConfigGen',
@@ -280,7 +275,7 @@ def main() -> int:
     parser.add_argument(
         '--system', '-s',
         choices=[System.LIN, System.WIN, System.MAC],
-        default=platform_os,
+        default=platformOS,
         help='Target operating system (if not specified, then current platform), MacOS and Windows not supported currently.'
     )
     parser.add_argument(
@@ -316,10 +311,10 @@ def main() -> int:
     )
     args = parser.parse_args()
     
-    if args.system.lower() == System.WIN:
+    if args.system == System.WIN:
         args.format = FlagFileFormat.GENERIC
 
-    if args.system.lower() == System.MAC:
+    if args.system == System.MAC:
         print(f'TODO: {args.system} support not implemented')
         return 1
 
