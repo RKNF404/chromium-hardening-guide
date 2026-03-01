@@ -177,7 +177,6 @@ def ParseConfig(data, args):
                     yn = input().lower()
                 else:
                     yn = args.choice.lower()
-                    break
                 if yn == 'y' or yn == 'yes' or yn == '':
                     # remove negations
                     tempFiltData = dict(filteredData)
@@ -193,7 +192,7 @@ def ParseConfig(data, args):
                     del filteredData[e]
                     break
                 else:
-                    print('WARNING: improper input, either hit enter for "Y" or choices are : ["y", "n", "yes", "no"]')
+                    print('WARNING: improper input, either hit enter for "yes" or choices are : ["y", "n", "yes", "no"]')
             else:
                 del filteredData[e]
 
