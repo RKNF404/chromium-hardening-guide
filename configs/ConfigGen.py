@@ -130,7 +130,7 @@ def TypeMatch(confEntry, confOption):
         ConfigOption.CMDLINE: confType == ConfigType.FEAT or confType == ConfigType.FLAG,
         ConfigOption.POLICY: confType == ConfigType.POL
     }
-    return ret[confOption]
+    return retDict[confOption]
 
 # General parsing and filtering
 def ParseConfig(data, args):
