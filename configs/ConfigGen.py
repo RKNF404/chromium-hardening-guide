@@ -86,7 +86,7 @@ def ConvertToRegValue(value):
     if vt is int or vt is bool:
         return "dword:%0.8X" % value
     elif vt is str or vt is list or vt is dict:
-        return f'"{str(value).replace("'", "\\\"")}"'
+        return '"' + str(value).replace("'", '\\"') + '"'
     else:
         print('ERROR: Unknown type used for registry')
         return '""'
