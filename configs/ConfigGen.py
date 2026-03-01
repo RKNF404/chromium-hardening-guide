@@ -6,33 +6,32 @@ import platform
 import json
 #import plistlib
 import argparse
-from enum import StrEnum
-
-# Enums
-class System(StrEnum):
-    LIN = 'linux'
-    WIN = 'windows'
-    MAC = 'macos'
-class SystemFilter(StrEnum):
-    LIN = 'LINUX_ONLY'
-    WIN = 'WINDOWS_ONLY'
-    MAC = 'MACOS_ONLY'
-class ConfigOption(StrEnum):
-    ALL = 'all'
-    CMDLINE = 'commandline'
-    POLICY = 'policy'
-class ConfigType(StrEnum):
-    FEAT = 'Feature'
-    FLAG = 'Flag'
-    POL = 'Policy'
-class FlagFileFormat(StrEnum):
-    GENERIC = 'generic'
-    VARIABLE = 'variable'
-class FlagFileFormat(StrEnum):
-    GENERIC = 'generic'
-    VARIABLE = 'variable'
 
 # Globals
+Systems = {
+    'lin': 'linux',
+    'win': 'windows',
+    'mac': 'macos',
+}
+SystemFilters = {
+    'lin': 'LINUX_ONLY',
+    'win': 'WINDOWS_ONLY',
+    'mac': 'MACOS_ONLY',
+}
+ConfigOptions = {
+    'all': 'all',
+    'cmd': 'commandline',
+    'pol': 'policy',
+}
+ConfigTypes = {
+    'feat': 'Feature',
+    'flag': 'Flag',
+    'pol': 'policy',
+}
+FlagFileFormats = {
+    'gen': 'generic',
+    'var': 'variable',
+}
 Files = {
     'flags': 'flags/80-hardening-guide-flags.conf',
     'linux_policy': 'policy/80-hardening-guide-policy.json',
@@ -58,7 +57,7 @@ def WriteFlagsFile(fileFormat, flags):
     if not os.path.exists('flags'):
         os.makedirs('flags')
     with open(Files['flags'], 'w') as flagsOutput:
-        if fileFormat == FlagFileFormat.VARIABLE:
+        if fileFormat == FlagFileFormats['var']:
             flagsOutput.write('CHROMIUM_FLAGS="' + '"\nCHROMIUM_FLAGS+=" '.join(flags) + '"')
         else:
             flagsOutput.write('\n'.join(flags))
@@ -126,9 +125,9 @@ def TagMatch(confEntry, tag):
 def TypeMatch(confEntry, confOption):
     confType = confEntry['Type']
     retDict = {
-        ConfigOption.ALL: True,
-        ConfigOption.CMDLINE: confType == ConfigType.FEAT or confType == ConfigType.FLAG,
-        ConfigOption.POLICY: confType == ConfigType.POL
+        ConfigOptions['all']: True,
+        ConfigOptions['cmd']: confType == ConfigTypes['feat'] or confType == ConfigTypes['flag'],
+        ConfigOptions['pol']: confType == ConfigTypes['pol']
     }
     return retDict[confOption]
 
@@ -138,9 +137,9 @@ def ParseConfig(data, args):
     optionalConfigs = []
 
     sysFiltDict = {
-        System.LIN: [SystemFilter.WIN, SystemFilter.MAC],
-        System.WIN: [SystemFilter.LIN, SystemFilter.MAC],
-        System.MAC: [SystemFilter.WIN, SystemFilter.LIN]
+        Systems['lin']: [SystemFilters['win'], SystemFilters['mac']],
+        Systems['win']: [SystemFilters['lin'], SystemFilters['mac']],
+        Systems['mac']: [SystemFilters['win'], SystemFilters['lin']]
     }
     systemFilter = sysFiltDict[args.system]
 
@@ -223,17 +222,17 @@ def ParseConfig(data, args):
         for c in entry['Configs']:
             config = entry['Configs'][c]
             confType = config['Type']
-            if confType == ConfigType.POL:
+            if confType == ConfigTypes['pol']:
                 if 'Recommendable' in config and config['Recommendable']:
                     recommendedPolicies[c] = config['Value']
                 else:
                     policies[c] = config['Value']
-            elif confType == ConfigType.FEAT:
+            elif confType == ConfigTypes['feat']:
                 if config['Enable']:
                     enableFeatures.append(c)
                 else:
                     disableFeatures.append(c)
-            elif confType == ConfigType.FLAG:
+            elif confType == ConfigTypes['flag']:
                 flag = '--' + c
                 if 'Arguments' in config:
                     flag += '=' + ','.join(config['Arguments'])
@@ -251,22 +250,22 @@ def ParseConfig(data, args):
             os.remove(Files[f])
 
     # Write to disk
-    if args.type in [ConfigOption.CMDLINE, ConfigOption.ALL]:
+    if args.type in [ConfigOptions['cmd'], ConfigOptions['all']]:
         WriteFlagsFile(args.format, flags)
 
-    if args.type in [ConfigOption.POLICY, ConfigOption.ALL]:
-        if args.system == System.LIN:
+    if args.type in [ConfigOptions['pol'], ConfigOptions['all']]:
+        if args.system == Systems['lin']:
             WriteJsonPolicy(args.recommend, policies, recommendedPolicies)
-        elif args.system == System.WIN:
+        elif args.system == Systems['win']:
             WriteRegPolicy(args.recommend, policies, recommendedPolicies)
-        elif args.system == System.MAC:
+        elif args.system == Systems['mac']:
             WritePlistPolicy(args.recommend, policies, recommendedPolicies)
     return
 
 def main() -> int:
     platformOS = platform.system().lower()
     if platformOS == 'darwin':
-        platformOS = System.MAC
+        platformOS = Systems['mac']
 
     parser = argparse.ArgumentParser(
         prog='ConfigGen',
@@ -274,20 +273,20 @@ def main() -> int:
     )
     parser.add_argument(
         '--system', '-s',
-        choices=[System.LIN, System.WIN, System.MAC],
+        choices=Systems.values(),
         default=platformOS,
         help='Target operating system (if not specified, then current platform), MacOS and Windows not supported currently.'
     )
     parser.add_argument(
         '--type', '-t',
-        choices=[ConfigOption.ALL, ConfigOption.CMDLINE, ConfigOption.POLICY],
-        default=ConfigOption.ALL,
+        choices=ConfigOptions.values(),
+        default=ConfigOptions['all'],
         help='Type of configuration for output file (if not specified then all).'
     )
     parser.add_argument(
         '--format',
-        choices=[FlagFileFormat.GENERIC, FlagFileFormat.VARIABLE],
-        default=FlagFileFormat.GENERIC,
+        choices=FlagFileFormats.values(),
+        default=FlagFileFormats['gen'],
         help='Output format for the flag file. Generic is just each flag separated by a new line, Variable is in the form of shell variable declarations, Chromewrapper is in the form of my chromewrapper project\'s wrapper flags file. If not specified then generic.')
     parser.add_argument(
         '--tag',
@@ -311,10 +310,10 @@ def main() -> int:
     )
     args = parser.parse_args()
     
-    if args.system == System.WIN:
-        args.format = FlagFileFormat.GENERIC
+    if args.system == Systems['win']:
+        args.format = FlagFileFormats['gen']
 
-    if args.system == System.MAC:
+    if args.system == Systems['mac']:
         print(f'TODO: {args.system} support not implemented')
         return 1
 
