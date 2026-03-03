@@ -77,7 +77,7 @@ A very highly regarded option, Edge makes decent security improvements on-top of
 \
 The main issue with Edge is telemetry, it is *mandatory* without Windows Enterprise/Educational editions. This makes it a non-contender for privacy but decent for security. It's update cycle can occasionally be spotty, skipping release every now-and-again. Overall, it's about equal to Chrome.
 \
-This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and MacOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
+This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and macOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
 
 ### Opera
 
@@ -121,7 +121,7 @@ On that note, I am unsure if this browser is worth using over Chrome, or even Br
 
 ### Thorium
 
-[The update cycle](https://github.com/Alex313031/thorium/releases) is giving me a panic attack. They used to release once every few months (alike to how Vivaldi releases) and were still usually a few releases behind. Just recently they switched to the LTS branch of Chromium, which isn't ideal. Security fixes are pushed out weekly, the LTS branch updates features twice a year but still updates in between for security patches. I don't know how this will be handled, but I don't believe the minor version bumps will be handled by Thorium which is a concern. Cannot recommend for any reasonable level of security concern,
+[The update cycle](https://github.com/Alex313031/thorium/releases) is giving me a panic attack. They used to release once every few months (alike to how Vivaldi releases) and were still usually a few releases behind. Just recently they switched to the LTS branch of Chromium, which isn't ideal. Security fixes are pushed out weekly, the LTS branch updates features twice a year but still updates in between for security patches. I don't know how this will be handled, but I don't believe the minor version bumps will be handled by Thorium which is a concern. Cannot recommend for any reasonable level of security concern.
 
 ### Flatpak (Linux)
 
@@ -147,15 +147,15 @@ Despite Firefox's poor security, the browser does have some form of sandboxing, 
 
 I don't think I need to go too much in depth, most FF forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles. There are no Firefox-based browsers that are except to this, except maybe Tor Browser.
 \
-Although, I will talk about 2 desktop forks specifically, Librewolf and Pale Moon. Librewolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features FF adds (as rare as that is) will not get properly added if they get added at all.
+Although, I will talk about 2 desktop forks specifically, LibreWolf and Pale Moon. LibreWolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features FF adds (as rare as that is) will not get properly added if they get added at all.
 
 ### Safari/Webkit
 
-I don't use Apple devices, but security-wise, Safari/Webkit is pretty decent. It may be behind on web standards but it has strong partitioning, strong sandboxing, and robust mitigations on all supported platforms. Additionally, it can disable JIT JavaScript (and many other web features) on iOS and MacOS per-site using Lockdown Mode to be W^X compliant, though most websites will likely break.
+I don't use Apple devices, but security-wise, Safari/Webkit is pretty decent. It may be behind on web standards but it has strong partitioning, strong sandboxing, and robust mitigations on all supported platforms. Additionally, it can disable JIT JavaScript (and many other web features) on iOS and macOS per-site using Lockdown Mode to be W^X compliant, though most websites will likely break.
 
 #### Epiphany/WebkitGTK
 
-(I believe) WebkitGTK is the official Webkit port to Linux. It shares many of the same features of regular Webkit, sans some stuff that are iOS/MacOS/Apple specific. It is the only browser to support proper sandboxing in Flatpak but said sandboxing is notably weaker than native (non-Flatpak, non-Snap) Chromium.
+(I believe) WebkitGTK is the official Webkit port to Linux. It shares many of the same features of regular Webkit, sans some stuff that are iOS/macOS/Apple specific. It is the only browser to support proper sandboxing in Flatpak but said sandboxing is notably weaker than native (non-Flatpak, non-Snap) Chromium.
 
 ### Android Webview Browsers
 
@@ -163,7 +163,7 @@ These browsers cannot offer site-isolation due to how Android WebView is designe
 
 ## Popular Security-Centric Options
 
-This section is dedicated to a few options people often recommend explicitly for security reasons, but the options themselves are rather niche. For example, Brave is *not* a security option but it is a very popular recommendation for "security" but it is not itself a security focused browser. Same follows for other projects claiming the same thing, such as Librewolf. This section has projects that actually *try* to improve browser security.
+This section is dedicated to a few options people often recommend explicitly for security reasons, but the options themselves are rather niche. For example, Brave is *not* a security option but it is a very popular recommendation for "security" but it is not itself a security focused browser. Same follows for other projects claiming the same thing, such as LibreWolf. This section has projects that actually *try* to improve browser security.
 
 ### Vanadium
 
