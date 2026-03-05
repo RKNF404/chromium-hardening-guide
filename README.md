@@ -7,7 +7,7 @@ Hardening guide for (theoretically) any Chromium browser.
 Some of the flips and toggles come from other projects such as [Vanadium](https://github.com/GrapheneOS/Vanadium) or [Trivalent](https://github.com/secureblue/Trivalent).
 
 If you're having any trouble applying the guide or have any general questions or inquiries, please feel free to open a [discussion thread](https://github.com/RKNF404/chromium-hardening-guide/discussions).
-If want to suggest something, please open an [issue](https://github.com/RKNF404/chromium-hardening-guide/issues) for it.
+If you want to suggest something, please open an [issue](https://github.com/RKNF404/chromium-hardening-guide/issues) for it.
 If you have my Discord, feel free to message me there about this guide.
 
 All files included in this repository are made available under the Microsoft Public License ([`MS-PL`](https://opensource.org/license/ms-pl-html))
