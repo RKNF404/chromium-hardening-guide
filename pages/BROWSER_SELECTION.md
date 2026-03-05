@@ -175,7 +175,7 @@ Cromite is [not a security-focused browser](https://discuss.grapheneos.org/d/165
 \
 [Cromite also does not enable CFI on Android](https://github.com/uazo/cromite/issues/1537). It used to, but it caused issues.
 \
-Cromite, from what I have seen, is in the same spot as Brave. It doesn't improve that much on-top of Chromium security-wise, mostly just a vague privacy and freedom promiting way. It has many of the same flaws as Brave and not as many of the same benefits. I wouldn't call the browser security-focused currently, nor do I see a reason to use it for improved security over something like Chrome or a decent Chromium build.
+Cromite, from what I have seen, is in the same spot as Brave. It doesn't improve that much on-top of Chromium security-wise, mostly just a vague privacy and freedom promoting way. It has many of the same flaws as Brave and not as many of the same benefits. I wouldn't call the browser security-focused currently, nor do I see a reason to use it for improved security over something like Chrome or a decent Chromium build.
 
 ### Trivalent
 
