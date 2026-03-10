@@ -1,6 +1,11 @@
 # Chromium Hardening Guide
 
-Last updated for: `145`
+Last updated for: `146`
+
+Update note:
+```
+146 had no useful policy changes, feature changes are unlikely. Will investigate but features should be fine as-is.
+```
 
 Hardening guide for (theoretically) any Chromium browser.
 
