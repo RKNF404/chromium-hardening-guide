@@ -6,6 +6,7 @@
 
 - [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs Open-Source](#proprietary-vs-open-source)
+- Using Multiple Browsers (WIP)
 - [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
 - [Popular Options](#popular-options)
   - [Chrome](#chrome)
