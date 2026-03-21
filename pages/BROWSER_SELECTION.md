@@ -33,7 +33,7 @@
   - [Trivalent](#trivalent)
   - [IronFox](#ironfox)
   - [Tor Browser](#tor-browser)
-  - [Mullvad](#mullvad-browser)
+    - [Mullvad](#mullvad-browser)
 
 ## Baseline Criteria
 
