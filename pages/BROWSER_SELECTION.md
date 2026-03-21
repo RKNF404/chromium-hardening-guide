@@ -32,6 +32,8 @@
   - [Cromite](#cromite)
   - [Trivalent](#trivalent)
   - [IronFox](#ironfox)
+  - [Tor Browser](#tor-browser)
+  - [Mullvad](#mullvad-browser)
 
 ## Baseline Criteria
 
@@ -192,11 +194,11 @@ Beyond that, I won't go too in depth because it will sound more like marketing t
 
 ### Tor Browser
 
-I don't think this should be controversial, but Tor is *not* a security focused browser. For starters, it is just Firefox fundamentally, it doesn't fix any of the architectural issues of FF, it just adds anti-fingerprinting protections.
+I don't think this should be controversial, but Tor is *not* a security focused browser. For starters, it is just [Firefox](#firefox) fundamentally, it doesn't fix any of the architectural issues of FF, it just adds anti-fingerprinting protections.
 \
 Yes, Tor is decent for anti-fingerprinting, it is hard to argue that any other browser even comes close. That does not translate into security benefit, it is one of Tor's biggest flaws. In general, the best use-case for Tor is inside a virtual machine, otherwise you are putting yourself at risk.
 
-#### Mullvad
+#### Mullvad Browser
 
 Mullvad is Tor browser without Tor, it has literally no advantages and only regresses on Tor's base anti-fingerprinting model. It adds uBlock Origin, which can cause nearly infinite variation in users by filter versions and custom filters, and fingerprinting system uptimes based on that. A big part of Tor's resistance to fingerprinting is the Tor network, Mullvad substitutes this by using their own VPN service, but not all users have that. Fundamentally this is a downstream of a downstream, that being Tor and Firefox. It is roughly in the same ballpark as Librewolf, in that it actually has very little to offer beyond convenience of setup.
 
