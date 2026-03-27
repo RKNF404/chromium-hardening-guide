@@ -64,7 +64,7 @@ Quick Summary:
 - Nice to have, not a priority
 - Should not be focal point of the selection process
 - Generally very ineffective, even something more comprehensive like Brave is very flawed
-- If you absolutely need it, use a VM and use Tor Browser, do not use Tor outside a VM
+- If you absolutely need it, use a VM and use Tor Browser; do not use Tor outside a VM
 
 ## Popular Options
 
