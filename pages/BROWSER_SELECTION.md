@@ -19,8 +19,8 @@ The TLDR of this page is basically to use Chrome as the default option. When in 
 
 - [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs Open-Source](#proprietary-vs-open-source)
-- [Using Multiple Browsers](#using-multiple-browsers) (WIP)
 - [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
+  - [Using Multiple Browsers](#using-multiple-browsers) (WIP)
 - [Popular Options](#popular-options)
   - [Chrome](#chrome)
   - [Edge](#edge)
