@@ -2,18 +2,31 @@
 
 [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
 
+## Selection Guide Summary
+
+The TLDR of this page is basically to use Chrome as the default option. When in doubt, use Chrome and apply the guide. Otherwise:
+- Windows - Google Chrome or Microsoft Edge, either work with pros and cons for each, note that Edge is not covered by this guide
+- MacOS - Google Chrome
+- Android - Google Chrome or Brave, depending on need, since you can't configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode) but Brave has more attack surface and a worse update cycle, also adblocker
+  - GrapheneOS - Vanadium
+- Linux
+  - Fedora-based - Trivalent
+  - Arch Linux - official repos Chromium
+  - Debian-based - Google Chrome
+  - NixOS - Nix packaging of Chromium
+
 ## Contents
 
 - [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs Open-Source](#proprietary-vs-open-source)
-- Using Multiple Browsers (WIP)
+- [Using Multiple Browsers](#using-multiple-browsers) (WIP)
 - [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
 - [Popular Options](#popular-options)
   - [Chrome](#chrome)
-  - [Edge](#Edge)
-  - [Opera](#Opera)
-  - [Brave](#Brave)
-  - [Vivaldi](#Vivaldi)
+  - [Edge](#edge)
+  - [Opera](#opera)
+  - [Brave](#brave)
+  - [Vivaldi](#vivaldi)
   - [Vanilla Chromium](#vanilla-chromium)
     - [ungoogled-chromium](#ungoogled-chromium)
   - [Helium](#helium)
@@ -66,6 +79,14 @@ Quick Summary:
 - Generally very ineffective, even something more comprehensive like Brave is very flawed
 - If you absolutely need it, use a VM and use Tor Browser; do not use Tor outside a VM
 
+### Using Multiple Browsers
+
+This is a very outdated and ineffective practice that annoys me every time it is suggested. The core idea stems from having to browsers separates your online persona into two profiles which is supposed to isolate your fingerprint.
+\
+This is spiritual voodoo. In reality, using different browser doesn't solve this issue, it just doubles the required trust on your device and increases attack surface, especially if you are mixing different browsing engines (e.g. Firefox and Chromium) or browsers with way different update cycles. You can still be fingerprinted across browsers. Yes it is harder to do that, but it is still feasible and more likely you will accidentally associate yourself across browsers. If you need the fingerprinting resistance, use Tor with your other main browser, otherwise you aren't really achieving anything other than extra attack surface.
+\
+A significantly better approach is using your browser's built-in profile management system and creating a second profile, this keeps just one browser and achieves effectively the same thing. Does it resist fingerprinting? Not really, but it does isolate data and reduce browsing overlap between personas if that is what you are aiming to do.
+
 ## Popular Options
 
 ### Chrome
@@ -98,7 +119,9 @@ In the realm of attack surface, the content blocker can be a problem. It is writ
 \
 To give some credit where it is due, Brave does have some decent changes. For example they proxy [a large number of requests](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers), for which they have a better privacy policy on their services than Google. This does have some issues but it is still nice, none-the-less. They do also offer some partitioning improvements, though the amount of which isn't too big since upstream has added a lot of said improvements themselves.
 \
-Overall, on desktop, Brave is rather useless. It is filled with bloat and any security or privacy advantages, even the adblocker, can be achieved with Chrome. However, on Android, if you do not have access to Vanadium, then Brave is probably the next best choice. Chrome on Android isn't bad, but Brave actually offers more there and the bloat is way less noticeable and easier to turn off.
+Overall, on desktop, Brave is rather useless. It is filled with bloat and any security or privacy advantages, even the adblocker, can be achieved with Chrome. However, on Android, if you do not have access to Vanadium, then Brave is probably the next best choice. Chrome on Android isn't bad, but Brave actually offers more there and the bloat is way less noticeable and easier to turn off. Brave has also recently started offering "JITless V8 mode" which basically makes the "JavaScript Security & Performance" permission actually control JIT, and not just disable higher-tier JIT optimizing compilers, this can put it slightly ahead of Chrome if this mode is used.
+\
+Another note, Brave does have decently private and end-to-end encrypted browser data sync. This is rare among Chromium browsers (sadly), so if you need sync then Brave would likely be your best bet.
 
 ### Vivaldi
 
@@ -140,7 +163,7 @@ Anything *not* directly based on Chromium.
 
 ### Firefox
 
-Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "4/5 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 3 years. To be fair, there has been improvement but not enough of it to make it comparible to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where there is no website sandbox at all. The current Android implementation of the Firefox sandbox (Fission) is not enabled by default (except by [IronFox](https://gitlab.com/ironfox-oss/IronFox/-/blob/19a251e506afc775b34446a92c53c2b3e0548f5d/patches/preferences/phoenix-android.js#L1463)), even if it was enabled the implementation does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. Equivalent to Android, Firefox does not have complete sandboxing in Flatpak, it doesn't even offer a compatibility layer alike to zypak, it just opts to cripple its own security (only recently have they begun offering a warning in environments without user namespaces that sandbox may be degraded, **but** this warning doesn't show up in the official and verified Flatpak for Firefox).
+Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "4/5 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 3 years. To be fair, there has been improvement but not enough of it to make it comparible to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where there is no website sandbox at all. The current Android implementation of the Firefox sandbox (Fission) is not enabled by default (except by [IronFox](https://gitlab.com/ironfox-oss/IronFox/-/blob/19a251e506afc775b34446a92c53c2b3e0548f5d/patches/preferences/phoenix-android.js#L1463)), even if it was enabled the implementation does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. If you are deadset on using Firefox, even though you should not be for any valid reason I can think of other than FF sync maybe, then I would recommend using [arkenfox user.js](https://github.com/arkenfox/user.js/). It does reduce attack surface decently enough and frankly makes Firefox somewhat useable.
 
 #### FF Flatpak
 
