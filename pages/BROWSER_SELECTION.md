@@ -11,9 +11,9 @@ The TLDR of this page is basically to use Chrome as the default option. When in 
   - GrapheneOS - Vanadium
 - Linux
   - Fedora-based - Trivalent
-  - Arch Linux - official repos Chromium
+  - Arch Linux - [official repos packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
   - Debian-based - Google Chrome
-  - NixOS - Nix packaging of Chromium
+  - NixOS - [Nix packaging of Chromium](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## Contents
 
