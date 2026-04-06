@@ -1,9 +1,9 @@
 # Chromium Hardening Guide
 
-Last updated for: `146`
+Last updated for: `147`
 
 > [!NOTE]
-> 146 had no useful policy changes, feature changes are unlikely. Will investigate but features should be fine as-is.
+> 147 has nothing notable
 
 
 Hardening guide for (theoretically) any Chromium browser.
