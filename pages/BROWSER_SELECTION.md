@@ -4,16 +4,16 @@
 
 ## Selection Guide Summary
 
-The TLDR of this page is basically to use Chrome as the default option. When in doubt, use Chrome and apply the guide. Otherwise:
-- Windows - Google Chrome or Microsoft Edge, either work with pros and cons for each, note that Edge is not covered by this guide
-- MacOS - Google Chrome
-- Android - Google Chrome or Brave, depending on need, since you can't configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode) but Brave has more attack surface and a worse update cycle, also adblocker
-  - GrapheneOS - Vanadium
+The TL;DR of this page is `When in doubt, use Chrome and apply the guide.` Otherwise:
+- Windows - **Google Chrome** or **Microsoft Edge**, either work with pros and cons for each, note that Edge is not covered by this guide
+- MacOS - **Google Chrome**
+- Android - **Google Chrome** or **Brave**, depending on need, since you can't configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode) but Brave has more attack surface and a worse update cycle, also adblocker
+  - GrapheneOS - **Vanadium**
 - Linux
-  - Fedora-based - Trivalent
-  - Arch Linux - [official repos packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
-  - Debian-based - Google Chrome
-  - NixOS - [Nix packaging of Chromium](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
+  - Fedora-based - **Trivalent**
+  - Arch Linux - [official repos packaging of **Chromium**](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
+  - Debian-based - **Google Chrome**
+  - NixOS - [Nix packaging of **Chromium**](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## Contents
 
@@ -50,42 +50,42 @@ The TLDR of this page is basically to use Chrome as the default option. When in 
 
 ## Baseline Criteria
 
-The most important security detail of a browser is 100% update cycle. Everything else security-wise is useless if the browser is updated once every few months. Vulnerabilities pile up, and the more they go unpatched, the worse it gets. For reference, Chromium/Chrome is usually updated weekly or biweekly excluding holidays. Each update usually has at least one high-severity vuln, or at least a few medium/low. 2 months without updates essentially results in 6+ high severity vulnerabilities, plus the other severity vulns. No amount of hardening will compensate for that.
+The most important security detail of a browser is 100% update cycle. Everything else security-wise is useless if the browser is updated only once every few months. Vulnerabilities pile up, and the longer they go unpatched, the worse it gets. For reference, Chromium/Chrome is usually updated weekly or biweekly excluding holidays. Each update usually has at least one high-severity vulnerability, or at least a few medium/low. 2 months without updates essentially results in 6+ high severity vulnerabilities, plus the other severity vulnerabilities. *No amount of hardening will compensate for that.*
 \
 \
-The next most important element is build quality, i.e. does it offer at least Chromium's default or higher? Most often this is control-flow integrity (CFI), it is an upstream default in Chromium on Linux yet for some reason many forks or Linux distros [explicitly disable it](https://salsa.debian.org/chromium-team/chromium/-/blob/master/debian/rules?ref_type=heads#L104). CFI is not common outside of desktop Linux and ChromeOS (for Chromium that is), though there are some exceptions such as [Vanadium on Android](https://github.com/GrapheneOS/Vanadium/blob/main/args.gn#L30). Windows Chromium uses the platform's Control Flow Guard (CFG) mitigation, most Chromium based browsers have this enabled by default. On Linux, many distributions opt to dynamically link as many dependencies as possible to system libraries, mainly for package size and updateability. This is a security regression, since system shared libraries cannot provide CFI protections without [Cross-DSO-CFI](https://clang.llvm.org/docs/ControlFlowIntegrity.html#shared-library-support) which is not used in Chromium. The more bundled, the better. I'm not aware if this issue is present on other operating systems.
+The next most important element is build quality, i.e. `does it offer at least Chromium's default or higher?` Most often this is control-flow integrity (CFI), it is an upstream default in Chromium on Linux yet for some reason many forks or Linux distros [explicitly disable it](https://salsa.debian.org/chromium-team/chromium/-/blob/master/debian/rules?ref_type=heads#L104). CFI is not common outside of desktop Linux and ChromeOS (for Chromium that is), though there are some exceptions such as [Vanadium on Android](https://github.com/GrapheneOS/Vanadium/blob/main/args.gn#L30). Windows Chromium uses the platform's Control Flow Guard (CFG) mitigation, most Chromium based browsers have this enabled by default. On Linux, many distributions opt to dynamically link as many dependencies as possible to system libraries, mainly for package size and updateability. This is a security regression, since system shared libraries cannot provide CFI protections without [Cross-DSO-CFI](https://clang.llvm.org/docs/ControlFlowIntegrity.html#shared-library-support) which is not used in Chromium. The more bundled, the better. I'm not aware if this issue is present on other operating systems.
 \
 \
 The last aspect is additional features on top of vanilla Chromium and more secure/private defaults. This also includes the ability to control insecure or non-private features such as telemetry, WebAssembly, etc. This isn't that important and can be optionally ignored, but it is something to be aware of.
 \
 \
-TLDR; If the variant does something worse than Chrome, avoid it. The only leeway is on update cycle, it is physically impossible to beat Chrome's releases. Anything within 2-3 days is acceptable, but the sooner the better. Less resourced projects have more leeway in this regard. If the variant does something better for security/privacy, that is a reason to use it, but it shouldn't overshadow downsides.
+**TL;DR:** If the variant does something worse than Chrome, avoid it. The only leeway is on update cycle, it is physically impossible to beat Chrome's releases. Anything within 2-3 days is acceptable, but the sooner the better. Less resourced projects have more ethical leeway in this regard, as it is unreasonable to expect that level of speed from them. If the variant does something better for security/privacy, that is a reason to use it, but it shouldn't overshadow downsides.
 
 ## Proprietary vs Open-Source
 
-Long story short, it makes no difference. Open-source is preferable for transparency reasons, but has little effect on anything in the baseline criteria. Consider the option more like a tie-breaker than a genuine advantage to consider.
+Long story short, **it makes no difference**. Open-source is preferable for transparency reasons, but has little effect on anything in the baseline criteria. Consider the option more like a tie-breaker than a genuine advantage to consider.
 
 ## Resisting Fingerprinting
 
 Browser fingerprinting can be best summarized as websites identifying a browser using a collection of metrics which could individually identify two browsers from each other. A common example is graphical rendering APIs, such as Canvas and WebGL, these can vary based on a system's graphics card, the graphics driver, the system's processor, the display used, etc. This alone allows for an unimaginable amount of combinations that all cause a unique "fingerprint", due to how each one varies slightly. Mind you, this is one metric, there are several, some more revealing and some less.
 \
-Resisting fingerprinting usually is done one of two ways: randomization and unified crowd blending. Randomizing is the most common and simple technique, basically it adds noise or fake data to exisiting metrics to make them different across visits and sessions. Ideally, this fully evades fingerprinting, since you will look different to every site. Typically it is generated per-load, meaning if you visit a webpage, then reload the webpage, the fingerprint will be slightly different. Brave offers a slightly different approach by offering a per-site per-session fingerprint, this is done by binding the randomized metrics to a site's randomized session key. This will cause each site to have one static fingerprint for the session, but each site will have a different random fingerprint.
+Resisting fingerprinting usually is done one of two ways: **randomization** and **unified crowd blending**. *Randomizing* is the most common and simple technique, basically it adds noise or fake data to exisiting metrics to make them different across visits and sessions. Ideally, this fully evades fingerprinting, since you will look different to every site. Typically it is generated per-load, meaning if you visit a webpage, then reload the webpage, the fingerprint will be slightly different. Brave offers a slightly different approach by offering a per-site per-session fingerprint, this is done by binding the randomized metrics to a site's randomized session key. This will cause each site to have one static fingerprint for the session, but each site will have a different random fingerprint.
 \
-The other approach is unified crowd blending (idk if this is an official term or anything and I'm too lazy to search it up), this is often done in tandem with randomization to mask metrics that may be unique. Basically, the goal is to get all users to look as similar as possible. The most popular approach would be Apple's Safari. Since Apple has good control over their hardware production, and Safari basically only runs on their hardware, then most of the metrics that depend on unique hardware combinations are basically identical. This gives the impression that most Safari users are potentially the same user. To my knowledge, Safari doesn't really use randomization and it doesn't really need to.
+The other approach is *unified crowd blending* (unoffical term I'm using for convenience). This is often done in tandem with randomization to mask metrics that may be unique. Basically, the goal is to get all users to look as similar as possible. The most popular approach would be Apple's Safari. Since Apple has good control over their hardware production, and Safari basically only runs on their hardware, then most of the metrics that depend on unique hardware combinations are basically identical. This gives the impression that most Safari users are potentially the same user. To my knowledge, Safari doesn't really use randomization and it doesn't really need to.
 
-Quick Summary:
-- Nice to have, not a priority
-- Should not be focal point of the selection process
-- Generally very ineffective, even something more comprehensive like Brave is very flawed
-- If you absolutely need it, use a VM and use Tor Browser; do not use Tor outside a VM
+#### Quick Summary:
+- Nice to have; not a priority.
+- Should not be focal point of the selection process.
+- Generally very ineffective. Even something more comprehensive like Brave is very flawed.
+- If you absolutely *need* it, use a VM with Tor Browser. **Do not use Tor outside a VM.**
 
 ### Using Multiple Browsers
 
-This is a very outdated and ineffective practice that annoys me every time it is suggested. The core idea stems from having to browsers separates your online persona into two profiles which is supposed to isolate your fingerprint.
+This is a very outdated and ineffective practice. The core idea stems from having to browsers separates your online persona into two profiles which is *supposed* to isolate your fingerprint.
 \
-This is spiritual voodoo. In reality, using different browser doesn't solve this issue, it just doubles the required trust on your device and increases attack surface, especially if you are mixing different browsing engines (e.g. Firefox and Chromium) or browsers with way different update cycles. You can still be fingerprinted across browsers. Yes it is harder to do that, but it is still feasible and more likely you will accidentally associate yourself across browsers. If you need the fingerprinting resistance, use Tor with your other main browser, otherwise you aren't really achieving anything other than extra attack surface.
+This is essentially privacy theatre. In reality, using different browser doesn't solve this issue. It just doubles the required trust on your device and increases attack surface, especially if you are mixing different browsing engines (e.g. Firefox and Chromium) or browsers with signigicantly different update cycles. *You can still be fingerprinted across browsers.* Yes, it is harder to do that, but it is still feasible and *more likely* you will accidentally associate yourself across browsers. If you need the fingerprinting resistance, use Tor with your other main browser, otherwise you aren't really achieving anything other than increasing attack surface.
 \
-A significantly better approach is using your browser's built-in profile management system and creating a second profile, this keeps just one browser and achieves effectively the same thing. Does it resist fingerprinting? Not really, but it does isolate data and reduce browsing overlap between personas if that is what you are aiming to do.
+A significantly better approach is using your browser's built-in profile management system and creating a second profile, this keeps just one browser and **achieves effectively the same thing.** Does it resist fingerprinting? Not really, but it does isolate data and reduce browsing overlap between personas, if that is what you are aiming to do.
 
 ## Popular Options
 
@@ -93,13 +93,13 @@ A significantly better approach is using your browser's built-in profile managem
 
 This is the baseline/standard, everything else must either match or beat this to be considered. This guide assumes the usage of Chrome in certain sections, since it is the most general and most common. Chrome has the fastest update cycle and is the most functional/well tested. It is constantly improving and even if it has weak defaults, it is trivial to improve many of them. If you don't know what option to pick, use Chrome.
 \
-The only downside is that Chrome is proprietary. This has no effect on security nor significant effect on privacy, it is essentially vanilla Chromium with a few proprietary additions and licenced libraries. Most of the intrusive stuff is disabled by following this guide.
+The only downside is that Chrome is proprietary. **This has no effect on security nor significant effect on privacy**, it is essentially vanilla Chromium with a few proprietary additions and licenced libraries. Most of the intrusive stuff is disabled by following this guide.
 
 ### Edge
 
 A very highly regarded option, Edge makes decent security improvements on-top of Chrome, especially on Windows. Such as their Enhanced Security Mode, previously [Super Duper Secure Mode](https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/), the use of the Code Integrity Guard (CIG) mitigation on the main browser process (since it prevents non-MS signed binaries from being executed, Edge is the only browser that can fully enable it), and the default use of AppContainer sandboxing for renderer processes on Windows. On Linux, it also offers a feature to enforce memory W^X on renderers with JIT disabled (last I checked this enforcement was disabled by default, but it can be enabled through `edge://flags`), which is currently only offered by Edge and [Trivalent](https://github.com/secureblue/Trivalent/blob/8b0a3cb6666df76e6bdd421fbb547bcb399c4f59/vanadium_patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch) (courtesy of [Vanadium](https://github.com/GrapheneOS/Vanadium/blob/83d42785c127719cc52d00014bb8853f4ad18900/patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch)).
 \
-The main issue with Edge is telemetry, it is *mandatory* without Windows Enterprise/Educational editions. This makes it a non-contender for privacy but decent for security. It's update cycle can occasionally be spotty, skipping release every now-and-again. Overall, it's about equal to Chrome.
+The main issue with Edge is telemetry, it is *mandatory* without Windows Enterprise/Educational editions. This makes it a non-contender for privacy outside of those OS's, but decent for security. It's update cycle can occasionally be spotty, skipping release every now-and-again. Overall, it's about equal to Chrome.
 \
 This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and macOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
 
@@ -163,21 +163,21 @@ Anything *not* directly based on Chromium.
 
 ### Firefox
 
-Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "4/5 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 3 years. To be fair, there has been improvement but not enough of it to make it comparible to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where there is no website sandbox at all. The current Android implementation of the Firefox sandbox (Fission) is not enabled by default (except by [IronFox](https://gitlab.com/ironfox-oss/IronFox/-/blob/19a251e506afc775b34446a92c53c2b3e0548f5d/patches/preferences/phoenix-android.js#L1463)), even if it was enabled the implementation does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. If you are deadset on using Firefox, even though you should not be for any valid reason I can think of other than FF sync maybe, then I would recommend using [arkenfox user.js](https://github.com/arkenfox/user.js/). It does reduce attack surface decently enough and frankly makes Firefox somewhat useable.
+Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "4/5 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 4+ years. To be fair, there has been improvement but not enough of it to make it comparible to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where *there is no website sandbox at all*. The current Android implementation of the Firefox sandbox (Fission) is not enabled by default (except by [IronFox](https://gitlab.com/ironfox-oss/IronFox/-/blob/19a251e506afc775b34446a92c53c2b3e0548f5d/patches/preferences/phoenix-android.js#L1463)), even if it was enabled the implementation does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. If you are deadset on using Firefox (even though you should not be for any valid reason I can think of (other than Firefox sync maybe)), I would recommend using [arkenfox user.js](https://github.com/arkenfox/user.js/). It does reduce attack surface significantly and frankly makes Firefox somewhat useable.
 
-#### FF Flatpak
+#### Firefox Flatpak
 
-Despite Firefox's poor security, the browser does have some form of sandboxing, which is critical to what little security it has. Above there is a section about how Flatpak interferes with the Chromium sandboxing architecture. Well, the same is true for Firefox, FF depends on userns for a portion of its sandboxing. The question is how does Firefox account for a lack of usernamespaces? Simple. It doesn't. Firefox just... pretends they don't exist, but only in Flatpak. They did add a warning about a lack of userns access for environments without userns and that sandboxing and security may suffer, but this warning is just disabled in the *official* Firefox Flatpak package. If you are really deadset on using Firefox then at the very least *avoid* the Flatpak. Just a general rule of thumb for all browsers really.
+Despite Firefox's poor security, the browser does have some form of sandboxing, which is critical to what little security it has. Above there is a section about how Flatpak interferes with the Chromium sandboxing architecture. Well, the same is true for Firefox, Firefox depends on userns for a portion of its sandboxing. The question is how does Firefox account for a lack of usernamespaces? Simple. It doesn't. Firefox just... pretends they don't exist, but only in Flatpak. They did add a warning about a lack of userns access for environments without userns and that sandboxing and security may suffer, but this warning is just disabled in the *official* Firefox Flatpak package. If you are really deadset on using Firefox then at the very least *avoid* the Flatpak. Just a general rule of thumb for all browsers really.
 
 #### Firefox Forks
 
-I don't think I need to go too much in depth, most FF forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles. There are no Firefox-based browsers that are except to this, except maybe Tor Browser.
+Most Firefox forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles. There are no Firefox-based browsers that are except to this, except maybe Tor Browser.
 \
-Although, I will talk about 2 desktop forks specifically, LibreWolf and Pale Moon. LibreWolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features FF adds (as rare as that is) will not get properly added if they get added at all.
+Although, I will talk about 2 desktop forks specifically, *LibreWolf* and *Pale Moon*. **LibreWolf** is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features Firefox adds (as rare as that is) will not get properly added, if they get added at all.
 
 ### Safari/Webkit
 
-I don't use Apple devices, but security-wise, Safari/Webkit is pretty decent. It may be behind on web standards but it has strong partitioning, strong sandboxing, and robust mitigations on all supported platforms. Additionally, it can disable JIT JavaScript (and many other web features) on iOS and macOS per-site using Lockdown Mode to be W^X compliant, though most websites will likely break.
+Security-wise, Safari/Webkit is pretty decent. It may be behind on web standards but it has strong partitioning, strong sandboxing, and robust mitigations on all supported platforms. Additionally, it can disable JIT JavaScript (and many other web features) on iOS and macOS per-site using Lockdown Mode to be W^X compliant, though most websites will likely break.
 
 #### Epiphany/WebkitGTK
 
@@ -193,7 +193,7 @@ This section is dedicated to a few options people often recommend explicitly for
 
 ### Vanadium
 
-This is the GrapheneOS default browser. I feel I don't need to explain why it is one of, if not the best option currently for privsec. Very few browsers are as comprehensive with their hardening or as consistent with their update cycle. Unfortunately, the browser is only available on GrapheneOS so most may not be able to use it. An Android-wide release is planned but the expected release of that is unknown (at least to me).
+This is the GrapheneOS default browser. It almost goes without saying that it is one of, if not **the best option currently for privsec**. *Very* few browsers are as comprehensive with their hardening or as consistent with their update cycle. Unfortunately, the browser is *only available on GrapheneOS*, so most may not be able to use it. An Android-wide release is planned but the expected release of that is unknown (at least to the public).
 
 ### Cromite
 
@@ -209,7 +209,7 @@ Full disclosure, I am a frequent contributor to Trivalent. This wouldn't affect 
 \
 Essentially, this is Vanadium for desktop Linux, somewhat literally. Do note that despite getting as close as possible, it does not match to Vanadium currently due to poor security in the desktop Linux ecosystem and a lack of availability of hardware security features like MTE. Many patches from Vanadium that are not Android-specific are used. Not only that, it expands on many desktop and Linux-centric hardening. Additionally, due to a decent amount of automation work, weekly updates are often shipped same-day as upstream or the day after, at a very consistent pace.
 \
-Beyond that, I won't go too in depth because it will sound more like marketing than a "review"... which I guess these are now... so just know, it's good. Use.
+Beyond that, I won't go too in depth because it will sound more like marketing than a "review"... so just know, it's good. Use.
 
 ### IronFox
 
