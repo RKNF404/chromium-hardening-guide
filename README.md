@@ -1,9 +1,9 @@
 # Chromium Hardening Guide
 
-Last updated for: `147`
+Last updated for: `148`
 
 > [!NOTE]
-> 147 has nothing notable
+> 148 has nothing notable
 
 
 Hardening guide for (theoretically) any Chromium browser.
