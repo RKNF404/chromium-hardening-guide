@@ -40,7 +40,7 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
   - [Safari/Webkit](#safariwebkit)
     - [Epiphany/WebkitGTK](#epiphanywebkitgtk)
   - [Android Webview browsers](#android-webview-browsers)
-- [Popular security-focused options](#popular-security-focused-options)
+- [Popular security-centric options](#popular-security-focused-options)
   - [Vanadium](#vanadium)
   - [Cromite](#cromite)
   - [Trivalent](#trivalent)
@@ -113,10 +113,6 @@ The main issue with Edge is telemetry, it is *mandatory* without Windows Enterpr
 \
 This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and macOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
 
-### Opera
-
-Avoid. It has mandatory telemetry, a poor update cycle, and tons of feature bloat. It has very few if any advantages over Chrome. It does have a decent content-blocker, but I'm not certain if it has decent security (more on this later). Overall, not a great option.
-
 ### Brave
 
 Not terrible, but a weak option. Most of this browser is either matching vanilla Chromium, a degredation, or modifies a default. For example, they enable MV2 support when that format is actively being deprecated in Chromium. MV2 is awful for security, since it allows unrestricted access to all websites and all features to extensions. MV3, while not perfect, fixes many of these issues. In general, extensions are bad for security, but enabling MV2 is a step backwards. It should be noted that Brave only enables MV2 for [4 extensions](https://brave.com/blog/brave-shields-manifest-v3/), but this doesn't solve anything. The issue isn't that any extension can be MV2, it's the use of MV2 extensions themselves. See the [content blocking](#content-blocking) section why MV2 is specifically an issue. Whitelisting these extensions doesn't solve the issues with MV2 and only puts more users at risk, especially since they whitelist uMatrix (they admit it in their own blog post), which is no longer maintained.
@@ -132,6 +128,10 @@ To give some credit where it is due, Brave does have some decent changes. For ex
 Overall, on desktop, Brave is rather useless. It is filled with bloat and any security or privacy advantages, even the adblocker, can be achieved with Chrome. However, on Android, if you do not have access to Vanadium, then Brave is probably the next best choice. Chrome on Android isn't bad, but Brave actually offers more there and the bloat is way less noticeable and easier to turn off. Brave has also recently started offering "JITless V8 mode" which basically makes the "JavaScript Security & Performance" permission actually control JIT, and not just disable higher-tier JIT optimizing compilers, this can put it slightly ahead of Chrome if this mode is used.
 \
 Another note, Brave does have decently private and end-to-end encrypted browser data sync. This is rare among Chromium browsers (sadly), so if you need sync then Brave would likely be your best bet.
+
+### Opera
+
+Avoid. It has mandatory telemetry, a poor update cycle, and tons of feature bloat. It has very few if any advantages over Chrome. It does have a decent content-blocker, but I'm not certain if it has decent security (more on this later). Overall, not a great option.
 
 ### Vivaldi
 
@@ -187,7 +187,7 @@ Security-wise, Safari/Webkit is pretty decent. It may be behind on web standards
 
 These browsers cannot offer site-isolation due to how Android WebView is designed, websites are only isolated from the system not each other. Typically they do not have strong partitioning and are very minimal in their feature set.
 
-## Popular security-focused options
+## Popular security-centric options
 
 This section is dedicated to a few options people often recommend explicitly for security reasons, but the options themselves are rather niche. For example, Brave is *not* a security option but it is a very popular recommendation for "security" but it is not itself a security focused browser. Same follows for other projects claiming the same thing, such as LibreWolf. This section has projects that actually *try* to improve browser security.
 
