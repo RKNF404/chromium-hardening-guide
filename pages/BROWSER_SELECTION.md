@@ -2,45 +2,45 @@
 
 [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
 
-## Selection Guide Summary
+## Selection guide summary
 
-The TL;DR of this page is `When in doubt, use Chrome and apply the guide.` Otherwise:
-- Windows - Google Chrome or Microsoft Edge, either work with pros and cons for each, note that Edge is not covered by this guide
-- MacOS - Google Chrome
-- Android - Google Chrome or Brave, depending on need, since you can't configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode) but Brave has more attack surface and a worse update cycle, also adblocker
-  - GrapheneOS - Vanadium
+The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherwise:
+- Windows — Google Chrome or Microsoft Edge, either work with pros and cons for each. Note that Edge is not covered by this guide.
+- MacOS — Google Chrome
+- Android — Google Chrome or Brave, depending on need, since you cannot configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode), but Brave has more attack surface and a worse update cycle. Brave also comes with an adblocker.
+  - GrapheneOS — Vanadium
 - Linux
-  - Fedora-based - Trivalent
-  - Arch Linux - [official repos packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
-  - Debian-based - Google Chrome
-  - NixOS - [Nix packaging of Chromium](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
+  - Fedora-based — [Trivalent](https://github.com/secureblue/Trivalent)
+  - Arch Linux — [official Arch package of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
+  - Debian-based — Google Chrome
+  - NixOS — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## Contents
 
-- [Baseline Criteria](#baseline-criteria)
-- [Proprietary vs Open-Source](#proprietary-vs-open-source)
-- [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
-  - [Using Multiple Browsers](#using-multiple-browsers) (WIP)
-- [Popular Options](#popular-options)
+- [Baseline criteria](#baseline-criteria)
+- [Proprietary vs. open-source](#proprietary-vs-open-source)
+- [Resisting fingerprinting](#resisting-fingerprinting)
+  - [Using multiple browsers](#using-multiple-browsers)
+- [Popular options](#popular-options)
   - [Chrome](#chrome)
-  - [Edge](#edge)
-  - [Opera](#opera)
-  - [Brave](#brave)
-  - [Vivaldi](#vivaldi)
-  - [Vanilla Chromium](#vanilla-chromium)
+    - [Vanilla Chromium](#vanilla-chromium)
     - [ungoogled-chromium](#ungoogled-chromium)
+  - [Edge](#edge)
+  - [Brave](#brave)
+  - [Opera](#opera)
+  - [Vivaldi](#vivaldi)
   - [Helium](#helium)
   - [Thorium](#thorium)
   - [Flatpak](#flatpak-linux) (Linux)
   - [QtWebEngine](#qtwebengine)
-- [Other Browsers](#other-browsers)
+- [Other browsers](#other-browsers)
   - [Firefox](#firefox)
-    - [FF Flatpak](#ff-flatpak)
-    - [Firefox Forks](#firefox-forks)
+    - [Firefox Flatpak](#firefox-flatpak)
+    - [Firefox forks](#firefox-forks)
   - [Safari/Webkit](#safariwebkit)
     - [Epiphany/WebkitGTK](#epiphanywebkitgtk)
-  - [Android Webview Browsers](#android-webview-browsers)
-- [Popular Security-Centric Options](#popular-security-centric-options)
+  - [Android Webview browsers](#android-webview-browsers)
+- [Popular security-focused options](#popular-security-focused-options)
   - [Vanadium](#vanadium)
   - [Cromite](#cromite)
   - [Trivalent](#trivalent)
@@ -48,7 +48,7 @@ The TL;DR of this page is `When in doubt, use Chrome and apply the guide.` Other
   - [Tor Browser](#tor-browser)
     - [Mullvad](#mullvad-browser)
 
-## Baseline Criteria
+## Baseline criteria
 
 The most important security detail of a browser is 100% update cycle. Everything else security-wise is useless if the browser is updated only once every few months. Vulnerabilities pile up, and the longer they go unpatched, the worse it gets. For reference, Chromium/Chrome is usually updated weekly or biweekly excluding holidays. Each update usually has at least one high-severity vulnerability, or at least a few medium/low. 2 months without updates essentially results in 6+ high severity vulnerabilities, plus the other severity vulnerabilities. No amount of hardening will compensate for that.
 \
@@ -61,11 +61,11 @@ The last aspect is additional features on top of vanilla Chromium and more secur
 \
 **TL;DR:** If the variant does something worse than Chrome, avoid it. The only leeway is on update cycle, it is physically impossible to beat Chrome's releases. Anything within 2-3 days is acceptable, but the sooner the better. Less resourced projects have more leeway in this regard, as it is unreasonable to expect that level of speed from them. If the variant does something better for security/privacy, that is a reason to use it, but it shouldn't overshadow downsides.
 
-## Proprietary vs Open-Source
+## Proprietary vs. open-source
 
 Long story short, it makes no difference. Open-source is preferable for transparency reasons, but has little effect on anything in the baseline criteria. Consider the option more like a tie-breaker than a genuine advantage to consider.
 
-## Resisting Fingerprinting
+## Resisting fingerprinting
 
 Browser fingerprinting can be best summarized as websites identifying a browser using a collection of metrics which could individually identify two browsers from each other. A common example is graphical rendering APIs, such as Canvas and WebGL, these can vary based on a system's graphics card, the graphics driver, the system's processor, the display used, etc. This alone allows for an unimaginable amount of combinations that all cause a unique "fingerprint", due to how each one varies slightly. Mind you, this is one metric, there are several, some more revealing and some less.
 \
@@ -79,7 +79,7 @@ Quick Summary:
 - Generally very ineffective. Even something more comprehensive like Brave is very flawed.
 - If you absolutely *need* it, use a VM with Tor Browser. **Do not use Tor outside a VM.**
 
-### Using Multiple Browsers
+### Using multiple browsers
 
 This is a very outdated and ineffective practice. The core idea stems from having to browsers separates your online persona into two profiles which is *supposed* to isolate your fingerprint.
 \
@@ -87,13 +87,23 @@ This is essentially privacy theatre. In reality, using different browser doesn't
 \
 A significantly better approach is using your browser's built-in profile management system and creating a second profile, this keeps just one browser and achieves effectively the same thing. Does it resist fingerprinting? Not really, but it does isolate data and reduce browsing overlap between personas, if that is what you are aiming to do.
 
-## Popular Options
+## Popular options
 
 ### Chrome
 
 This is the baseline/standard, everything else must either match or beat this to be considered. This guide assumes the usage of Chrome in certain sections, since it is the most general and most common. Chrome has the fastest update cycle and is the most functional/well tested. It is constantly improving and even if it has weak defaults, it is trivial to improve many of them. If you don't know what option to pick, use Chrome.
 \
 The only downside is that Chrome is proprietary. This has no effect on security nor significant effect on privacy, it is essentially vanilla Chromium with a few proprietary additions and licenced libraries. Most of the intrusive stuff is disabled by following this guide.
+
+#### Vanilla Chromium
+
+This depends heavily, but usually these are just open-source variants of Chrome with worse update-cycles. As mentioned in the [baseline](#baseline) section, some have terrible building standards, like disabling CFI or unbundling everything under the sun. Some variants (used to) go further by disabling the default memory allocator (PartitionAlloc), Debian for example used to use tcmalloc which is borderline a zero-security allocator built for performance. Replacing the allocator was deprecated in Chromium for security reasons so no variants offer that anymore. Some builds lack CFI (this has been improving recently it seems), Fedora linux  and many simple distros like [Arch](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/blob/cd8f1d1e907b39dd2f1f494febba26d535f9b18a/PKGBUILD#L168) keep it enabled. Research your specific distro, see what they do, how much do they bundle/unbundle.
+
+##### ungoogled-chromium
+
+[Bad](https://qua3k.github.io/ungoogled/). The update cycle is inconsistent at best, slow at worst. It disables the component updater which Chromium depends on for security reasons, since many features such as CRLSets (used for certificate revocation) are updated as a component. The privacy isn't terrible, in the sense that no data can be collected, but the substantial security risk it offers is a massive negative.
+\
+It suffers the issues of typical vanilla builds, but with the added issues of ungoogled-chromium itself. For example, usage of [tcmalloc in the past](https://github.com/ungoogled-software/ungoogled-chromium-debian/commit/9f7246d1c29d58cd467c540d580ab15bcc9e8b88).
 
 ### Edge
 
@@ -127,16 +137,6 @@ Another note, Brave does have decently private and end-to-end encrypted browser 
 
 ***Horrific*** update cycle. It is proprietary, which isn't the worst, but it is difficult to analyze how good it really is, build-wise. Though they do publish gapped [source code](https://vivaldi.com/source) (meaning some parts of the code are missing, for reference vanilla Chromium is around 3.5-4 gigs when compressed, Vivaldi is around 2 if I recall correctly). It makes little improvements on Chrome, it does allow you to disable some intrusive integrations and has a content-blocker, but these are minor additions. It also has ***massive*** feature bloat. Again, mandatory telemetry which is surprisingly common.
 
-### Vanilla Chromium
-
-This depends heavily, but usually these are just open-source variants of Chrome with worse update-cycles. As mentioned in the [baseline](#baseline) section, some have terrible building standards, like disabling CFI or unbundling everything under the sun. Some variants (used to) go further by disabling the default memory allocator (PartitionAlloc), Debian for example used to use tcmalloc which is borderline a zero-security allocator built for performance. Replacing the allocator was deprecated in Chromium for security reasons so no variants offer that anymore. Some builds lack CFI (this has been improving recently it seems), Fedora linux  and many simple distros like [Arch](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/blob/cd8f1d1e907b39dd2f1f494febba26d535f9b18a/PKGBUILD#L168) keep it enabled. Research your specific distro, see what they do, how much do they bundle/unbundle.
-
-#### ungoogled-chromium
-
-[Bad](https://qua3k.github.io/ungoogled/). The update cycle is inconsistent at best, slow at worst. It disables the component updater which Chromium depends on for security reasons, since many features such as CRLSets (used for certificate revocation) are updated as a component. The privacy isn't terrible, in the sense that no data can be collected, but the substantial security risk it offers is a massive negative.
-\
-It suffers the issues of typical vanilla builds, but with the added issues of ungoogled-chromium itself. For example, usage of [tcmalloc in the past](https://github.com/ungoogled-software/ungoogled-chromium-debian/commit/9f7246d1c29d58cd467c540d580ab15bcc9e8b88).
-
 ### Helium
 
 [Helium](https://helium.computer/) is a browser based on UGC (ungoogled-chromium). It makes use of patches from many sources, including its own. Most of the patches are usability focused, such as [bangs support](https://github.com/imputnet/helium/blob/main/patches/helium/core/add-native-bangs.patch) and a custom service that acts as a provider for various things throughout the browser (that can be self-hosted). The most notable issue though is the preloading of an extension, uBlock Origin. Some may consider this positive, but [it is not](#content-blocking). This a decently large source of fingerprinting and attack surface, even if it were uBlock Origin Lite (uBO MV3 variant), this is still not a good idea. Extensions should be avoided where possible, and baking them in is an anti-feature, even if they provide useful functionality. Despite it being based on UGC, Helium's services feature provides a proxy for performing component updates, which is very nice but is also only a fix for an issue in UGC, it isn't an actual improvement over Chromium.
@@ -157,7 +157,7 @@ As mentioned in the [Brave](#brave) section, ***avoid***! Flatpak's security is.
 
 Browsers based on QtWebEngine (for example [KDE’s Falkon](https://apps.kde.org/falkon/)) should generally be avoided. QtWebEngine forks a specific Chromium version at feature freeze and then [cherry‑picks security fixes](https://www.qt.io/blog/putting-updates-of-chromium-in-qtwebengine-on-a-timeline) from newer upstream releases. That approach can leave a longer exposure window than browsers that track Chromium directly. Cherry‑picking is error‑prone and may miss fixes that rely on broader refactors or API changes, increasing the likelihood that patches are incomplete.
 
-## Other Browsers
+## Other browsers
 
 Anything *not* directly based on Chromium.
 
@@ -169,7 +169,7 @@ Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefo
 
 Despite Firefox's poor security, the browser does have some form of sandboxing, which is critical to what little security it has. Above there is a section about how Flatpak interferes with the Chromium sandboxing architecture. Well, the same is true for Firefox, Firefox depends on userns for a portion of its sandboxing. The question is how does Firefox account for a lack of usernamespaces? Simple. It doesn't. Firefox just... pretends they don't exist, but only in Flatpak. They did add a warning about a lack of userns access for environments without userns and that sandboxing and security may suffer, but this warning is just disabled in the *official* Firefox Flatpak package. If you are really deadset on using Firefox then at the very least *avoid* the Flatpak. Just a general rule of thumb for all browsers really.
 
-#### Firefox Forks
+#### Firefox forks
 
 Most Firefox forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles. There are no Firefox-based browsers that are except to this, except maybe Tor Browser.
 \
@@ -183,11 +183,11 @@ Security-wise, Safari/Webkit is pretty decent. It may be behind on web standards
 
 (I believe) WebkitGTK is the official Webkit port to Linux. It shares many of the same features of regular Webkit, sans some stuff that are iOS/macOS/Apple specific. It is the only browser to support proper sandboxing in Flatpak but said sandboxing is notably weaker than native (non-Flatpak, non-Snap) Chromium.
 
-### Android Webview Browsers
+### Android Webview browsers
 
 These browsers cannot offer site-isolation due to how Android WebView is designed, websites are only isolated from the system not each other. Typically they do not have strong partitioning and are very minimal in their feature set.
 
-## Popular Security-Centric Options
+## Popular security-focused options
 
 This section is dedicated to a few options people often recommend explicitly for security reasons, but the options themselves are rather niche. For example, Brave is *not* a security option but it is a very popular recommendation for "security" but it is not itself a security focused browser. Same follows for other projects claiming the same thing, such as LibreWolf. This section has projects that actually *try* to improve browser security.
 
