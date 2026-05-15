@@ -11,7 +11,7 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
   - GrapheneOS — Vanadium
 - Linux
   - Fedora-based — [Trivalent](https://github.com/secureblue/Trivalent)
-  - Arch Linux — [official Arch package of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
+  - Arch Linux — [official repository's packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
   - Debian-based — Google Chrome
   - NixOS — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
