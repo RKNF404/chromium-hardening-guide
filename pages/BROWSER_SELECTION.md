@@ -19,8 +19,8 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
 
 - [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs. Open-Source](#proprietary-vs-open-source)
-- [Resisting Fingerprinting](#resisting-fingerprinting)
-  - [Using Multiple Browsers](#using-multiple-browsers)
+- [Resisting Fingerprinting](#resisting-fingerprinting) (work in progress)
+  - [Using Multiple Browsers](#using-multiple-browsers) (work in progress)
 - [Popular Options](#popular-options)
   - [Chrome](#chrome)
   - [Edge](#edge)
@@ -67,19 +67,23 @@ Long story short, it makes no difference. Open-source is preferable for transpar
 
 ## Resisting Fingerprinting
 
+*This section is a work in progress.*
+
 Browser fingerprinting can be best summarized as websites identifying a browser using a collection of metrics which could individually identify two browsers from each other. A common example is graphical rendering APIs, such as Canvas and WebGL, these can vary based on a system's graphics card, the graphics driver, the system's processor, the display used, etc. This alone allows for an unimaginable amount of combinations that all cause a unique "fingerprint", due to how each one varies slightly. Mind you, this is one metric, there are several, some more revealing and some less.
 \
 Resisting fingerprinting usually is done one of two ways: randomization and unified crowd blending. Randomizing is the most common and simple technique, basically it adds noise or fake data to exisiting metrics to make them different across visits and sessions. Ideally, this fully evades fingerprinting, since you will look different to every site. Typically it is generated per-load, meaning if you visit a webpage, then reload the webpage, the fingerprint will be slightly different. Brave offers a slightly different approach by offering a per-site per-session fingerprint, this is done by binding the randomized metrics to a site's randomized session key. This will cause each site to have one static fingerprint for the session, but each site will have a different random fingerprint.
 \
 The other approach is unified crowd blending (unoffical term I'm using for convenience). This is often done in tandem with randomization to mask metrics that may be unique. Basically, the goal is to get all users to look as similar as possible. The most popular approach would be Apple's Safari. Since Apple has good control over their hardware production, and Safari basically only runs on their hardware, then most of the metrics that depend on unique hardware combinations are basically identical. This gives the impression that most Safari users are potentially the same user. To my knowledge, Safari doesn't really use randomization and it doesn't really need to.
 
-Quick Summary:
+Quick summary:
 - Nice to have; not a priority.
 - Should not be focal point of the selection process.
 - Generally very ineffective. Even something more comprehensive like Brave is very flawed.
 - If you absolutely *need* it, use a VM with Tor Browser. **Do not use Tor outside a VM.**
 
 ### Using Multiple Browsers
+
+*This section is a work in progress.*
 
 This is a very outdated and ineffective practice. The core idea stems from having to browsers separates your online persona into two profiles which is *supposed* to isolate your fingerprint.
 \
