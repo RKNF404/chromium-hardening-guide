@@ -1,4 +1,4 @@
-# Selecting A Browser
+# Selecting a Browser
 
 [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
 
@@ -11,7 +11,7 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
   - GrapheneOS — Vanadium
 - Linux
   - Fedora-based — [Trivalent](https://github.com/secureblue/Trivalent)
-  - Arch Linux — [official Arch package of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
+  - Arch Linux — [official repository's packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
   - Debian-based — Google Chrome
   - NixOS — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
@@ -27,16 +27,16 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
   - [Opera](#opera)
   - [Brave](#brave)
   - [Vivaldi](#vivaldi)
-  - [ungoogled-chromium](#ungoogled-chromium)
-  - [Flatpak](#flatpak-linux) (Linux)
+  - [Vanilla Chromium](#vanilla-chromium)
+    - [ungoogled-chromium](#ungoogled-chromium)
+  - [Helium](#helium)
+  - [Thorium](#thorium)
+  - [Flatpak (Linux)](#flatpak-linux)
+  - [QtWebEngine](#qtwebengine)
 - [Other Browsers](#other-browsers)
   - [Firefox](#firefox)
     - [Firefox Flatpak](#firefox-flatpak)
     - [Firefox Forks](#firefox-forks)
-  - [Vanilla Chromium](#vanilla-chromium)
-  - [Helium](#helium)
-  - [Thorium](#thorium)
-  - [QtWebEngine](#qtwebengine)
   - [Safari/WebKit](#safariwebkit)
     - [Epiphany/WebKitGTK](#epiphanywebkitgtk)
   - [Android WebView Browsers](#android-webview-browsers)
@@ -127,17 +127,39 @@ Another note, Brave does have decently private and end-to-end encrypted browser 
 
 ***Horrific*** update cycle. It is proprietary, which isn't the worst, but it is difficult to analyze how good it really is, build-wise. Though they do publish gapped [source code](https://vivaldi.com/source) (meaning some parts of the code are missing, for reference vanilla Chromium is around 3.5-4 gigs when compressed, Vivaldi is around 2 if I recall correctly). It makes little improvements on Chrome, it does allow you to disable some intrusive integrations and has a content-blocker, but these are minor additions. It also has ***massive*** feature bloat. Again, mandatory telemetry which is surprisingly common.
 
-### ungoogled-chromium
+### Vanilla Chromium
+
+This depends heavily, but usually these are just open-source variants of Chrome with worse update-cycles. As mentioned in the [baseline](#baseline) section, some have terrible building standards, like disabling CFI or unbundling everything under the sun. Some variants (used to) go further by disabling the default memory allocator (PartitionAlloc), Debian for example used to use tcmalloc which is borderline a zero-security allocator built for performance. Replacing the allocator was deprecated in Chromium for security reasons so no variants offer that anymore. Some builds lack CFI (this has been improving recently it seems), Fedora linux  and many simple distros like [Arch](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/blob/cd8f1d1e907b39dd2f1f494febba26d535f9b18a/PKGBUILD#L168) keep it enabled. Research your specific distro, see what they do, how much do they bundle/unbundle.
+
+#### ungoogled-chromium
 
 [Bad](https://qua3k.github.io/ungoogled/). The update cycle is inconsistent at best, slow at worst. It disables the component updater which Chromium depends on for security reasons, since many features such as CRLSets (used for certificate revocation) are updated as a component. The privacy isn't terrible, in the sense that no data can be collected, but the substantial security risk it offers is a massive negative.
 \
 It suffers the issues of typical vanilla builds, but with the added issues of ungoogled-chromium itself. For example, usage of [tcmalloc in the past](https://github.com/ungoogled-software/ungoogled-chromium-debian/commit/9f7246d1c29d58cd467c540d580ab15bcc9e8b88).
 
+### Helium
+
+[Helium](https://helium.computer/) is a browser based on UGC (ungoogled-chromium). It makes use of patches from many sources, including its own. Most of the patches are usability focused, such as [bangs support](https://github.com/imputnet/helium/blob/main/patches/helium/core/add-native-bangs.patch) and a custom service that acts as a provider for various things throughout the browser (that can be self-hosted). The most notable issue though is the preloading of an extension, uBlock Origin. Some may consider this positive, but [it is not](#content-blocking). This a decently large source of fingerprinting and attack surface, even if it were uBlock Origin Lite (uBO MV3 variant), this is still not a good idea. Extensions should be avoided where possible, and baking them in is an anti-feature, even if they provide useful functionality. Despite it being based on UGC, Helium's services feature provides a proxy for performing component updates, which is very nice but is also only a fix for an issue in UGC, it isn't an actual improvement over Chromium.
+\
+Additionally, the developers do seem to have strong security focus on not regressing existing features within the browser. Such is the case with [Flatpak support](https://github.com/imputnet/helium-linux/issues/46#issuecomment-3735501507) for Helium devs seem disliken to the fact that Flatpak regresses browser sandboxes, big respect.
+\
+On that note, I am unsure if this browser is worth using over Chrome, or even Brave, for security. It does not really do much to improve on the security of Chromium, most patches are focused on usability and de-regessing the security of UGC. It is sitting in the same spot as Brave, where it has some nice features but most of what it does is adjacent to Chrome or a security regression in some way. I cannot recommend it currently. The update cycle looks to be a few days past upstream releases, which is fine and matches what most major non-rolling Linux distros can do, if not better.
+
+### Thorium
+
+[The update cycle](https://github.com/Alex313031/thorium/releases) is giving me a panic attack. They used to release once every few months (alike to how Vivaldi releases) and were still usually a few releases behind. Just recently they switched to the LTS branch of Chromium, which isn't ideal. Security fixes are pushed out weekly, the LTS branch updates features twice a year but still updates in between for security patches. I don't know how this will be handled, but I don't believe the minor version bumps will be handled by Thorium which is a concern. Cannot recommend for any reasonable level of security concern.
+
 ### Flatpak (Linux)
 
 As mentioned in the [Brave](#brave) section, ***avoid***! Flatpak's security is... questionable for a number of reasons, but what's worse is Chromium's security in Flatpak. Because Flatpak restricts the usage of Linux namespaces and prevents the use of SUID (for good reason), Chromium's sandbox will literally not work. The solution is [zypak](https://github.com/refi64/zypak) or a [direct patch](https://github.com/flathub/org.chromium.Chromium/blob/master/patches/chromium/flatpak-Add-initial-sandbox-support.patch), the problem is these methods are very poorly configured to the point they essentially break the typically very strong sandboxing that Chromium provides. These solutions are closer to compatibility layers than they are genuine [security solutions](https://issues.chromium.org/issues/40753165#comment11). Upstream (Chromium devs) have expressed they do no intend to support Flatpak [anytime soon](https://issues.chromium.org/issues/40928753#comment5) for reasons alike to this. Flatpak *significantly* inhibits Chromium's sandboxing, and there is no faithful implementation currently.
 
+### QtWebEngine
+
+Browsers based on QtWebEngine (for example [KDE’s Falkon](https://apps.kde.org/falkon/)) should generally be avoided. QtWebEngine forks a specific Chromium version at feature freeze and then [cherry‑picks security fixes](https://www.qt.io/blog/putting-updates-of-chromium-in-qtwebengine-on-a-timeline) from newer upstream releases. That approach can leave a longer exposure window than browsers that track Chromium directly. Cherry‑picking is error‑prone and may miss fixes that rely on broader refactors or API changes, increasing the likelihood that patches are incomplete.
+
 ## Other Browsers
+
+Anything *not* directly based on Chromium.
 
 ### Firefox
 
@@ -152,26 +174,6 @@ Despite Firefox's poor security, the browser does have some form of sandboxing, 
 Most Firefox forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles. There are no Firefox-based browsers that are except to this, except maybe Tor Browser.
 \
 Although, I will talk about 2 desktop forks specifically, LibreWolf and Pale Moon. LibreWolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features Firefox adds (as rare as that is) will not get properly added, if they get added at all.
-
-### Vanilla Chromium
-
-This depends heavily, but usually these are just open-source variants of Chrome with worse update-cycles. As mentioned in the [baseline](#baseline) section, some have terrible building standards, like disabling CFI or unbundling everything under the sun. Some variants (used to) go further by disabling the default memory allocator (PartitionAlloc), Debian for example used to use tcmalloc which is borderline a zero-security allocator built for performance. Replacing the allocator was deprecated in Chromium for security reasons so no variants offer that anymore. Some builds lack CFI (this has been improving recently it seems), Fedora linux  and many simple distros like [Arch](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/blob/cd8f1d1e907b39dd2f1f494febba26d535f9b18a/PKGBUILD#L168) keep it enabled. Research your specific distro, see what they do, how much do they bundle/unbundle.
-
-### Helium
-
-[Helium](https://helium.computer/) is a browser based on UGC (ungoogled-chromium). It makes use of patches from many sources, including its own. Most of the patches are usability focused, such as [bangs support](https://github.com/imputnet/helium/blob/main/patches/helium/core/add-native-bangs.patch) and a custom service that acts as a provider for various things throughout the browser (that can be self-hosted). The most notable issue though is the preloading of an extension, uBlock Origin. Some may consider this positive, but [it is not](#content-blocking). This a decently large source of fingerprinting and attack surface, even if it were uBlock Origin Lite (uBO MV3 variant), this is still not a good idea. Extensions should be avoided where possible, and baking them in is an anti-feature, even if they provide useful functionality. Despite it being based on UGC, Helium's services feature provides a proxy for performing component updates, which is very nice but is also only a fix for an issue in UGC, it isn't an actual improvement over Chromium.
-\
-Additionally, the developers do seem to have strong security focus on not regressing existing features within the browser. Such is the case with [Flatpak support](https://github.com/imputnet/helium-linux/issues/46#issuecomment-3735501507) for Helium devs seem disliken to the fact that Flatpak regresses browser sandboxes, big respect.
-\
-On that note, I am unsure if this browser is worth using over Chrome, or even Brave, for security. It does not really do much to improve on the security of Chromium, most patches are focused on usability and de-regessing the security of UGC. It is sitting in the same spot as Brave, where it has some nice features but most of what it does is adjacent to Chrome or a security regression in some way. I cannot recommend it currently. The update cycle looks to be a few days past upstream releases, which is fine and matches what most major non-rolling Linux distros can do, if not better.
-
-### Thorium
-
-[The update cycle](https://github.com/Alex313031/thorium/releases) is giving me a panic attack. They used to release once every few months (alike to how Vivaldi releases) and were still usually a few releases behind. Just recently they switched to the LTS branch of Chromium, which isn't ideal. Security fixes are pushed out weekly, the LTS branch updates features twice a year but still updates in between for security patches. I don't know how this will be handled, but I don't believe the minor version bumps will be handled by Thorium which is a concern. Cannot recommend for any reasonable level of security concern.
-
-### QtWebEngine
-
-Browsers based on QtWebEngine (for example [KDE’s Falkon](https://apps.kde.org/falkon/)) should generally be avoided. QtWebEngine forks a specific Chromium version at feature freeze and then [cherry‑picks security fixes](https://www.qt.io/blog/putting-updates-of-chromium-in-qtwebengine-on-a-timeline) from newer upstream releases. That approach can leave a longer exposure window than browsers that track Chromium directly. Cherry‑picking is error‑prone and may miss fixes that rely on broader refactors or API changes, increasing the likelihood that patches are incomplete.
 
 ### Safari/WebKit
 
