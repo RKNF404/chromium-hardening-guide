@@ -1,26 +1,26 @@
-# Selecting a browser
+# Selecting a Browser
 
 [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
 
 ## Selection Guide Summary
 
-The TL;DR of this page is `When in doubt, use Chrome and apply the guide.` Otherwise:
-- Windows - Google Chrome or Microsoft Edge, either work with pros and cons for each, note that Edge is not covered by this guide
-- MacOS - Google Chrome
-- Android - Google Chrome or Brave, depending on need, since you can't configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode) but Brave has more attack surface and a worse update cycle, also adblocker
-  - GrapheneOS - Vanadium
+The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherwise:
+- Windows — Google Chrome or Microsoft Edge, either work with pros and cons for each. Note that Edge is not covered by this guide.
+- MacOS — Google Chrome
+- Android — Google Chrome or Brave, depending on need, since you cannot configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode), but Brave has more attack surface and a worse update cycle. Brave also comes with an adblocker.
+  - GrapheneOS — Vanadium
 - Linux
-  - Fedora-based - Trivalent
-  - Arch Linux - [official repos packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
-  - Debian-based - Google Chrome
-  - NixOS - [Nix packaging of Chromium](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
+  - Fedora-based — [Trivalent](https://github.com/secureblue/Trivalent)
+  - Arch Linux — [official repository's packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
+  - Debian-based — Google Chrome
+  - NixOS — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## Contents
 
 - [Baseline Criteria](#baseline-criteria)
-- [Proprietary vs Open-Source](#proprietary-vs-open-source)
-- [Resisting Fingerprinting](#resisting-fingerprinting) (WIP)
-  - [Using Multiple Browsers](#using-multiple-browsers) (WIP)
+- [Proprietary vs. Open-Source](#proprietary-vs-open-source)
+- [Resisting Fingerprinting](#resisting-fingerprinting) (work in progress)
+  - [Using Multiple Browsers](#using-multiple-browsers) (work in progress)
 - [Popular Options](#popular-options)
   - [Chrome](#chrome)
   - [Edge](#edge)
@@ -31,15 +31,15 @@ The TL;DR of this page is `When in doubt, use Chrome and apply the guide.` Other
     - [ungoogled-chromium](#ungoogled-chromium)
   - [Helium](#helium)
   - [Thorium](#thorium)
-  - [Flatpak](#flatpak-linux) (Linux)
+  - [Flatpak (Linux)](#flatpak-linux)
   - [QtWebEngine](#qtwebengine)
 - [Other Browsers](#other-browsers)
   - [Firefox](#firefox)
-    - [FF Flatpak](#ff-flatpak)
+    - [Firefox Flatpak](#firefox-flatpak)
     - [Firefox Forks](#firefox-forks)
-  - [Safari/Webkit](#safariwebkit)
-    - [Epiphany/WebkitGTK](#epiphanywebkitgtk)
-  - [Android Webview Browsers](#android-webview-browsers)
+  - [Safari/WebKit](#safariwebkit)
+    - [Epiphany/WebKitGTK](#epiphanywebkitgtk)
+  - [Android WebView Browsers](#android-webview-browsers)
 - [Popular Security-Centric Options](#popular-security-centric-options)
   - [Vanadium](#vanadium)
   - [Cromite](#cromite)
@@ -61,11 +61,13 @@ The last aspect is additional features on top of vanilla Chromium and more secur
 \
 **TL;DR:** If the variant does something worse than Chrome, avoid it. The only leeway is on update cycle, it is physically impossible to beat Chrome's releases. Anything within 2-3 days is acceptable, but the sooner the better. Less resourced projects have more leeway in this regard, as it is unreasonable to expect that level of speed from them. If the variant does something better for security/privacy, that is a reason to use it, but it shouldn't overshadow downsides.
 
-## Proprietary vs Open-Source
+## Proprietary vs. Open-Source
 
 Long story short, it makes no difference. Open-source is preferable for transparency reasons, but has little effect on anything in the baseline criteria. Consider the option more like a tie-breaker than a genuine advantage to consider.
 
 ## Resisting Fingerprinting
+
+*This section is a work in progress.*
 
 Browser fingerprinting can be best summarized as websites identifying a browser using a collection of metrics which could individually identify two browsers from each other. A common example is graphical rendering APIs, such as Canvas and WebGL, these can vary based on a system's graphics card, the graphics driver, the system's processor, the display used, etc. This alone allows for an unimaginable amount of combinations that all cause a unique "fingerprint", due to how each one varies slightly. Mind you, this is one metric, there are several, some more revealing and some less.
 \
@@ -73,13 +75,15 @@ Resisting fingerprinting usually is done one of two ways: randomization and unif
 \
 The other approach is unified crowd blending (unoffical term I'm using for convenience). This is often done in tandem with randomization to mask metrics that may be unique. Basically, the goal is to get all users to look as similar as possible. The most popular approach would be Apple's Safari. Since Apple has good control over their hardware production, and Safari basically only runs on their hardware, then most of the metrics that depend on unique hardware combinations are basically identical. This gives the impression that most Safari users are potentially the same user. To my knowledge, Safari doesn't really use randomization and it doesn't really need to.
 
-Quick Summary:
+Quick summary:
 - Nice to have; not a priority.
 - Should not be focal point of the selection process.
 - Generally very ineffective. Even something more comprehensive like Brave is very flawed.
 - If you absolutely *need* it, use a VM with Tor Browser. **Do not use Tor outside a VM.**
 
 ### Using Multiple Browsers
+
+*This section is a work in progress.*
 
 This is a very outdated and ineffective practice. The core idea stems from having to browsers separates your online persona into two profiles which is *supposed* to isolate your fingerprint.
 \
@@ -175,15 +179,15 @@ Most Firefox forks are just regular Firefox with either UI changes or some chang
 \
 Although, I will talk about 2 desktop forks specifically, LibreWolf and Pale Moon. LibreWolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features Firefox adds (as rare as that is) will not get properly added, if they get added at all.
 
-### Safari/Webkit
+### Safari/WebKit
 
-Security-wise, Safari/Webkit is pretty decent. It may be behind on web standards but it has strong partitioning, strong sandboxing, and robust mitigations on all supported platforms. Additionally, it can disable JIT JavaScript (and many other web features) on iOS and macOS per-site using Lockdown Mode to be W^X compliant, though most websites will likely break.
+Security-wise, Safari/WebKit is pretty decent. It may be behind on web standards but it has strong partitioning, strong sandboxing, and robust mitigations on all supported platforms. Additionally, it can disable JIT JavaScript (and many other web features) on iOS and macOS per-site using Lockdown Mode to be W^X compliant, though most websites will likely break.
 
-#### Epiphany/WebkitGTK
+#### Epiphany/WebKitGTK
 
-(I believe) WebkitGTK is the official Webkit port to Linux. It shares many of the same features of regular Webkit, sans some stuff that are iOS/macOS/Apple specific. It is the only browser to support proper sandboxing in Flatpak but said sandboxing is notably weaker than native (non-Flatpak, non-Snap) Chromium.
+(I believe) WebKitGTK is the official WebKit port to Linux. It shares many of the same features of regular WebKit, sans some stuff that are iOS/macOS/Apple specific. It is the only browser to support proper sandboxing in Flatpak but said sandboxing is notably weaker than native (non-Flatpak, non-Snap) Chromium.
 
-### Android Webview Browsers
+### Android WebView Browsers
 
 These browsers cannot offer site-isolation due to how Android WebView is designed, websites are only isolated from the system not each other. Typically they do not have strong partitioning and are very minimal in their feature set.
 
