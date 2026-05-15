@@ -32,7 +32,7 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
 - [Other Browsers](#other-browsers)
   - [Firefox](#firefox)
     - [Firefox Flatpak](#firefox-flatpak)
-    - [Firefox forks](#firefox-forks)
+    - [Firefox Forks](#firefox-forks)
   - [Vanilla Chromium](#vanilla-chromium)
   - [Helium](#helium)
   - [Thorium](#thorium)
