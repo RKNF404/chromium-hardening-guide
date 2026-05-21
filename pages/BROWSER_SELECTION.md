@@ -5,7 +5,7 @@
 ## Selection Guide Summary
 
 The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherwise:
-- Windows — Google Chrome or Microsoft Edge, either work with pros and cons for each. Note that Edge is not covered by this guide.
+- Windows — Google Chrome
 - MacOS — Google Chrome
 - Android — Google Chrome or Brave, depending on need, since you cannot configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode), but Brave has more attack surface and a worse update cycle. Brave also comes with an adblocker.
   - GrapheneOS — Vanadium
@@ -104,7 +104,7 @@ The only downside is that Chrome is proprietary. This has no effect on security 
 
 A very highly regarded option, Edge makes decent security improvements on-top of Chrome, especially on Windows. Such as their Enhanced Security Mode, previously [Super Duper Secure Mode](https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/), the use of the Code Integrity Guard (CIG) mitigation on the main browser process (since it prevents non-MS signed binaries from being executed, Edge is the only browser that can fully enable it), and the default use of AppContainer sandboxing for renderer processes on Windows. On Linux, it also offers a feature to enforce memory W^X on renderers with JIT disabled (last I checked this enforcement was disabled by default, but it can be enabled through `edge://flags`), which is currently only offered by Edge and [Trivalent](https://github.com/secureblue/Trivalent/blob/8b0a3cb6666df76e6bdd421fbb547bcb399c4f59/vanadium_patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch) (courtesy of [Vanadium](https://github.com/GrapheneOS/Vanadium/blob/83d42785c127719cc52d00014bb8853f4ad18900/patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch)).
 \
-The main issue with Edge is telemetry, it is *mandatory* without Windows Enterprise/Educational editions. This makes it a non-contender for privacy outside of those OS's, but decent for security. It's update cycle can occasionally be spotty, skipping release every now-and-again. Overall, it's about equal to Chrome. Also, Edge seems rather [negligent of security issues sometimes](https://www.forbes.com/sites/daveywinder/2026/05/19/microsoft-does-u-turn-on-edge-by-design-password-vulnerability/), in this case they openly disregarded the issue and went back to fix it after criticism.
+The main issue with Edge is telemetry, it is *mandatory* without Windows Enterprise/Educational editions. This makes it a non-contender for privacy outside of those OS's, but decent for security. It's update cycle can occasionally be spotty, skipping release every now-and-again. Overall, it's about equal to Chrome. Also, Edge seems rather [negligent of security issues sometimes](https://www.forbes.com/sites/daveywinder/2026/05/19/microsoft-does-u-turn-on-edge-by-design-password-vulnerability/), in this case they openly disregarded the issue and went back to fix it after criticism. Edge used to be recommended beside Chrome in this guide, but their disregard for issues like this makes it hard to recommend anymore.
 \
 This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and macOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
 
