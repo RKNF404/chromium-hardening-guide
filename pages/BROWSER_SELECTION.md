@@ -156,7 +156,7 @@ Cromite is [not a security-focused browser](https://discuss.grapheneos.org/d/165
 \
 Cromite, from what I have seen, is in the same spot as Brave. It doesn't improve that much on-top of Chromium security-wise, mostly just a vague privacy and freedom promoting way. It has many of the same flaws as Brave and not as many of the same benefits. I wouldn't call the browser security-focused currently, nor do I see a reason to use it for improved security over something like Chrome or a decent Chromium build.
 \
-As of recently, [according to the developer](https://github.com/uazo/cromite/issues/2884#issuecomment-4388203683), Cromite's maintainence will be spotty until September of 2026. As of the time of writing this, Cromite last updated on April 10th, on May 21st there are approximately 300 CVEs patched since April 7th. Until the situation improves, you should avoid using Cromite.
+As of recently, [according to the developer](https://github.com/uazo/cromite/issues/2884#issuecomment-4388203683), Cromite's maintainence will be spotty until September of 2026. At the time of writing this, Cromite last updated on April 10th (for v147.0.7727.56 released on [April 7th](https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop.html)), on May 21st there are approximately 300 CVEs patched since the last target release. Until the situation improves, you should avoid using Cromite.
 
 ### Helium
 
@@ -164,11 +164,17 @@ As of recently, [according to the developer](https://github.com/uazo/cromite/iss
 \
 Additionally, the developers do seem to have strong security focus on not regressing existing features within the browser. Such is the case with [Flatpak support](https://github.com/imputnet/helium-linux/issues/46#issuecomment-3735501507) for Helium devs seem disliken to the fact that Flatpak regresses browser sandboxes, big respect.
 \
-On that note, I am unsure if this browser is worth using over Chrome, or even Brave, for security. It does not really do much to improve on the security of Chromium, most patches are focused on usability and de-regessing the security of UGC. It is sitting in the same spot as Brave, where it has some nice features but most of what it does is adjacent to Chrome or a security regression in some way. I cannot recommend it currently. The update cycle looks to be a few days past upstream releases, which is fine and matches what most major non-rolling Linux distros can do, if not better.
+On that note, I am unsure if this browser is worth using over Chrome, or even Brave, for security. It does not really do much to improve on the security of Chromium, most patches are focused on usability and de-regessing the security of UGC. It is sitting in the same spot as Brave, where it has some nice features but most of what it does is adjacent to Chrome or a security regression in some way. Currently, it is not an option that can be recommended. The update cycle looks to be a few days past upstream releases, which is fine and matches what most major non-rolling Linux distros can do, if not better.
 
 ### Thorium
 
-[The update cycle](https://github.com/Alex313031/thorium/releases) is giving me a panic attack. They used to release once every few months (alike to how Vivaldi releases) and were still usually a few releases behind. Just recently they switched to the LTS branch of Chromium, which isn't ideal. Security fixes are pushed out weekly, the LTS branch updates features twice a year but still updates in between for security patches. ~I don't know how this will be handled, but I don't believe the minor version bumps will be handled by Thorium which is a concern. Cannot recommend for any reasonable level of security concern.~ It is currently not handled very well, the Chromium LTS branch is updated rarely, but it is updated. Thorium since the start of 2026 has updated twice. In fact, Chromium's LTS branch has already promoted [from 138 to 144](https://chromereleases.googleblog.com/2026/04/long-term-support-lts-channel-for.html) since April of 2026.
+[The update cycle](https://github.com/Alex313031/thorium/releases) is giving me a panic attack. They used to release once every few months (alike to how Vivaldi releases) and were still usually a few releases behind. Just recently they switched to the LTS branch of Chromium, which isn't ideal. Security fixes are pushed out weekly, the LTS branch updates features twice a year but still updates in between for security patches. ~I don't know how this will be handled, but I don't believe the minor version bumps will be handled by Thorium which is a concern. Cannot recommend for any reasonable level of security concern.~ It is currently not handled very well, the Chromium LTS branch is updated rarely, but it is updated. Thorium since the start of 2026 has updated twice. In fact, Chromium's LTS branch has already promoted [from 138 to 144](https://chromereleases.googleblog.com/2026/04/long-term-support-lts-channel-for.html) since April of 2026. To be clear, you should not use Thorium for any reason.
+
+### Supermium
+
+This is a browser mainly designed for legacy OSes, like Windows 7, that modern browsers no longer support. It is hard to comment on this without the expected "do not use Windows 7, update to something modern". That said, if you are forced to use an OS that Supermium does support, for one reason or another, then it isn't the *worst* option.
+\
+It aims for updates within a week of upstream. This is pretty bad, CVEs should ideally be fixed within a few days. That said, it is hard to compare it to anything else that can still update on Win7. So, by virtue of it being the only workable option, it's fine. In any other situation though, this browser should be strictly avoided.
 
 ### Flatpak (Linux)
 
