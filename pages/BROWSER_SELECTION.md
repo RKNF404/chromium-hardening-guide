@@ -9,6 +9,7 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
 - MacOS — Google Chrome
 - Android — Google Chrome or Brave, depending on need, since you cannot configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode), but Brave has more attack surface and a worse update cycle. Brave also comes with an adblocker.
   - GrapheneOS — Vanadium
+- iOS — Safari
 - Linux
   - Fedora-based — [Trivalent](https://github.com/secureblue/Trivalent)
   - Arch Linux — [official repository's packaging of Chromium](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium)
