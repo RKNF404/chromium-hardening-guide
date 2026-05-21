@@ -172,7 +172,7 @@ On that note, I am unsure if this browser is worth using over Chrome, or even Br
 
 ### Supermium
 
-This is a browser mainly designed for legacy OSes, like Windows 7, that modern browsers no longer support. It is hard to comment on this without the expected "do not use Windows 7, update to something modern". That said, if you are forced to use an OS that Supermium does support, for one reason or another, then it isn't the *worst* option.
+This is a browser mainly designed for legacy OSes, like Windows 7, that modern browsers no longer support. It is hard to comment on this without the expected "do not use Windows 7, update to something modern". That said, if you are forced to use an OS that Supermium does support a modern browser doesn't, for one reason or another, then it isn't the *worst* option.
 \
 It aims for updates within a week of upstream. This is pretty bad, CVEs should ideally be fixed within a few days. That said, it is hard to compare it to anything else that can still update on Win7. So, by virtue of it being the only workable option, it's fine. In any other situation though, this browser should be strictly avoided.
 
