@@ -72,10 +72,12 @@ def WriteJsonPolicy(recommend, policies, recommendedPolicies):
         if not os.path.exists('recommended-policy'):
             os.makedirs('recommended-policy')
         with open(Files['linux_recommended_policy'], 'w') as policyOutput:
+            recommendedPolicies = dict(sorted(recommendedPolicies.items()))
             json.dump(recommendedPolicies, policyOutput, indent=4)
     if not os.path.exists('policy'):
         os.makedirs('policy')
     with open(Files['linux_policy'], 'w') as policyOutput:
+        policies = dict(sorted(policies.items()))
         json.dump(policies, policyOutput, indent=4)
     return
 
@@ -100,10 +102,12 @@ def WriteRegPolicy(recommend, policies, recommendedPolicies):
         regPath = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Google\\Chrome'
         policyOutput.write('Windows Registry Editor Version 5.00\n\n')
         if recommend:
+            recommendedPolicies = dict(sorted(recommendedPolicies.items()))
             policyOutput.write(f'[{regPath}\\Recommended]\n')
             for e in recommendedPolicies:
                 policyOutput.write(f'"{e}"={ConvertToRegValue(recommendedPolicies[e])}\n')
             policyOutput.write('\n')
+        policies = dict(sorted(policies.items()))
         policyOutput.write(f'[{regPath}]\n')
         for e in policies:
             policyOutput.write(f'"{e}"={ConvertToRegValue(policies[e])}\n')
