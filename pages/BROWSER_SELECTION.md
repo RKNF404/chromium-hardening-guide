@@ -20,8 +20,8 @@ The TL;DR of this page is: when in doubt, use Chrome and apply the guide. Otherw
 
 - [Baseline Criteria](#baseline-criteria)
 - [Proprietary vs. Open-Source](#proprietary-vs-open-source)
-- [Resisting Fingerprinting](#resisting-fingerprinting) (work in progress)
-  - [Using Multiple Browsers](#using-multiple-browsers) (work in progress)
+- [Resisting Fingerprinting](#resisting-fingerprinting)
+  - [Using Multiple Browsers](#using-multiple-browsers)
 - [Popular Options](#popular-options)
   - [Chrome](#chrome)
   - [Edge](#edge)
@@ -86,13 +86,11 @@ If you want a simple solution, use Tor Browser in a virtual machine. It provides
 
 ### Using Multiple Browsers
 
-*This section is a work in progress.*
-
 This is a very outdated and ineffective practice. The core idea stems from having to browsers separates your online persona into two profiles which is *supposed* to isolate your fingerprint.
 \
 This is essentially privacy theatre. In reality, using different browser doesn't solve this issue. It just doubles the required trust on your device and increases attack surface, especially if you are mixing different browsing engines (e.g. Firefox and Chromium) or browsers with significantly different update cycles. You can still be fingerprinted across browsers. Yes, it is harder to do that, but it is still feasible and more likely you will accidentally associate yourself across browsers. If you need the fingerprinting resistance, use Tor with your other main browser, otherwise you aren't really achieving anything other than increasing attack surface.
 \
-A significantly better approach is using your browser's built-in profile management system and creating a second profile, this keeps just one browser and achieves effectively the same thing. Does it resist fingerprinting? Not really, but it does isolate data and reduce browsing overlap between personas, if that is what you are aiming to do.
+A significantly better approach is using your browser's built-in profile management system and creating a second profile, this keeps just one browser and achieves effectively the same thing. Does it resist fingerprinting? Not really, but it does isolate data and reduce browsing data overlap between personas, if that is what you are aiming to do.
 
 ## Popular Options
 
