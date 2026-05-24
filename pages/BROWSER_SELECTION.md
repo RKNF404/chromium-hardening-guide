@@ -70,19 +70,19 @@ Long story short, it makes no difference. Open-source is preferable for transpar
 
 ## Resisting Fingerprinting
 
-*This section is a work in progress.*
-
 Browser fingerprinting can be best summarized as websites identifying a browser using a collection of metrics which could individually identify two browsers from each other. A common example is graphical rendering APIs, such as Canvas and WebGL, these can vary based on a system's graphics card, the graphics driver, the system's processor, the display used, etc. This alone allows for an unimaginable amount of combinations that all cause a unique "fingerprint", due to how each one varies slightly. Mind you, this is one metric, there are several, some more revealing and some less.
 \
 Resisting fingerprinting usually is done one of two ways: randomization and unified crowd blending. Randomizing is the most common and simple technique, basically it adds noise or fake data to exisiting metrics to make them different across visits and sessions. Ideally, this fully evades fingerprinting, since you will look different to every site. Typically it is generated per-load, meaning if you visit a webpage, then reload the webpage, the fingerprint will be slightly different. Brave offers a slightly different approach by offering a per-site per-session fingerprint, this is done by binding the randomized metrics to a site's randomized session key. This will cause each site to have one static fingerprint for the session, but each site will have a different random fingerprint.
 \
-The other approach is unified crowd blending (unoffical term I'm using for convenience). This is often done in tandem with randomization to mask metrics that may be unique. Basically, the goal is to get all users to look as similar as possible. The most popular approach would be Apple's Safari. Since Apple has good control over their hardware production, and Safari basically only runs on their hardware, then most of the metrics that depend on unique hardware combinations are basically identical. This gives the impression that most Safari users are potentially the same user. To my knowledge, Safari doesn't really use randomization and it doesn't really need to.
-
-Quick summary:
-- Nice to have; not a priority.
-- Should not be focal point of the selection process.
-- Generally very ineffective. Even something more comprehensive like Brave is very flawed.
-- If you absolutely *need* it, use a VM with Tor Browser. **Do not use Tor outside a VM.**
+The other approach is unified crowd blending (unoffical term I'm using for convenience). This is often done in tandem with randomization to mask metrics that may be unique (such as Canvas rendering). Basically, the goal is to get all users to look as similar as possible. The most popular approach would be Apple's Safari. Since Apple has good control over their hardware production, and Safari basically only runs on their hardware, then most of the metrics that depend on unique hardware combinations are basically identical. This gives the impression that most Safari users are potentially the same user. To my knowledge, Safari doesn't really use randomization and it doesn't really need to.
+\
+The issue with most anti-fingerprinting attempts is they rarely achieve either of these approaches very effectively. Firefox is often cited as a more privacy-friendly choice over Chrome, partly due to some fingerprinting resistance. The resistance Firefox offers is [actually very weak](https://wiki.mozilla.org/Fingerprinting), even when configured to be as strong as possible. Firefox does not really unify its userbase's metrics, and the randomization it does offer is limited to basically just Canvas when Resist FingerPrinting or FingerPrinting Protections are on. There is also another major issue with toggling on these protections, the number of users doing the same.
+\
+This is one of the biggest issues with fingerprinting protection configurations of common browsers, they often create small userbases that look somewhat-similar to each other but are drastically different from 99% of the browser userbase. An example metaphor: you can wear a mask in a crowd, and yes no one can see your face, but you're the only one wearing a mask in a crowd. There is a similar problem for more comprehensive solutions, like Brave and Mullvad Browser. They do offer a somewhat decent anti-fingerprinting solutions out of the box, but they also encourage a customization (Mullvad via extensions, and Brave through Shields, flags, or the various bloat and crypto features), which in-turn makes you unique.
+\
+The point with this section is to say, anti-fingerprinting takes alot of consideration to actually be useful. Most of the time, the protections are transparent and do very little, and often times prioitizing them results in a loss of tangible security and privacy. This is not about "threat modelling", it is about what is actually helping you vs what you think is helping you. Your "threat model" is not an excuse to use a less secure product for a protection you don't need or are using incorrectly.
+\
+If you want a simple solution, use Tor Browser in a virtual machine. It provides the most comprehensive solution available, and compensates for the [limited security](#tor-browser) of Tor Browser by isolating it from your main system in a virtual machine. Anything else is a most likely either incomplete or insecure.
 
 ### Using Multiple Browsers
 
