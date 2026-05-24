@@ -132,7 +132,7 @@ def TypeMatch(confEntry, confOption):
     return retDict[confOption]
 
 # General parsing and filtering
-def ParseConfig(data, args):
+def ParseConfig(data, args, parser):
     filteredData = {}
     optionalConfigs = []
 
@@ -169,10 +169,30 @@ def ParseConfig(data, args):
     # Update the filtered dictionary
     filteredData = tempFiltData
 
+    # Add arguments for optional configs
+    for e in optionalConfigs:
+        if e in filteredData:
+            parser.add_argument(
+                '--' + e,
+                choices=['y', 'yes', 'n', 'no'],
+                default=False,
+                help=filteredData[e]['Description'] + f' (from configuration file: "{args.file}")'
+            )
+
+    parser.add_argument(
+        '--help', '-h',
+        action='help',
+        help='Show this help message and exit.'
+    )
+    args = parser.parse_args()
+
     for e in optionalConfigs:
         if e in filteredData:
             for i in range(5):
-                if args.choice == '':
+                choice = getattr(args, e.replace('-', '_'))
+                if choice:
+                    yn = choice.lower()
+                elif args.choice == '':
                     print(filteredData[e]['Option'] + ' [Y/n]')
                     yn = input().lower()
                 else:
@@ -268,7 +288,8 @@ def main() -> int:
 
     parser = argparse.ArgumentParser(
         prog='ConfigGen',
-        description='Parse a chromium policy and flag database (Configuration.json), outputs flags to a folder `flags/`, outputs policies to a folder in reference to the platform the policy is for (e.g. `macos_policy`)'
+        description='Parse a chromium policy and flag database (Configuration.json), outputs flags to a folder `flags/`, outputs policies to a folder in reference to the platform the policy is for (e.g. `macos_policy`)',
+        add_help=False
     )
     parser.add_argument(
         '--system', '-s',
@@ -307,7 +328,7 @@ def main() -> int:
         action='store_true',
         help='Separate recommended policies from regular ones.'
     )
-    args = parser.parse_args()
+    args = parser.parse_known_args()[0]
     
     if args.system == Systems['win']:
         args.format = FlagFileFormats['gen']
@@ -317,6 +338,13 @@ def main() -> int:
         return 1
 
     if not os.path.isfile(args.file):
+        parser.add_argument(
+            '--help', '-h',
+            action='help',
+            help=f'''Show this help message and exit.
+            Arguments for toggling optional settings defined in the configuration file are not available as "{args.file}" was not found.'''
+        )
+        args = parser.parse_known_args()[0]
         print(f'ERROR: file "{args.file}" does not exist')
         return 1
 
@@ -325,7 +353,7 @@ def main() -> int:
         print('ERROR: parsed data is empty')
         return 1
 
-    ParseConfig(data, args)
+    ParseConfig(data, args, parser)
 
     return 0
 
