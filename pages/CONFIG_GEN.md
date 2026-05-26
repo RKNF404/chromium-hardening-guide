@@ -14,7 +14,7 @@ To get a summary of how to use the script, you can run the script by running in 
 - `python3 ConfigGen.py --help`
 - `./ConfigGen.py --help` (Linux and MacOS only)
 
-Just running the script without any arguments will automatically parse the `Configuration.json` file in the same working directory, include all configurations, and prompt for all optional configurations. It will also detect what platform you the script is being run on and produce the configuration formats and include platform-specific configs as well (most notably for Windows).
+Just running the script without any arguments will automatically parse the `Configuration.json` file in the same working directory, include all configurations, and prompt for all optional configurations. It will also detect what platform the script is being run on and produce the configuration formats and include platform-specific configs as well (most notably for Windows).
 
 ### Arguments
 
