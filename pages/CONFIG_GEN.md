@@ -38,10 +38,10 @@ Out of the box, there is really no easy way to persist flags in a way to guarent
 Using another project of mine, [chromewrapper](https://github.com/RKNF404/chromewrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
 
 To do this project, run the install script chromewrapperDefaultBrowser.bat, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
-Then add `chromewrapper.bat` to the location given by `CHROMEWRAPPER_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be `C:\Program Files\Google\Chrome\Application\chromewrapper.bat`.
+Then add `chromewrapper.bat` to the location given by `CHROMEWRAPPER_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be `C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1`.
 
 After this, create a desktop shortcut with the following entry:
-`explorer.exe "C:\Program Files\Google\Chrome\Application\chromewrapper.bat"`
+`powershell.exe -ExecutionPolicy ByPass -File "C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1"`
 Then right click that shortcut and click `Pin To Taskbar`.
 And that's it, your browser will now launch with the flags in the wrapper script whenever it is opened from the icon or invoked as a handler. (The shortcut can be deleted by the way, the taskbar pin will be unaffected)
 
