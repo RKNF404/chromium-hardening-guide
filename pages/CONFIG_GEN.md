@@ -22,7 +22,7 @@ Currently, there are a few arguments the script takes (these can be viewed with 
 
 - `--system SYSTEM` - takes either "linux", "macos", or "windows". This allows overriding the automatic platform detection, incase you want to generate config files for another computer.
 - `--type TYPE` - allows filtering by the type of configuration file you want, i.e. commandline or policy. Commandline will only output the flags file and ignore all policies, the policy options does the inverse. The purpose is for the case where you cannot, for one reason or another, use one of these configuration types. For example, on MacOS where commandline flags are harder to persist.
-- `--format FORMAT` - allows selecting between the two types of formats for the flags file. Generic is just flags separated on each line, variable is each flags being appended to a CHROMIUM_FLAGS variable in the case of the file being used in a shell script. This may get overridden if the platform only supports one type of format (example, Windows only supports generic due to how `chromewrapper` is written)
+- `--format FORMAT` - allows selecting between the two types of formats for the flags file. Generic is just flags separated on each line, variable is each flags being appended to a CHROMIUM_FLAGS variable in the case of the file being used in a shell script. This may get overridden if the platform only supports one type of format (example, Windows only supports generic due to how `ChromeWrapper` is written)
 - `--tag TAG` - filter the output flags by the various tags included, such as "security", "privacy", "annoyance", etc. Can be helpful if you only need a very specific group of flags or policies.
 - `--file FILE` - can be used to set a path a custom configs database.
 - `--choice [y|n|yes|no]` - sets the default choice for optional configs, meant to allow for automation.
@@ -35,10 +35,10 @@ If something is going wrong, the script should tell you almost exactly what. If 
 #### Windows
 
 Out of the box, there is really no easy way to persist flags in a way to guarentee that they will be used... but, with some reg hacking and a launch script it is possible (thanks to chrlauncher).
-Using another project of mine, [chromewrapper](https://github.com/RKNF404/chromewrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
+Using another project of mine, [ChromeWrapper](https://github.com/RKNF404/ChromeWrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
 
-To do this project, run the install script `chromewrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
-Then add `ChromeWrapper.ps1` to the location given by `CHROMEWRAPPER_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be `C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1`.
+To do this project, run the install script `ChromeWrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
+Then add `ChromeWrapper.ps1` to the location given by `ChromeWrapper_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be `C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1`.
 
 After this, create a desktop shortcut with the following entry:
 `powershell.exe -ExecutionPolicy ByPass -File "C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1"`
@@ -47,7 +47,7 @@ And that's it, your browser will now launch with the flags in the wrapper script
 
 After following these steps, in the same directory as `ChromeWrapper.ps1` add the script's resulting `80-hardening-guide-flags.conf` file (it should output to a `flags/` folder) to that directory.
 
-If you no longer wish to use the wrapper, simply run the `chromewrapperRegCleaner.reg` registry file. It will delete all instances where chromewrapper is a handler. You can also just deselect it as the default browser in the settings to retain the functionality for later.
+If you no longer wish to use the wrapper, simply run the `ChromeWrapperRegCleaner.reg` registry file. It will delete all instances where ChromeWrapper is a handler. You can also just deselect it as the default browser in the settings to retain the functionality for later.
 
 For policies, simply double click the `hardening-guide-policy.reg` file, it will give you some warnings and prompt you for administrator rights. Please be cautious the file is correct and properly formatted, it should never modify any registry entries outside of the Chrome policy paths.
 
