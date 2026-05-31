@@ -45,7 +45,7 @@ After this, create a desktop shortcut with the following entry:
 Then right click that shortcut and click `Pin To Taskbar`.
 And that's it, your browser will now launch with the flags in the wrapper script whenever it is opened from the icon or invoked as a handler. (The shortcut can be deleted by the way, the taskbar pin will be unaffected)
 
-After following these steps, in the same directory as `chromewrapper.bat` add the script's resulting `80-hardening-guide-flags.conf` file (it should output to a `flags/` folder) to that directory.
+After following these steps, in the same directory as `ChromeWrapper.ps1` add the script's resulting `80-hardening-guide-flags.conf` file (it should output to a `flags/` folder) to that directory.
 
 If you no longer wish to use the wrapper, simply run the `chromewrapperRegCleaner.reg` registry file. It will delete all instances where chromewrapper is a handler. You can also just deselect it as the default browser in the settings to retain the functionality for later.
 
