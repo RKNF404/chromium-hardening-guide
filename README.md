@@ -1,11 +1,5 @@
 # Chromium Hardening Guide
 
-Last updated for: `148`
-
-> [!NOTE]
-> 148 has nothing notable
-
-
 Hardening guide for (theoretically) any Chromium browser.
 
 Some of the flips and toggles come from other projects such as [Vanadium](https://github.com/GrapheneOS/Vanadium) or [Trivalent](https://github.com/secureblue/Trivalent).
