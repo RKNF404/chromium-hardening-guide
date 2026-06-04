@@ -6,7 +6,7 @@
 
 This page explains how to use the config generation script.
 
-The script and the associated config database file is located in the [`configs`](/configs) folder. Both of these are required.
+The script and the associated config database file can be obtained from the [releases page](https://github.com/RKNF404/chromium-hardening-guide/releases/), grab the latest release matching your major version. Both the Python script and config file are required.
 
 ## Script Usage
 
