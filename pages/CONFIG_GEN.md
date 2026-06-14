@@ -1,6 +1,6 @@
 # Automatic Config Generation
 
-[>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+[>> Back to guide <<](SETUP_GUIDE.md#contents)
 
 ## Summary
 
@@ -65,4 +65,4 @@ To verify the flags are properly being added, open `chrome://version`, under the
 
 To verify policies, visit `chrome://policy`. You should see a list of applied policies. Scroll through them and check their statuses all say `Ok`. Some may say `Error, Ignored` on Windows, not much can be done about that, but they can be manually turned off in the browser's preferences anyway. If you do not see any policies or see more than a few with `Error` statuses, then something went wrong. If you are unsure, please feel free to open an issue. Include the `.reg` file used for the policies.
 
-# [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+# [>> Back to guide <<](SETUP_GUIDE.md#contents)

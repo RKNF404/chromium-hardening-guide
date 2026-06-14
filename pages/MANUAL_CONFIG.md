@@ -1,6 +1,6 @@
 # Policies
 
-[>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+[>> Back to guide <<](SETUP_GUIDE.md#contents)
 
 ## Linux
 
@@ -122,4 +122,4 @@ If you no longer wish to use the wrapper, simply run the `chromewrapperRegCleane
 
 There is a way to add flags via ADB, but I know very little about it and would advise against.
 
-# [>>> Back to guide <<<](SETUP_GUIDE.md#contents) 
+# [>> Back to guide <<](SETUP_GUIDE.md#contents) 
