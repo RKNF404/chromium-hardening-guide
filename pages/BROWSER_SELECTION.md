@@ -1,6 +1,6 @@
 # Selecting a Browser
 
-[>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+[>> Back to guide <<](SETUP_GUIDE.md#contents)
 
 ## Selection Guide Summary
 
@@ -249,4 +249,4 @@ Safari itself has poor update handling, both in the effort to ship fixes and tec
 
 These browsers cannot offer site-isolation due to how Android WebView is designed, websites are only isolated from the system not each other. Typically they do not have strong partitioning and are very minimal in their feature set. While they are Chromium-based, they are so much worse-off by comparison that it is hard to put them in the same classification.
 
-# [>>> Back to guide <<<](SETUP_GUIDE.md#contents)
+# [>> Back to guide <<](SETUP_GUIDE.md#contents)
