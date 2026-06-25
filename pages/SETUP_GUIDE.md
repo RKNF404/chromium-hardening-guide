@@ -9,9 +9,10 @@ Please note that while I intend for this to be as comprehensive as possible, the
 
 - [Selecting a browser](BROWSER_SELECTION.md)
 - [Automatic Config Generation](CONFIG_GEN.md)
-- [Manual Config Creation](MANUAL_CONFIG.md)
+  - [Manual Config Creation](MANUAL_CONFIG.md)
 - [Basic Setup](#basic-setup)
   - [Content Blocking](#content-blocking)
+  - [Using uBlock Origin Lite (WIP)](UBOL_GUIDE.md)
 - [My Setup](#my-setup) (in case you care)
 
 ## Basic Setup
@@ -36,6 +37,10 @@ There is technically a sub-category of network filtering that is more comprehens
 \
 \
 Last note on remotely updated filters for systems like Brave, Opera, and uBlock Origin (MV2). The main problem here is that filters can still modify requests, run regex (which can be exploited in the browser engine), use cosmetic filters (which has been used to exfil data from sites in the past), and execute JavaScript via scriptlets. While scriptlets themselves aren't risky, even when limiting execution capabilities it is still arbitrary execution and therefore has massive risk. These filters are themselves arbitrary and unsigned, meaning you are OTA downloading random files that are an exploit away from reading the contents on all sites or worse. At least with MV3 extensions the filters have to bundled, so they are effectively signed along with the rest of the extension, so much better than most integrated engines.
+
+### Using uBlock Origin Lite
+
+[>>WIP<<](UBOL_GUIDE.md)
 
 ## My Setup
 
