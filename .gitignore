@@ -1,4 +1,6 @@
-site/
-.venv/
 .cache/
-
+.venv/
+configs/flags/
+configs/policy/
+configs/recommended-policy/
+site/
