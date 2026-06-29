@@ -5,16 +5,16 @@ icon: "lucide/globe-lock"
 # :lucide-globe-lock: Selecting a Browser
 
 !!! tip "Summary"
-    - Windows — Google Chrome
-    - MacOS — Google Chrome
-    - Android — Google Chrome or Brave, depending on need, since you cannot configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode), but Brave has more attack surface and a worse update cycle. Brave also comes with an adblocker.
-        - GrapheneOS — Vanadium
-    - iOS — Safari
-    - Linux
-        - Fedora-based — [Trivalent](https://github.com/secureblue/Trivalent)
-        - Arch Linux — [official repository's packaging of Chromium](https://archlinux.org/packages/extra/x86_64/chromium/)
-        - Debian-based — Google Chrome
-        - NixOS — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
+    - **:material-microsoft: Windows** — Google Chrome
+    - **:material-apple: MacOS** — Google Chrome
+    - **:material-android: Android** — Google Chrome or Brave, depending on need, since you cannot configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode), but Brave has more attack surface and a worse update cycle. Brave also comes with an adblocker.
+        - **:simple-grapheneos: GrapheneOS** — Vanadium
+    - **:material-apple: iOS** — Safari
+    - **:material-linux: Linux**
+        - **:material-fedora: Fedora-based** — [Trivalent](https://github.com/secureblue/Trivalent)
+        - **:material-arch: Arch Linux** — [official repository's packaging of Chromium](https://archlinux.org/packages/extra/x86_64/chromium/)
+        - **:material-debian: Debian-based** — Google Chrome
+        - **:material-nix: NixOS** — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## :lucide-arrow-down-to-line: Baseline Criteria
 
