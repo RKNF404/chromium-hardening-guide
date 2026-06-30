@@ -1,4 +1,8 @@
-# Preferences
+---
+icon: "lucide/wrench"
+---
+
+# :lucide-wrench: Preferences
 
 If you applied policies and any of the following are already disabled, ignore it.
 
@@ -11,5 +15,3 @@ If you applied policies and any of the following are already disabled, ignore it
 - (Optionally) Set the permission at `chrome://settings/content/siteData` to `Delete data sites have saved to your device when you close all windows`, manually whitelist sites you may need
 - Set "Open PDFs in {browser name}" under the content setting `chrome://settings/content/pdfDocuments`
 - Under `chrome://settings/onStartup`, set to open New Tab
-
-# [>> Back to guide <<](SETUP_GUIDE.md#basic-setup)
