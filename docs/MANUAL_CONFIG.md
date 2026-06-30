@@ -2,7 +2,7 @@
 icon: "lucide/file-lock"
 ---
 
-# :lucide-file-lock: Policies
+# :lucide-file-lock: Manual Config
 
 
 ## :material-linux: Linux
