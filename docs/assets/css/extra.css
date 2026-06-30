@@ -76,3 +76,7 @@
 .md-copyright {
     padding: 0 !important;
 }
+
+[data-md-color-scheme="slate"] .md-footer-meta {
+    background-color: #141518;
+}
