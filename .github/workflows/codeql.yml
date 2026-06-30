@@ -23,7 +23,7 @@ on:
       - '**/*.md'
       - '**/*.config'
   schedule:
-    - cron: '00 00 * * 1'
+    - cron: '00 00 * * 5'
 
 jobs:
   analyze:
