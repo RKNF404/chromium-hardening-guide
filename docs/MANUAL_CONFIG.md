@@ -111,7 +111,7 @@ MacOS policies follow this format (this policy do nothing, they just demonstrate
     After this, create a desktop shortcut with the following entry:
 
     ```bat
-    explorer.exe "C:Program FilesGoogleChromeApplicationchromewrapper.bat"
+    explorer.exe "C:\Program Files\GoogleChrome\Application\chromewrapper.bat"
     ```
 
     Then right click that shortcut and click `Pin To Taskbar`.
