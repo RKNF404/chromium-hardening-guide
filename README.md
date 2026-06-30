@@ -10,4 +10,4 @@ If you have my Discord, feel free to message me there about this guide.
 
 All files included in this repository are made available under the Microsoft Public License ([`MS-PL`](https://opensource.org/license/ms-pl-html))
 
-### To get started, visit the [Guide Main Page](https://rknf404.github.io/chromium-hardening-guide)
+### To get started, visit the [main page](https://rknf404.github.io/chromium-hardening-guide)
