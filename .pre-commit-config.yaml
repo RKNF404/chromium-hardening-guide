@@ -1,0 +1,7 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-json
+        files: ^configs/Configuration.config$
+        types: [] # default works only with .json files, here custom extension is used
