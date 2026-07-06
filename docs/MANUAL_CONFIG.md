@@ -100,28 +100,26 @@ MacOS policies follow this format (this policy do nothing, they just demonstrate
 === ":material-microsoft: Windows"
 
     Out of the box, there is really no easy way to persist flags in a way to guarentee that they will be used... but, with some reg hacking and a launch script it is possible (thanks to chrlauncher).
+    Using another project of mine, [ChromeWrapper](https://github.com/RKNF404/ChromeWrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
 
-    Using another project of mine, [chromewrapper](https://github.com/RKNF404/chromewrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
+    To do this, run the install script `ChromeWrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
+    Then add `ChromeWrapper.ps1` to the location given by `ChromeWrapper_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be 
 
-
-    To do this project, run the install script `chromewrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
-
-    Then add `chromewrapper.bat` to the location given by `CHROMEWRAPPER_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be `C:Program FilesGoogleChromeApplicationchromewrapper.bat`.
+    ```
+    C:\Program Files\GoogleChrome\Application\ChromeWrapper.ps1
+    ```
 
     After this, create a desktop shortcut with the following entry:
-
-    ```bat
-    explorer.exe "C:\Program Files\GoogleChrome\Application\chromewrapper.bat"
+    ```pwsh
+    powershell.exe -ExecutionPolicy ByPass -File "C:\Program Files\GoogleChrome\Application\ChromeWrapper.ps1"
     ```
 
     Then right click that shortcut and click `Pin To Taskbar`.
-
     And that's it, your browser will now launch with the flags in the wrapper script whenever it is opened from the icon or invoked as a handler. (The shortcut can be deleted by the way, the taskbar pin will be unaffected)
 
-    To get custom flags to persist, create a file next to `chromewrapper.bat` in the same directory called `80-hardening-guide-flags.conf`. Within it, add whatever flags you want, separating each with a new line (enter key).
+    After following these steps, in the same directory as `ChromeWrapper.ps1` add the script's resulting `80-hardening-guide-flags.conf` file (it should output to a `flags/` folder) to that directory.
 
-
-    If you no longer wish to use the wrapper, simply run the `chromewrapperRegCleaner.reg` registry file. It will delete all instances where chromewrapper is a handler. You can also deselect it as the default browser in the settings to retain the functionality for later.
+    If you no longer wish to use the wrapper, simply run the `ChromeWrapperRegCleaner.reg` registry file. It will delete all instances where ChromeWrapper is a handler. You can also just deselect it as the default browser in the settings to retain the functionality for later.
 
 === ":material-android: Android"
 
