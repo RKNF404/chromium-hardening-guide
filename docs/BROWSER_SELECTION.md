@@ -196,9 +196,9 @@ Despite Firefox's poor security, the browser does have some form of sandboxing, 
 
 #### :lucide-git-fork: Firefox Forks
 
-Most Firefox forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles. There are no Firefox-based browsers that are except to this, except maybe Tor Browser.
+Most Firefox forks are just regular Firefox with either UI changes or some changes to user-hostile defaults. They typically suffer from slower update cycles.
 
-Although, I will talk about 2 desktop forks specifically, LibreWolf and Pale Moon. LibreWolf is just Firefox with defaults changed... nothing else. They don't even maintain the defaults, they just use [arkenfox-user.js](https://github.com/arkenfox/user.js/). They may have some deviated changes but fundamentally it is just arkenfox built into Firefox with a slower update cycle. Because Arkenfox [is going EoL soon](https://github.com/arkenfox/user.js/issues/2042), there is a dim future for Librewolf. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features Firefox adds (as rare as that is) will not get properly added, if they get added at all.
+Although, I will talk mention one fork specifically, Pale Moon. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features Firefox adds (as rare as that is) will not get properly added, if they get added at all.
 
 ### :material-apple-safari: Safari/WebKit
 
