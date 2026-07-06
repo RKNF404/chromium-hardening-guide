@@ -179,6 +179,16 @@ Yes, Tor is decent for anti-fingerprinting, it is hard to argue that any other b
 
 Mullvad is Tor browser without Tor, it has literally no advantages and only regresses on Tor's base anti-fingerprinting model. It adds uBlock Origin, which can cause nearly infinite variation in users by filter versions and custom filters, and fingerprinting system uptimes based on that. A big part of Tor's resistance to fingerprinting is the Tor network, Mullvad substitutes this by using their own VPN service, but not all users have that so the benefit is significantly weaker. Mullvad does have a mode to [randomize where you connect](https://github.com/mullvad/browser-extension/releases/tag/v0.9.8-firefox-beta), this adds some parity to how you expect Tor to work if enabled, which can prevent fingerprinting based on Mullvad server choice. Fundamentally this is a downstream of a downstream, that being Tor and Firefox, so updates will be twice as delayed. It is roughly in the same ballpark as Librewolf, in that it actually has very little to offer beyond convenience of setup.
 
+### :simple-librewolf: Librewolf
+
+Librewolf is a fork of Firefox designed to harden it. The update cycle looks [very consistent](https://codeberg.org/librewolf/source/tags) with [Firefox's upstream release cycle](https://www.firefox.com/en-US/releases/), which is good, they hit within the same-day ballpark with exceptions. A while back this was not the case, and they fell behind on updates frequently, that has clearly since changed and gotten much better.
+
+Some positives over Firefox. It does enable a few build hardening options, [but very few currently](https://codeberg.org/librewolf/source/src/commit/d26f260211b19ce69898202a562d6afa69aad3f6/assets/mozconfig.new#L33). Librewolf also offers permission toggles [for various features](https://codeberg.org/librewolf/source/src/commit/d26f260211b19ce69898202a562d6afa69aad3f6/patches/lw-permissions.patch) that base Firefox does not, such as WebGL and web DRM. Beyond that, most of Librewolf's hardening is just flipping privacy toggles and patching out privacy intrusive features.
+
+There are two points of concern that demonstrate some anti-security patterns. One is the preloading of uBlock Origin. Extensions are a security risk, and preloading them should be avoided, that goes twice for an MV2 extension. It also cannot be removed, only disabled. The other point is about having a verified Flatpak, similar to [Brave](#brave). Firefox in particular is really bad [as a Flatpak](#firefox-flatpak), marking a Firefox-based browser as official on Flathub is a bad sign.
+
+That said, this section was written as a re-assessment of Librewolf (since the old mention was based on outdated information) and, based on what I could find, it is at its core an improvement over Firefox. If you disable uBlock Origin and avoid Flatpak browsers, then it is definitely one of the better Firefox-based browsers, and is probably your best choice should such a browser be required. That said, it is still Firefox-based and should be avoided on that notion, its security is nothing to depend on.
+
 ## :lucide-star-off: Other Browsers
 
 Anything *not* directly based on Chromium.
