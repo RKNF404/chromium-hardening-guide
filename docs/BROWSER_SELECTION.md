@@ -10,10 +10,9 @@ icon: "lucide/globe-lock"
     - **:material-android: Android** — Google Chrome or Brave, depending on need, since you cannot configure policies for flags for Chrome so you can miss some decent improvements that Brave does offer (such as JITless V8 mode), but Brave has more attack surface and a worse update cycle. Brave also comes with an adblocker.
         - **:simple-grapheneos: GrapheneOS** — Vanadium
     - **:material-apple: iOS** — Safari
-    - **:material-linux: Linux**
+    - **:material-linux: Linux** — Google Chrome or Brave Origin
         - **:material-fedora: Fedora-based** — [Trivalent](https://github.com/secureblue/Trivalent)
         - **:material-arch: Arch Linux** — [official repository's packaging of Chromium](https://archlinux.org/packages/extra/x86_64/chromium/)
-        - **:material-debian: Debian-based** — Google Chrome
         - **:material-nix: NixOS** — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## :lucide-arrow-down-to-line: Baseline Criteria
@@ -92,6 +91,10 @@ To give some credit where it is due, Brave does have some decent changes. For ex
 Overall, on desktop, Brave is rather useless. It is filled with bloat and any security or privacy advantages, even the adblocker, can be achieved with Chrome. However, on Android, if you do not have access to Vanadium, then Brave is probably the next best choice. Chrome on Android isn't bad, but Brave offers more in terms of configurability and the bloat is way less noticeable and easier to turn off. Brave also offers "JITless V8 mode" via a flag which basically makes the "JavaScript Security & Performance" permission actually control JIT, and not just disable higher-tier optimizing compilers as is the case with traditional Chromium, this can put it slightly ahead of Chrome if this mode is used.
 
 Another note, Brave does have decently private and end-to-end encrypted browser data sync. This is rare among Chromium browsers (sadly), so if you need sync then Brave would be a fine option.
+
+#### :fontawesome-brands-brave: Brave Origin
+
+This is basically Brave, but preconfigured with all the stuff people usually disable disabled out of the box. Like telemtry, Brave wallet, the crypto networking stuff, advertising, all removed. On paper, great idea. The issue is it costs $60 USD, this gives you a limited number of installs (re-installs included). I cannot recommend anyone spend money on any browser, let alone this one. That said, the browser is 100% free on Linux, so it is a decent enough option there if Chrome is not cutting it for you.
 
 ## :lucide-star-half: Notable Options
 
