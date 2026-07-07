@@ -92,7 +92,7 @@ Overall, on desktop, Brave is rather useless. It is filled with bloat and any se
 
 Another note, Brave does have decently private and end-to-end encrypted browser data sync. This is rare among Chromium browsers (sadly), so if you need sync then Brave would be a fine option.
 
-While the guide does not cover hardening Brave, other such configurations/"debloaters" exit. One such debloater is [this one](https://github.com/Anxarden/brave-debloater), the default DNS server choice isn't my favorite but it can be changed if desired. It only officially supports Windows and Linux, to use this on Mac you would need to manually convert the policies to [MacOS compliant ones](MANUAL_CONFIG.md#macos).
+While the guide does not cover hardening Brave, other such configurations/"debloaters" exist. One such debloater is [this one](https://github.com/Anxarden/brave-debloater), the default DNS server choice isn't my favorite but it can be changed if desired. It only officially supports Windows and Linux, to use this on Mac you would need to manually convert the policies to [MacOS compliant ones](MANUAL_CONFIG.md#macos).
 
 #### :fontawesome-brands-brave-reverse: Brave Origin
 
