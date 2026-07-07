@@ -92,6 +92,8 @@ Overall, on desktop, Brave is rather useless. It is filled with bloat and any se
 
 Another note, Brave does have decently private and end-to-end encrypted browser data sync. This is rare among Chromium browsers (sadly), so if you need sync then Brave would be a fine option.
 
+While the guide does not cover hardening Brave, other such configurations/"debloaters" exit. One such debloater is [this one](https://github.com/Anxarden/brave-debloater), the default DNS server choice isn't my favorite but it can be changed if desired. It only officially supports Windows and Linux, to use this on Mac you would need to manually convert the policies to [MacOS compliant ones](MANUAL_CONFIG.md#macos).
+
 #### :fontawesome-brands-brave-reverse: Brave Origin
 
 This is basically Brave, but preconfigured with all the stuff people usually disable disabled out of the box. Like telemtry, Brave wallet, the crypto networking stuff, advertising, all removed. On paper, great idea. The issue is it costs $60 USD, this gives you a limited number of installs (re-installs included). I cannot recommend anyone spend money on any browser, let alone this one. That said, the browser is 100% free on Linux, so it is a decent enough option there if Chrome is not cutting it for you.
