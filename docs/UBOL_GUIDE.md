@@ -10,7 +10,7 @@ A lot of people are under the impression that Chromium, and MV3, make adblocking
 
 This idea comes from 2 main factors: that Google proposed MV3, and that they are an advertising revenue-model company. There is no technical argument for why adblocking would no longer work, only that "it will be less effective" without clear reasoning as to what that even means.
 
-The following subsections detail common talking points about MV3 and why they are wrong, invalid, or overblown
+The following subsections detail common talking points about MV3 and why they are wrong, invalid, or overblown.
 
 ### Rule Limits
 
