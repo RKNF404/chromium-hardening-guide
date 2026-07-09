@@ -14,7 +14,7 @@ The following subsections detail common talking points about MV3 and why they ar
 
 ### Rule Limits
 
-Those who cite this often do not understand what this refers to. A lot of people assume that an MV3 rule equates to one filter, like a single site or element block. In reality, a "rule" refers a single action and filters on how that action is applied. For example, a "block' action on 10 thousand domains, that is 1 rule, not 10 thousand. The rule limit is pretty hard to hit is the filter-to-rule converter is well optimized, and uBlock Origin Lite's converter is very well optimized. With everything enabled in the default extension (English-centric), it totals out to 24 thousand rules. The limit for a single extension 30 thousand, plus 5 thousand for unsafe rules, plus an additional 300 thousand [shared among all of your extensions](https://developer.chrome.com/docs/extensions/develop/concepts/content-filtering#bundle_filter_rules_with_your_extension). Hitting this limit is not easy. Should the limit be higher? Probably, but the idea that it's "too low" or "there to inhibit adblockers" is false, most adblocker will not hit limit if they aren't trying to.
+Those who cite this often do not understand what this refers to. A lot of people assume that an MV3 rule equates to one filter, like a single site or element block. In reality, a "rule" refers a single action and filters on how that action is applied. For example, a "block' action on 10 thousand domains, that is 1 rule, not 10 thousand. The rule limit is pretty hard to hit if the filter-to-rule converter is well optimized, and uBlock Origin Lite's converter is pretty good. With everything enabled in the default extension (English-centric), it totals out to 24 thousand rules. The limit dedicated for a single extension is 30 thousand, plus 5 thousand for unsafe rules, plus an additional 300 thousand that is [shared among all of your extensions](https://developer.chrome.com/docs/extensions/develop/concepts/content-filtering#bundle_filter_rules_with_your_extension). Hitting this limit is not easy. Should the limit be higher? Probably, but the idea that it's "too low" or "there to inhibit adblockers" is false, most adblocker will not hit limit if they aren't trying to.
 
 ### Filter Updates
 
@@ -26,4 +26,4 @@ Initially, updating filterlists for extensions was a hassle, since you cannot re
 
 #### Youtube Adblock
 
-Yes, it works. No idea why people thought it wouldn't. The mechanism by which Youtube adblock hasn't changed, it still involves injection JavaScript that prevents the ads from loading, MV3 didn't do anything to affect script injection.
+Yes, it works. No idea why people thought it wouldn't. The mechanism by which Youtube adblock works hasn't changed, it still involves injecting JavaScript that prevents the Youtube from loading video ads. MV3 didn't do anything to affect script injection, that all works fine.
