@@ -6,7 +6,7 @@ icon: "lucide/shield-ban"
 
 ## Manifest v3
 
-A lot of people are under the impression that Chromium, and MV3, make adblocking impossible (or very very difficult). This is a untrue. Infact, adblocking is functionally equivalent in MV3 content blockers as it was in MV2.
+A lot of people are under the impression that Chromium, and MV3, make adblocking impossible (or very very difficult). This is a untrue. Infact, adblocking is practically equivalent in MV3 content blockers as it was in MV2.
 
 This idea comes from 2 main factors: that Google proposed MV3, and that they are an advertising revenue-model company. There is no technical argument for why adblocking would no longer work, only that "it will be less effective" without clear reasoning as to what that even means.
 
