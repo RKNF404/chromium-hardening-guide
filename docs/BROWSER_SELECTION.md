@@ -1,7 +1,7 @@
 ---
 icon: "lucide/globe-lock"
 ---
-
+h
 # :lucide-globe-lock: Selecting a Browser
 
 !!! tip "Summary"
@@ -200,7 +200,7 @@ Anything *not* directly based on Chromium.
 
 ### :fontawesome-brands-firefox: Firefox
 
-Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "4/5 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 4+ years. To be fair, there has been improvement but not enough of it to make it comparable to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where *there is no website sandbox at all*. The current Android implementation of the Firefox sandbox (Fission) is very weak (was recently enabled by default in [v147](https://www.firefox.com/en-US/firefox/android/147.0/releasenotes/)), out of the box it does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. This flag can be enabled as an experiment in some forks, but even still the sandboxing design they have is very new for Firefox and is likely going to take some time to stabilize and be relatively bug-free.
+Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "4-5 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 4+ years. To be fair, there has been improvement but not enough of it to make it comparable to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where *there is no website sandbox at all*. The current Android implementation of the Firefox sandbox (Fission) is very weak (was recently enabled by default in [v147](https://www.firefox.com/en-US/firefox/android/147.0/releasenotes/)), out of the box it does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. This flag can be enabled as an experiment in some forks, but even still the sandboxing design they have is very new for Firefox and is likely going to take some time to stabilize and be relatively bug-free.
 
 If you are deadset on using Firefox (even though you should not be for any valid reason I can think of ...other than Firefox sync maybe), I would recommend using [arkenfox user.js](https://github.com/arkenfox/user.js/). It does reduce attack surface a bit and frankly makes Firefox somewhat useable.
 However, [Arkenfox user.js is going EoL soon](https://github.com/arkenfox/user.js/issues/2042). A potential alternative is [Phoenix](https://github.com/celenityy/Phoenix).
