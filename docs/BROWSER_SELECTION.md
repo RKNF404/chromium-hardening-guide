@@ -1,7 +1,7 @@
 ---
 icon: "lucide/globe-lock"
 ---
-h
+
 # :lucide-globe-lock: Selecting a Browser
 
 !!! tip "Summary"
