@@ -55,7 +55,7 @@ A significantly better approach is using your browser's built-in profile managem
 
 ## :lucide-star: Popular Options
 
-### :material-google-chrome: Chrome
+### :material-google-chrome: Google Chrome
 
 This is the baseline/standard, other browsers must either match or beat Chrome to be considered a decent option. The guide assumes the usage of Chrome in certain sections, since it is the most common browser and the best browser option in most cases. Chrome has the fastest update cycle and is one of the most functional/well tested browsers out there. It is constantly improving and even if it has weak defaults, it is trivial to improve many of them. If you don't know what option to pick, use Chrome.
 
