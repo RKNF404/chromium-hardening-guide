@@ -61,7 +61,7 @@ This is the baseline/standard, other browsers must either match or beat Chrome t
 
 The only downside is that Chrome is proprietary. This has no effect on security nor significant effect on privacy, it is essentially vanilla Chromium with a few proprietary additions and licensed libraries. Most of the intrusive stuff is disabled by following this guide.
 
-### :material-microsoft-edge: Edge
+### :material-microsoft-edge: Microsoft Edge
 
 A very highly regarded option, Edge makes decent security improvements on-top of Chrome, especially on Windows. Such as their Enhanced Security Mode, previously [Super Duper Secure Mode](https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/), the use of the Code Integrity Guard (CIG) mitigation on the main browser process (since it prevents non-MS signed binaries from being executed, Edge is the only browser that can fully enable it), and the default use of AppContainer sandboxing for renderer processes on Windows. On Linux, it also offers a feature to enforce memory W^X on renderers with JIT disabled (last I checked this enforcement was disabled by default, but it can be enabled through `edge://flags`), which is currently only offered by Edge and [Trivalent](https://github.com/secureblue/Trivalent/blob/8b0a3cb6666df76e6bdd421fbb547bcb399c4f59/vanadium_patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch) (courtesy of [Vanadium](https://github.com/GrapheneOS/Vanadium/blob/83d42785c127719cc52d00014bb8853f4ad18900/patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch)).
 
