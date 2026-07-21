@@ -4,12 +4,11 @@ icon: "lucide/file-lock"
 
 # :lucide-file-lock: Manual Config
 
-
 ## :material-linux: Linux
 
 Policies on Linux can vary in location, typically browsers will have their own directories under which to place policy files.
 
-Policies for vanilla Chromium, on most systems, will be located at `/etc/chromium/policies/managed/` for mandatory policies and `/etc/chromium/policies/recommended/` for recommended policies. Most policies must go in the managed directory, but some can go into recommended, these policies can be overridden in the user preferences. Policies that can be recommended will be labeled as such. Google Chrome policies will be located at `/etc/opt/chrome/policies/` with identical folders for mandatory and recommended policies.
+Policies for vanilla Chromium, on most systems, will be located at `/etc/chromium/policies/managed/` for mandatory policies and `/etc/chromium/policies/recommended/` for recommended policies. Most policies must go in the managed directory, but some can go into recommended, these policies can be overridden in the user preferences. Policies that can be recommended will be labeled as such. Google Chrome policies will be located at `/etc/opt/chrome/policies/` with identical folders for mandatory and recommended policies. Other browsers may use `/etc/<browser name>/policies/managed` instead.
 
 The structure of Linux policy files is standard `json` with each policy represented as a string and its associated value. See below (this is just an example policy, it will not do anything):
 ```json
@@ -28,7 +27,9 @@ The formatting is very strict and will result in your policies not loading if th
 
 ## :material-microsoft: Windows
 
-Windows policies rely on using the registry. Most browsers, similar to Linux, have different locations for their policies. Google Chrome will use policies from `HKEY_LOCAL_MACHINE/SOFTWARE/Policies/Google/Chrome`.
+Windows policies rely on using the registry. Most browsers, similar to Linux, have different locations for their policies. Google Chrome will use policies from `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome`. 
+
+Other browsers will use `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\<vendor>\<browser>`.
 
 To add a policy, you need to make sure to add the right value type. Most often, there are only 2 reg values used, string value and DWORD (32-bit).
 
@@ -47,10 +48,10 @@ Policies for Mac are similar to Linux in the sense that they are formatted files
 
 Aa far as I can tell, mandatory policies always go under `/Library/Managed Preferences/` and recommended go under `/Library/Preferences/`. The variance between browsers would be the file names, since they are related to the application identifier.
 
-For Google Chrome, to apply policies, create a file `com.google.Chrome.plist` in the respective directory, i.e. managed or recommended. Then add policies in the proper formatting (see below).
+For Google Chrome, to apply policies, create a file `com.google.Chrome.plist` in the respective directory, i.e. managed or recommended. Then add policies in the proper formatting (see below). For other browsers, use that browser's respective app ID and add `.plist`.
 
 
-MacOS policies follow this format (this policy do nothing, they just demonstrate how to format each policy value type):
+MacOS policies follow this format (this policy does nothing, it just demonstrates how to format each policy value type):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

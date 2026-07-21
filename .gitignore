@@ -4,3 +4,4 @@ configs/flags/
 configs/policy/
 configs/recommended-policy/
 site/
+__pycache__/
