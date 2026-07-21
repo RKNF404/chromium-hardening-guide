@@ -27,4 +27,4 @@ def define_env(env) -> None:
             if homepage == "":
                     return f"{name} [:lucide-scroll-text:]({policies}){policyattrs}"
             else:
-                    return f"[{name}]({homepage}) [:lucide-scroll-text:]({policies}){policyattrs}"
+                    return f"[{name}]({homepage}){attrs} [:lucide-scroll-text:]({policies}){policyattrs}"
