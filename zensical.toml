@@ -368,3 +368,7 @@ configurations = [
         "*"
     ]}
 ]
+[project.markdown_extensions.zensical.extensions.macros]
+module_name = "macros"
+on_error_fail = true
+on_undefined = "strict"

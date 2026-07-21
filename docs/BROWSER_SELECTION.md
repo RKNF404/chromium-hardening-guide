@@ -53,15 +53,24 @@ This is essentially privacy theatre. In reality, using different browsers doesn'
 
 A significantly better approach is using your browser's built-in profile management system and creating a second profile, this keeps just one browser and achieves effectively the same thing. Does it resist fingerprinting? Not really, but it does isolate data and reduce browsing data overlap between personas, if that is what you are aiming to do.
 
+---
+
+<!-- by the way, "its" is not a typo. -->
+
+!!! warning
+    This guide will link to each browser's website so you can learn more about it. Browser marketing pages are not representative of the actual browser or what advanced configurations are available under the hood. You should do your own research instead of taking browser websites at face value. A browser may actually be better or worse than the contents of its website.
+
+**Browsers with a :lucide-scroll-text: have policies which expose additional options. See [Manual Configuration](MANUAL_CONFIG.md) for where these policies should go.**
+
 ## :lucide-star: Popular Options
 
-### :material-google-chrome: Google Chrome
+### :material-google-chrome: {{ b("Google Chrome", "https://www.google.com/chrome/", "chrome") }}
 
 This is the baseline/standard, other browsers must either match or beat Chrome to be considered a decent option. The guide assumes the usage of Chrome in certain sections, since it is the most common browser and the best browser option in most cases. Chrome has the fastest update cycle and is one of the most functional/well tested browsers out there. It is constantly improving and even if it has weak defaults, it is trivial to improve many of them. If you don't know what option to pick, use Chrome.
 
 The only downside is that Chrome is proprietary. This has no effect on security nor significant effect on privacy, it is essentially vanilla Chromium with a few proprietary additions and licensed libraries. Most of the intrusive stuff is disabled by following this guide.
 
-### :material-microsoft-edge: Microsoft Edge
+### :material-microsoft-edge: {{ b("Microsoft Edge", "https://explore.microsoft.com/en-us/edge", "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies" )}}
 
 A very highly regarded option, Edge makes decent security improvements on-top of Chrome, especially on Windows. Such as their Enhanced Security Mode, previously [Super Duper Secure Mode](https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/), the use of the Code Integrity Guard (CIG) mitigation on the main browser process (since it prevents non-MS signed binaries from being executed, Edge is the only browser that can fully enable it), and the default use of AppContainer sandboxing for renderer processes on Windows. On Linux, it also offers a feature to enforce memory W^X on renderers with JIT disabled (last I checked this enforcement was disabled by default, but it can be enabled through `edge://flags`), which is currently only offered by Edge and [Trivalent](https://github.com/secureblue/Trivalent/blob/8b0a3cb6666df76e6bdd421fbb547bcb399c4f59/vanadium_patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch) (courtesy of [Vanadium](https://github.com/GrapheneOS/Vanadium/blob/83d42785c127719cc52d00014bb8853f4ad18900/patches/0173-Restriction-of-dynamic-code-execution-via-seccomp-bp.patch)).
 
@@ -69,11 +78,11 @@ The main issue with Edge is telemetry, it is *mandatory* without Windows Enterpr
 
 This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and macOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
 
-### :material-opera: Opera
+### :material-opera: {{ b("Opera", "https://www.opera.com", "chrome")}}
 
 Avoid. It has mandatory telemetry, a poor update cycle, and tons of feature bloat. It has very few if any advantages over Chrome. It does have a decent content-blocker, but I'm not certain if it has decent security (more on this later). Overall, not a great option.
 
-### :fontawesome-brands-brave: Brave
+### :fontawesome-brands-brave: {{ b("Brave", "https://brave.com", "https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy" )}}
 
 Not terrible, but a weak option. Most of this browser is either matching vanilla Chromium, a degradation, or modifies a default. For example, they enable MV2 support when that format is actively being deprecated in Chromium. MV2 is awful for security, since it allows unrestricted access to all websites and all features to extensions. MV3, while not perfect, fixes many of these issues. In general, extensions are bad for security, but enabling MV2 is a step backwards. It should be noted that Brave only enables MV2 for [4 extensions](https://brave.com/blog/brave-shields-manifest-v3/), but this doesn't solve anything. The issue isn't that any extension can be MV2, it's the use of MV2 extensions themselves. See the [content blocking](index.md#content-blocking) section why MV2 is specifically an issue. Whitelisting these extensions doesn't solve the issues with MV2 and only puts more users at risk, especially since they whitelist uMatrix (they admit it in their own blog post), which is no longer maintained.
 
@@ -91,7 +100,7 @@ Another note, Brave does have decently private and end-to-end encrypted browser 
 
 While the guide does not cover hardening Brave, other such configurations/"debloaters" exist. One such debloater is [this one](https://github.com/Anxarden/brave-debloater), the default DNS server choice isn't my favorite but it can be changed if desired. It only officially supports Windows and Linux, to use this on Mac you would need to manually convert the policies to [MacOS compliant ones](MANUAL_CONFIG.md#macos).
 
-#### :fontawesome-brands-brave-reverse: Brave Origin
+#### :fontawesome-brands-brave-reverse: {{ b("Brave Origin", "https://brave.com/origin", "https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy") }}
 
 This is basically Brave, but preconfigured with all the stuff people usually disable disabled out of the box. Like telemetry, Brave wallet, the crypto networking stuff, advertising, all removed. On paper, great idea. The issue is it costs $60 USD, this gives you a limited number of installs (re-installs included). I cannot recommend anyone spend money on any browser, let alone this one. That said, the browser is 100% free on Linux, so it is a decent enough option there if Chrome is not cutting it for you.
 
@@ -99,23 +108,23 @@ This is basically Brave, but preconfigured with all the stuff people usually dis
 
 Options that are frequently referenced and talked about but have very little market-share.
 
-### :simple-vivaldi: Vivaldi
+### :simple-vivaldi: {{b("Vivaldi", "https://vivaldi.com", "chrome")}}
 
 Vivaldi uses the extended stable channel and updates weekly, so they are keeping up with security updates. They used to have a horrific update cycle of once every several months, this seems to have improved.
 
 It is proprietary, which isn't the worst, but it is difficult to analyze how good it really is, build-wise. Though they do publish gapped [source code](https://vivaldi.com/source) (meaning some parts of the code are missing, for reference vanilla Chromium is around 3.5-4 gigs when compressed, Vivaldi is around 2 if I recall correctly). It makes little improvements on Chrome, it does allow you to disable some intrusive integrations and has a content-blocker, but these are minor additions. It also has ***massive*** feature bloat. Again, mandatory telemetry which is surprisingly common.
 
-### :material-google-chrome: Vanilla Chromium
+### :material-google-chrome: {{ b("Vanilla Chromium", "", "chrome") }}
 
 This depends heavily, but usually these are just open-source variants of Chrome with worse update-cycles. As mentioned in the [baseline](#baseline-criteria) section, some have terrible building standards, like disabling CFI or unbundling everything under the sun. Some variants (used to) go further by disabling the default memory allocator (PartitionAlloc), Debian for example used to use tcmalloc which is borderline a zero-security allocator built for performance. Replacing the allocator was deprecated in Chromium for security reasons so no variants offer that anymore. Some builds lack CFI (this has been improving recently it seems), Fedora Linux and many simple distros like [Arch](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/blob/cd8f1d1e907b39dd2f1f494febba26d535f9b18a/PKGBUILD#L168) keep it enabled. Research your specific distro's packaging, see what they do, how much do they bundle/unbundle.
 
-#### :lucide-circle: ungoogled-chromium
+#### :lucide-circle: {{b("ungoogled-chromium", "https://github.com/ungoogled-software/ungoogled-chromium", "chrome")}}
 
 [Bad](https://qua3k.github.io/ungoogled/). The update cycle is inconsistent at best, slow at worst. It disables the component updater which Chromium depends on for security reasons, since many features such as CRLSets (used for certificate revocation) are updated as a component. The privacy isn't terrible, in the sense that no data can be collected, but the substantial security risk it offers is a massive negative.
 
 It suffers the issues of typical vanilla builds, but with the added issues of ungoogled-chromium itself. For example, usage of [tcmalloc in the past](https://github.com/ungoogled-software/ungoogled-chromium-debian/commit/9f7246d1c29d58cd467c540d580ab15bcc9e8b88).
 
-### :lucide-puzzle: Cromite
+### :lucide-puzzle: {{ b("Cromite", "https://github.com/uazo/cromite", "chrome") }}
 
 Cromite is [not a security-focused browser](https://discuss.grapheneos.org/d/16562-browser-mulch-vs-cromite/10). Cromite has some problematic changes included which reduce privacy and security. For example, it includes the Eyeo filtering engine which has all the [issues of Brave's adblock-rs](index.md#content-blocking) but is written in C++ (so memory unsafe), essentially increasing the attack surface massively. Additionally, Cromite [enables Manifest V2 Extensions](https://github.com/uazo/cromite/blob/6d6ce62db92b0a6b415c55e9b8fd861da13bfd6e/docs/FEATURES.md?plain=1#L165) in full, which adds a lot of additional attack surface over Chrome/Chromium. So they add a very risky adblocking engine to avoid extensions, but then enable MV2 likely for the purpose of content blocking, which results in adding a bunch of attack surface with only the benefit of one or the other. With that said, the developer does seem very receptive and transparent to change for issues raised about Cromite.
 
@@ -125,7 +134,7 @@ Cromite, from what I have seen, is in the same spot as Brave. It doesn't improve
 
 As of recently, [according to the developer](https://github.com/uazo/cromite/issues/2884#issuecomment-4388203683), Cromite's maintenance will be spotty until September of 2026. At the time of writing this, Cromite last updated on April 10th (for v147.0.7727.56 released on [April 7th](https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop.html)), on May 21st there are approximately 300 CVEs patched since the last target release. For now, until the situation improves, you should avoid using Cromite.
 
-### :material-airballoon-outline: Helium
+### :material-airballoon-outline: {{b("Helium", "https://helium.computer/", "chrome" )}}
 
 [Helium](https://helium.computer/) is a browser based on UGC (ungoogled-chromium). It makes use of patches from many sources, including its own. Most of the patches are usability focused, such as [bangs support](https://github.com/imputnet/helium/blob/main/patches/helium/core/add-native-bangs.patch) and a custom service that acts as a provider for various things throughout the browser (that can be self-hosted). The most notable issue though is the preloading of an extension, uBlock Origin. Some may consider this positive, but [it is not](index.md#content-blocking). This a decently large source of fingerprinting and attack surface, even if it were uBlock Origin Lite (uBO MV3 variant), this is still not a good idea. Extensions should be avoided where possible, and baking them in is an anti-feature, even if they provide useful functionality. Despite it being based on UGC, Helium's services feature provides a proxy for performing component updates, which is very nice but is also only a fix for an issue in UGC, it isn't an actual improvement over Chromium.
 
@@ -133,11 +142,11 @@ Additionally, the developers do seem to have strong security focus on not regres
 
 On that note, I am unsure if this browser is worth using over Chrome, or even Brave, for security. It does not really do much to improve on the security of Chromium, most patches are focused on usability and de-regressing the security of UGC. It is sitting in the same spot as Brave, where it has some nice features but most of what it does is adjacent to Chrome or a security regression in some way. Currently, it is not an option that can be recommended. The update cycle looks to be a few days past upstream releases, which is fine and matches what most major non-rolling Linux distros can do, if not better.
 
-### :material-speedometer: Thorium
+### :material-speedometer: {{b("Thorium", "https://thorium.rocks/", "chrome")}}
 
 [The update cycle](https://github.com/Alex313031/thorium/releases) is giving me a panic attack. They used to release once every few months (alike to how Vivaldi releases) and were still usually a few releases behind. Just recently they switched to the LTS branch of Chromium, which isn't ideal. Security fixes are pushed out weekly, the LTS branch updates features twice a year but still updates in between for security patches. Thorium since the start of 2026 has updated twice. In fact, Chromium's LTS branch has already promoted [from 138 to 144](https://chromereleases.googleblog.com/2026/04/long-term-support-lts-channel-for.html) since April of 2026, Thorium released the 144 beta on [Jun 8 of 2026](https://github.com/Alex313031/thorium/releases/tag/M144.0.7559.254), which is itself more of a notification and *not* a proper release. The developer doesn't seem to have the time to maintain it, so a new developer stepped in. This may improve the situation, but to be explicit, you should not use Thorium for any reason currently.
 
-### :material-microsoft-windows: Supermium
+### :material-microsoft-windows: {{b("Supermium", "https://www.win32subsystem.live/supermium/", "chrome")}}
 
 This is a browser mainly designed for legacy OSes, like Windows 7, that modern browsers no longer support. It is hard to comment on this without the expected "do not use Windows 7, update to something modern". That said, if you are forced to use an OS that Supermium does support a modern browser doesn't, for one reason or another, then it isn't the *worst* option.
 
@@ -147,7 +156,7 @@ It aims for updates within a week of upstream. This is pretty bad, CVEs should i
 
 As mentioned in the [Brave](#brave) section, ***avoid***! Flatpak's security is... questionable for a number of reasons, but what's worse is Chromium's security in Flatpak. Because Flatpak restricts the usage of Linux namespaces and prevents the use of SUID (for good reason), Chromium's sandbox will literally not work. The solution is [zypak](https://github.com/refi64/zypak) or a [direct patch](https://github.com/flathub/org.chromium.Chromium/blob/master/patches/chromium/flatpak-Add-initial-sandbox-support.patch), the problem is these methods are very poorly configured to the point they essentially break the typically very strong sandboxing that Chromium provides. These solutions are closer to compatibility layers than they are genuine [security solutions](https://issues.chromium.org/issues/40753165#comment11). Upstream (Chromium devs) have expressed they do not intend to support Flatpak [anytime soon](https://issues.chromium.org/issues/40928753#comment5) for reasons alike to this. Flatpak *significantly* inhibits Chromium's sandboxing, and there is no faithful implementation currently.
 
-### :simple-qt: QtWebEngine
+### :simple-qt: {{b("QtWebEngine", "https://doc.qt.io/qt-6/qtwebengine-overview.html", "")}}
 
 Browsers based on QtWebEngine (for example [KDE’s Falkon](https://apps.kde.org/falkon/)) should generally be avoided. QtWebEngine forks a specific Chromium version at feature freeze and then [cherry‑picks security fixes](https://www.qt.io/blog/putting-updates-of-chromium-in-qtwebengine-on-a-timeline) from newer upstream releases. That approach can leave a longer exposure window than browsers that track Chromium directly. Cherry‑picking is error‑prone and may miss fixes that rely on broader refactors or API changes, increasing the likelihood that patches are incomplete.
 
@@ -155,11 +164,11 @@ Browsers based on QtWebEngine (for example [KDE’s Falkon](https://apps.kde.org
 
 This section is dedicated to a few options people often recommend explicitly for security reasons, but the options themselves are rather niche. For example, Brave is *not* a security option but it is a very popular recommendation for "security" but it is not itself a security focused browser. Same follows for other projects claiming the same thing, such as LibreWolf. This section has projects that actually *try* to improve browser security.
 
-### :lucide-shield: Vanadium
+### :lucide-shield: {{b("Vanadium", "https://github.com/GrapheneOS/Vanadium", "")}}
 
 This is the GrapheneOS default browser. It almost goes without saying that it is one of, if not the best option currently for privsec. Very few browsers are as comprehensive with their hardening or as consistent with their update cycle. Unfortunately, the browser is only available on GrapheneOS, so most may not be able to use it. An Android-wide release is planned but the expected release of that is unknown (at least to the public).
 
-### :material-google-chrome: Trivalent
+### :material-google-chrome: {{b("Trivalent", "https://github.com/secureblue/Trivalent", "chrome")}}
 
 Full disclosure, I am a frequent contributor to Trivalent. This wouldn't affect my opinion of it anyway, as it is currently. The explanation is below.
 
@@ -167,21 +176,21 @@ Essentially, this is Vanadium for desktop Linux, somewhat literally. Do note tha
 
 Beyond that, I won't go too in depth because it will sound more like marketing than a "review".
 
-### :fontawesome-brands-firefox-browser: IronFox
+### :fontawesome-brands-firefox-browser: {{b("IronFox", "https://gitlab.com/ironfox-oss/IronFox", "")}}
 
 [See](#firefox) [here](#firefox-forks). Firefox based browsers, especially on Android, have terrible security. IronFox isn't exactly free of these issues. It does do some work to reduce some attack surface of base Firefox, but this is not significant or substantial enough to justify its use over any Chromium based browser. But, if you are for some unholy reason forced to use a Firefox based browser on Android, IronFox is your best bet, but still note it's nothing to depend on security-wise.
 
-### :simple-torbrowser: Tor Browser
+### :simple-torbrowser: {{b("Tor Browser", "https://www.torproject.org", "firefox")}}
 
 I don't think this should be controversial, but Tor is *not* a security focused browser. For starters, it is just [Firefox](#firefox) fundamentally, it doesn't fix any of the architectural issues of FF, it just adds anti-fingerprinting protections.
 
 Yes, Tor is decent for anti-fingerprinting, it is hard to argue that any other browser even comes close. That does not translate into security benefit, it is one of Tor's biggest flaws. It also uses Firefox ESR, which is basically Firefox but 2 months out-of-date and CVEs backported. In general, the best use-case for Tor is inside a virtual machine, otherwise you are putting yourself at risk.
 
-#### :simple-mullvad: Mullvad Browser
+#### :simple-mullvad: {{b("Mullvad Browser", "https://mullvad.net/en/browser", "firefox")}}
 
 Mullvad is Tor browser without Tor, it has literally no advantages and only regresses on Tor's base anti-fingerprinting model. It adds uBlock Origin, which can cause nearly infinite variation in users by filter versions and custom filters, and fingerprinting system uptimes based on that. A big part of Tor's resistance to fingerprinting is the Tor network, Mullvad substitutes this by using their own VPN service, but not all users have that so the benefit is significantly weaker. Mullvad does have a mode to [randomize where you connect](https://github.com/mullvad/browser-extension/releases/tag/v0.9.8-firefox-beta), this adds some parity to how you expect Tor to work if enabled, which can prevent fingerprinting based on Mullvad server choice. Fundamentally this is a downstream of a downstream, that being Tor and Firefox, so updates will be twice as delayed. It is roughly in the same ballpark as Librewolf, in that it actually has very little to offer beyond convenience of setup.
 
-### :simple-librewolf: Librewolf
+### :simple-librewolf: {{b("Librewolf", "https://www.librewolf.net", "firefox")}}
 
 Consider it roughly in the same camp as [Ironfox](#ironfox), many of the points that aren't Android-specific apply here as well. Librewolf is a fork of Firefox designed to harden it. The update cycle looks [very consistent](https://codeberg.org/librewolf/source/tags) with [Firefox's upstream release cycle](https://www.firefox.com/en-US/releases/), which is good, they hit within the same-day ballpark with exceptions. A while back this was not the case, and they fell behind on updates frequently, that has clearly since changed and gotten much better.
 
@@ -195,7 +204,7 @@ That said, this section was written as a re-assessment of Librewolf (since the o
 
 Anything *not* directly based on Chromium.
 
-### :fontawesome-brands-firefox: Firefox
+### :fontawesome-brands-firefox: {{b("Firefox", "https://www.firefox.com", "firefox")}}
 
 Firefox is [inherently insecure](https://madaidans-insecurities.github.io/firefox-chromium.html). I can already see the responses to that source, "Last updated March 2022", "4-5 year old article", "Biased and outdated", but these are often said in a hand-wave manner with the hope that time has fixed the issues present in the article... it has not. Saying the article is old actually makes Firefox look *worse*, since it hasn't significantly improved in 4+ years. To be fair, there has been improvement but not enough of it to make it comparable to Chromium based browsers (even from 3 years ago). This is especially true on Linux where the sandboxing is very poor, and Android where *there is no website sandbox at all*. The current Android implementation of the Firefox sandbox (Fission) is very weak (was recently enabled by default in [v147](https://www.firefox.com/en-US/firefox/android/147.0/releasenotes/)), out of the box it does not use Android's [isolatedProcess](https://developer.android.com/guide/topics/manifest/service-element#isolated) flag, which ensures that subprocesses are properly isolated and cannot trivially escalate privilege within the application. This flag can be enabled as an experiment in some forks, but even still the sandboxing design they have is very new for Firefox and is likely going to take some time to stabilize and be relatively bug-free.
 
@@ -212,13 +221,13 @@ Most Firefox forks are just regular Firefox with either UI changes or some chang
 
 Although, I will mention one fork specifically, Pale Moon. Pale Moon uses *ancient* code with some security patches backported, and it is single-process so it cannot utilize any modern sandboxing technology (such as seccomp or namespaces, or the adjacents on other platforms). You can manually sandbox the browser but that doesn't isolate sites from each other. This also means that newer security features Firefox adds (as rare as that is) will not get properly added, if they get added at all.
 
-### :material-apple-safari: Safari/WebKit
+### :material-apple-safari: {{b("Safari/WebKit", "https://www.apple.com/safari", "https://support.apple.com/en-us/guide/deployment/depb514ccd65/web")}}
 
 Security-wise, Safari/WebKit is pretty decent. It may be behind on web standards but it has strong partitioning, strong sandboxing, and robust mitigations on all supported platforms. Additionally, it can disable JIT JavaScript (and many other web features) on iOS and macOS per-site using Lockdown Mode to be W^X compliant, though most websites will likely break. That said, Webkit lacks full site isolation, it currently only offers tab-isolation. This has caused [some vulnerabilities](https://open-web-advocacy.org/blog/slap-and-flop--apples-lack-of-full-site-isolation-and-ios-browser-ban-puts-users-at-risk/), so it is something to be cautious of. Because of this fact, you should prefer Chromium-based browsers where possible, since they have a much more mature isolation scheme.
 
 Safari itself has poor update handling, both in the effort to ship fixes and technology around shipping updates. Safari updates [like a system component](https://support.apple.com/en-ca/102665), which means a full system update is needed to update Safari. This has changed on Apple OS versions [since 26.1](https://support.apple.com/en-us/102657), so if you are up-to-date then it will update asynchronously to the rest of the OS. While not entirely a problem, iOS and MacOS don't update that often, especially not often enough to keep up with Safari/WebKit CVEs. On top of this, Safari doesn't ship updates that quickly, or at least [they didn't always](https://projectzero.google/2022/02/a-walk-through-project-zero-metrics.html).
 
-#### :material-gnome: Epiphany/WebKitGTK
+#### :material-gnome: {{b("Epiphany/WebKitGTK", "https://apps.gnome.org/Epiphany/", "")}}
 
 (I believe) WebKitGTK is the official WebKit port to Linux. It shares many of the same features of regular WebKit, sans some stuff that are iOS/macOS/Apple specific. It is the only browser to support proper sandboxing in Flatpak but said sandboxing is notably weaker than native (non-Flatpak, non-Snap) Chromium.
 
