@@ -12,7 +12,7 @@ def define_env(env) -> None:
         Args:
             name (str): Browser name.
             homepage (str): Browser homepage. Set to "" to disable.
-            policies (str): Browser policies page. Set to "" to disable.
+            policies (str): Browser policies page. Set to "" to disable. Set to "chrome" or "firefox" for their respective policy pages.
         """
         if policies == "chrome":
             policies = "https://chromeenterprise.google/policies"
