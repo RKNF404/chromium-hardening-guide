@@ -25,6 +25,10 @@ The formatting is very strict and will result in your policies not loading if th
 !!! info
     When adding your file, make sure it is globally readable, some stricter umask values can result in this being an issue. For example, with umask 077. If you have this issue, run (as root) `#!bash chmod a+r /path/to/policies/managed/*`
 
+## :material-android: Android
+
+While policies do work on Android if applied through an MDM tool, this is not really feasible for individuals.
+
 ## :material-microsoft: Windows
 
 
