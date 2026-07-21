@@ -5,7 +5,7 @@ def define_env(env) -> None:
     @env.macro
     def b(name: str, homepage: str, policies: str) -> str:
         """
-        Create browser header with necessary info. Call this method from a markdown file like so:
+        Create browser header with necessary info. Call this method from a Markdown file like so:
 
         {{ b("name", "homepage link", "policy link") }}
 
