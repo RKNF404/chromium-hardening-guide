@@ -28,7 +28,7 @@ The formatting is very strict and will result in your policies not loading if th
 
 ## :material-microsoft: Windows
 
-Windows policies rely on using the registry. Most browsers, similar to Linux, have different locations for their policies. Google Chrome will use policies from `HKEY_LOCAL_MACHINE/SOFTWARE/Policies/Google/Chrome`.
+Windows policies rely on using the registry. Most browsers, similar to Linux, have different locations for their policies. Google Chrome will use policies from `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome`.
 
 To add a policy, you need to make sure to add the right value type. Most often, there are only 2 reg values used, string value and DWORD (32-bit).
 
