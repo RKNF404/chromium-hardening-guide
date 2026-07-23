@@ -106,7 +106,7 @@ This is basically Brave, but preconfigured with all the stuff people usually dis
 
 ## :lucide-star-half: Notable Options
 
-Options that are frequently referenced and talked about but have very little marketshare.
+Options that are frequently referenced and talked about but have very little market share.
 
 ### :simple-vivaldi: {{b("Vivaldi", "https://vivaldi.com", "chrome")}}
 
@@ -150,7 +150,7 @@ On that note, I am unsure if this browser is worth using over Chrome, or even Br
 
 This is a browser mainly designed for legacy OSes, like Windows 7, that modern browsers no longer support. It is hard to comment on this without the expected "do not use Windows 7, update to something modern". That said, if you are forced to use an OS that Supermium does support a modern browser doesn't, for one reason or another, then it isn't the *worst* option.
 
-It aims for updates within a week of upstream. This is pretty bad, CVEs should ideally be fixed within a few days. That said, it is hard to compare it to anything else that can still update on Win7. So, by virtue of it being the only workable option, it's fine. In any other situation though, this browser should be strictly avoided.
+It aims for updates within a week of upstream. This is pretty bad, CVEs should ideally be fixed within a few days. That said, it is hard to compare it to anything else that can still update on Win7. So by virtue of it being the only workable option, it's fine. In any other situation though, this browser should be strictly avoided.
 
 ### :simple-flatpak: Flatpak (Linux)
 
@@ -188,7 +188,7 @@ Yes, Tor is decent for anti-fingerprinting, it is hard to argue that any other b
 
 #### :simple-mullvad: {{b("Mullvad Browser", "https://mullvad.net/en/browser", "firefox")}}
 
-Mullvad is Tor browser without Tor, it has literally no advantages and only regresses on Tor's base anti-fingerprinting model. It adds uBlock Origin, which can cause nearly infinite variation in users by filter versions and custom filters, and fingerprinting system uptimes based on that. A big part of Tor's resistance to fingerprinting is the Tor network, Mullvad substitutes this by using their own VPN service, but not all users have that so the benefit is significantly weaker. Mullvad does have a mode to [randomize where you connect](https://github.com/mullvad/browser-extension/releases/tag/v0.9.8-firefox-beta), this adds some parity to how you expect Tor to work if enabled, which can prevent fingerprinting based on Mullvad server choice. Fundamentally this is a downstream of a downstream, that being Tor and Firefox, so updates will be twice as delayed. It is roughly in the same ballpark as LibreWolf, in that it actually has very little to offer beyond convenience of setup.
+Mullvad is Tor Browser without Tor, it has literally no advantages and only regresses on Tor's base anti-fingerprinting model. It adds uBlock Origin, which can cause nearly infinite variation in users by filter versions and custom filters, and fingerprinting system uptimes based on that. A big part of Tor's resistance to fingerprinting is the Tor network, Mullvad substitutes this by using their own VPN service, but not all users have that so the benefit is significantly weaker. Mullvad does have a mode to [randomize where you connect](https://github.com/mullvad/browser-extension/releases/tag/v0.9.8-firefox-beta), this adds some parity to how you expect Tor to work if enabled, which can prevent fingerprinting based on Mullvad server choice. Fundamentally this is a downstream of a downstream, that being Tor and Firefox, so updates will be twice as delayed. It is roughly in the same ballpark as LibreWolf, in that it actually has very little to offer beyond convenience of setup.
 
 ### :simple-librewolf: {{b("LibreWolf", "https://www.librewolf.net", "firefox")}}
 
