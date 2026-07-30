@@ -17,6 +17,9 @@ SystemFilters = {
     'lin': 'LINUX_ONLY',
     'win': 'WINDOWS_ONLY',
     'mac': 'MACOS_ONLY',
+    'no-lin': 'NO_LINUX',
+    'no-win': 'NO_WINDOWS',
+    'no-mac': 'NO_MACOS',
 }
 ConfigOptions = {
     'all': 'all',
@@ -141,9 +144,9 @@ def ParseConfig(data, args, parser):
     optionalConfigs = []
 
     sysFiltDict = {
-        Systems['lin']: [SystemFilters['win'], SystemFilters['mac']],
-        Systems['win']: [SystemFilters['lin'], SystemFilters['mac']],
-        Systems['mac']: [SystemFilters['win'], SystemFilters['lin']]
+        Systems['lin']: [SystemFilters['win'], SystemFilters['mac'], SystemFilters['no-lin']],
+        Systems['win']: [SystemFilters['lin'], SystemFilters['mac'], SystemFilters['no-win']],
+        Systems['mac']: [SystemFilters['win'], SystemFilters['lin'], SystemFilters['no-mac']]
     }
     systemFilter = sysFiltDict[args.system]
 
