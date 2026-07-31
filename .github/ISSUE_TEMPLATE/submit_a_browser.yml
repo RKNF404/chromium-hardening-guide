@@ -1,0 +1,45 @@
+name: Submit a browser
+description: Suggest a browser to be added to the selection page
+title: '[SUGGESTION] Add [...] to the browser selection page'
+labels: 'documentation,enhancement'
+assignees: 'RKNF404'
+
+body:
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: If none of these are checked, the browser will likely not be added.
+      options:
+        - label: Is the browser popular or has measurable market share?
+        - label: Does the browser have some recognition? (this can be GitHub stars or frequent mentions in forum posts)
+        - label: Does the browser fill some kind of niche that another browser on the list doesn't already fill? (or does it offer an improvement upon said niche)
+        - label: Does the browser have a strong security focus? (or claim to have one)
+        - label: Is the browser using an independent engine that has close to modern security features?
+        - label: Is the browser open source or source-available?
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Benefits and/or Risk
+      description: Why should/n't someone use this browser
+      placeholder: Describe the reason for it to be included. Is it because the browser has a notable risk that more users should be aware of? If so, what is the risk? Or is there a notable benefit the browser offers that others either don't offer or struggle with?
+    validations:
+      required: true
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      placeholder: Links to the browser's main website, source code if it is open source, feature/policy documentation if it exists, or community forums if they have it. You can also add links to evidence for benefits or risks mentioned above.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The browser I am submitting is to my knowledge actively being developed and updated.
+          required: true
+        - label: The browser I am submitting is not already mentioned on the selection page (such that its benefits and/or risks aren't made known).
+          required: true
+        - label: I am the developer or help to develop or maintain of the browser (mainly makes it easier to ask followups on the above information)
