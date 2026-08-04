@@ -9,7 +9,7 @@ body:
     id: prerequisites
     attributes:
       label: Prerequisites
-      description: If none of these are checked, the browser will likely not be added.
+      description: The browser must meet at least one of the following criteria to be included.
       options:
         - label: Is the browser popular or has measurable market share?
         - label: Does the browser have some recognition? (this can be GitHub stars or frequent mentions in forum posts)
@@ -17,6 +17,8 @@ body:
         - label: Does the browser have a strong security focus? (or claim to have one)
         - label: Is the browser using an independent engine that has close to modern security features?
         - label: Is the browser open source or source-available?
+      validation:
+        required: true
 
   - type: textarea
     id: description
@@ -42,4 +44,4 @@ body:
           required: true
         - label: The browser I am submitting is not already mentioned on the selection page (such that its benefits and/or risks aren't made known).
           required: true
-        - label: I am the developer or help to develop or maintain of the browser (mainly makes it easier to ask followups on the above information)
+        - label: I am the developer or help in development or maintenance of the browser (mainly makes it easier to ask followups on the above information)
