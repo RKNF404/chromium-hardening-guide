@@ -17,8 +17,8 @@ body:
         - label: Does the browser have a strong security focus? (or claim to have one)
         - label: Is the browser using an independent engine that has close to modern security features?
         - label: Is the browser open source or source-available?
-      validation:
-        required: true
+    validations:
+      required: true
 
   - type: textarea
     id: description
