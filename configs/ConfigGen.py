@@ -155,7 +155,8 @@ def ParseConfig(data, args, parser):
         if (
             TagMatch(data[e], args.tag) and
             not TagMatch(data[e], systemFilter[0]) and
-            not TagMatch(data[e], systemFilter[1])
+            not TagMatch(data[e], systemFilter[1]) and
+            not TagMatch(data[e], systemFilter[2])
         ):
             filteredData[e] = data[e]
 
