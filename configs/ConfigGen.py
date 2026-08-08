@@ -4,7 +4,7 @@ import sys
 import os
 import platform
 import json
-#import plistlib
+import plistlib
 import argparse
 
 # Globals
@@ -43,6 +43,14 @@ Files = {
     'macos_recommended_policy': 'recommended-policy/com.google.Chrome.plist',
     'windows_policy': 'policy/hardening-guide-policy.reg',
 }
+
+def ArgsParserOverrides(args):
+    if args.system == Systems['win']:
+        args.format = FlagFileFormats['gen']
+    elif args.system == Systems['mac']:
+        args.type = ConfigOptions['pol']
+    return args
+
 
 # Parse input file into a dictionary structure
 def ParseConfigFile(dbFile):
@@ -118,11 +126,17 @@ def WriteRegPolicy(recommend, policies, recommendedPolicies):
 
 # Generate MacOS policy file
 def WritePlistPolicy(recommend, policies, recommendedPolicies):
-    raise NotImplementedError('MacOS policy generation not implemented')
-    ### WILL NOT HIT
-    '''
-    Should be simple with the plist library handler
-    '''
+    if not recommend:
+        policies.update(recommendedPolicies)
+    else:
+        if not os.path.exists('recommended-policy'):
+            os.makedirs('recommended-policy')
+        with open(Files['macos_recommended_policy'], 'w') as policyOutput:
+            policyOutput.write(plistlib.dumps(recommendedPolicies).decode())
+    if not os.path.exists('policy'):
+        os.makedirs('policy')
+    with open(Files['macos_policy'], 'w') as policyOutput:
+        policyOutput.write(plistlib.dumps(policies).decode())
     return
 
 # Check if a certain config has a certain tag
@@ -136,6 +150,8 @@ def TypeMatch(confEntry, confOption):
         ConfigOptions['cmd']: confType == ConfigTypes['feat'] or confType == ConfigTypes['flag'],
         ConfigOptions['pol']: confType == ConfigTypes['pol']
     }
+    print(confType + ':')
+    print(retDict[confOption])
     return retDict[confOption]
 
 # General parsing and filtering
@@ -192,7 +208,8 @@ def ParseConfig(data, args, parser):
         action='help',
         help='Show this help message and exit.'
     )
-    args = parser.parse_args()
+    # This will re-parse the commandline and clear any forced overrides, like Mac only supporting policies
+    args = ArgsParserOverrides(parser.parse_args())
 
     for e in optionalConfigs:
         if e in filteredData:
@@ -277,6 +294,7 @@ def ParseConfig(data, args, parser):
             os.remove(Files[f])
 
     # Write to disk
+
     if args.type in [ConfigOptions['cmd'], ConfigOptions['all']]:
         WriteFlagsFile(args.format, flags)
 
@@ -336,17 +354,8 @@ def main() -> int:
         action='store_true',
         help='Separate recommended policies from regular ones.'
     )
-    args = parser.parse_known_args()[0]
+    args = ArgsParserOverrides(parser.parse_known_args()[0])
     
-    if args.system == Systems['win']:
-        args.format = FlagFileFormats['gen']
-    elif args.system == Systems['mac']:
-        args.type = ConfigOptions['pol']
-
-    if args.system == Systems['mac']:
-        print(f'TODO: {args.system} support not implemented')
-        return 1
-
     if not os.path.isfile(args.file):
         parser.add_argument(
             '--help', '-h',
