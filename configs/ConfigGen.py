@@ -339,6 +339,8 @@ def main() -> int:
     
     if args.system == Systems['win']:
         args.format = FlagFileFormats['gen']
+    elif args.system == Systems['mac']:
+        args.type = ConfigOptions['pol']
 
     if args.system == Systems['mac']:
         print(f'TODO: {args.system} support not implemented')
