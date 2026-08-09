@@ -150,8 +150,6 @@ def TypeMatch(confEntry, confOption):
         ConfigOptions['cmd']: confType == ConfigTypes['feat'] or confType == ConfigTypes['flag'],
         ConfigOptions['pol']: confType == ConfigTypes['pol']
     }
-    print(confType + ':')
-    print(retDict[confOption])
     return retDict[confOption]
 
 # General parsing and filtering
