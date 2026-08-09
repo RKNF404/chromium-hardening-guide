@@ -45,12 +45,13 @@ Files = {
 }
 
 def ArgsParserOverrides(args):
+    # Windows only uses generic format since that's what ChromeWrapper uses
+    # Mac doesn't have a decent way to commandline wrap so flags is currently unsupported
     if args.system == Systems['win']:
         args.format = FlagFileFormats['gen']
     elif args.system == Systems['mac']:
         args.type = ConfigOptions['pol']
     return args
-
 
 # Parse input file into a dictionary structure
 def ParseConfigFile(dbFile):
