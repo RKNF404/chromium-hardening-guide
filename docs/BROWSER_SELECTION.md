@@ -132,7 +132,7 @@ Cromite is [not a security-focused browser](https://discuss.grapheneos.org/d/165
 
 Cromite, from what I have seen, is in the same spot as Brave. It doesn't improve that much on-top of Chromium security-wise, mostly just a vague privacy and freedom promoting way. It has many of the same flaws as Brave and not as many of the same benefits. I wouldn't call the browser security-focused currently, nor do I see a reason to use it for improved security over something like Chrome or a decent Chromium build.
 
-As of recently, [according to the developer](https://github.com/uazo/cromite/issues/2884#issuecomment-4388203683), Cromite's maintenance will be spotty until September of 2026. At the time of writing this, Cromite last updated on April 10th (for v147.0.7727.56 released on [April 7th](https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop.html)), on May 21st there are approximately 300 CVEs patched since the last target release. For now, until the situation improves, you should avoid using Cromite.
+~~As of recently, [according to the developer](https://github.com/uazo/cromite/issues/2884#issuecomment-4388203683), Cromite's maintenance will be spotty until September of 2026.~~ Developer has returned for 153. They seem to have [a new mindset](https://github.com/uazo/cromite/issues/2976#issuecomment-5467511236) on maintaining and automating releases to better keep up, we will see how this goes.
 
 ### :material-airballoon-outline: {{b("Helium", "https://helium.computer/", "chrome" )}}
 
