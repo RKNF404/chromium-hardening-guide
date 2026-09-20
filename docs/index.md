@@ -11,7 +11,13 @@ Please note that while I intend for this to be as comprehensive as possible, the
 
 ## :lucide-settings: Basic Setup
 
-This is just preferences, so see [Preferences](PREFERENCES.md). Everything else is covered by policies.
+For starters, make sure you are using a secure browser. This guide does very little if the underlying browser is insecure. You may reference the [browser selection page](BROWSER_SELECTION.md) for assistance on selecting a secure base browser.
+
+Initial setup is just preferences, so see [the preferences page](PREFERENCES.md). Everything else is covered by configuration files.
+
+### :lucide-file-cog: Configuration File Creation
+
+This guide consists mainly of configuration files for various platforms generated either the automated script or by hand. The preferred way is the automated script, it works cross-platform and should be simple enough to use (ask for help if needed). For a guide on using the script, visit the [automatic config generation page](CONFIG_GEN.md). The process can also be done by hand, or if you are not satisfied with the results of the script, you can manually edit the output files. For a guide on how to edit these, see the [manual configuration editing page](MANUAL_CONFIG.md).
 
 ### :lucide-shield: Content Blocking
 
@@ -32,7 +38,7 @@ There is technically a sub-category of network filtering that is more comprehens
 
 Last note on remotely updated filters for systems like Brave, Opera, and uBlock Origin (MV2). The main problem here is that filters can still modify requests, run regex (which can be exploited in the browser engine), use cosmetic filters (which has been used to exfil data from sites in the past), and execute JavaScript via scriptlets. While scriptlets themselves aren't risky, even when limiting execution capabilities it is still arbitrary execution and therefore has massive risk. These filters are themselves arbitrary and unsigned, meaning you are OTA downloading random files that are an exploit away from reading the contents on all sites or worse. At least with MV3 extensions the filters have to bundled, so they are effectively signed along with the rest of the extension, so much better than most integrated engines.
 
-### :lucide-shield-ban: Using uBlock Origin Lite
+### :lucide-shield-ban: Extension Usage and Guides
 
 [>>WIP<<](UBOL_GUIDE.md)
 
