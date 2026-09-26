@@ -98,7 +98,7 @@ Overall, on desktop, Brave is rather useless. It is filled with bloat and any se
 
 Another note, Brave does have decently private and end-to-end encrypted browser data sync. This is rare among Chromium browsers (sadly), so if you need sync then Brave would be a fine option.
 
-While the guide does not cover hardening Brave, other such configurations/"debloaters" exist. One such debloater is [this one](https://github.com/Anxarden/brave-debloater), the default DNS server choice isn't my favorite but it can be changed if desired. It only officially supports Windows and Linux, to use this on Mac you would need to manually convert the policies to [MacOS compliant ones](MANUAL_CONFIG.md#macos).
+While the guide does not cover hardening Brave, other such configurations/"debloaters" exist. One such debloater is [this one](https://github.com/Anxarden/brave-debloater), the default DNS server choice isn't my favorite but it can be changed if desired. It supports Windows, Linux, and MacOS.
 
 #### :fontawesome-brands-brave-reverse: {{ b("Brave Origin", "https://brave.com/origin", "https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy") }}
 
@@ -132,7 +132,7 @@ Cromite is [not a security-focused browser](https://discuss.grapheneos.org/d/165
 
 Cromite, from what I have seen, is in the same spot as Brave. It doesn't improve that much on top of Chromium security-wise, mostly just a vague privacy and freedom promoting way. It has many of the same flaws as Brave and not as many of the same benefits. I wouldn't call the browser security-focused currently, nor do I see a reason to use it for improved security over something like Chrome or a decent Chromium build.
 
-As of recently, [according to the developer](https://github.com/uazo/cromite/issues/2884#issuecomment-4388203683), Cromite's maintenance will be spotty until September of 2026. At the time of writing this, Cromite last updated on April 10th (for v147.0.7727.56 released on [April 7th](https://chromereleases.googleblog.com/2026/04/stable-channel-update-for-desktop.html)), on May 21st there are approximately 300 CVEs patched since the last target release. For now, until the situation improves, you should avoid using Cromite.
+~~As of recently, [according to the developer](https://github.com/uazo/cromite/issues/2884#issuecomment-4388203683), Cromite's maintenance will be spotty until September of 2026.~~ Developer has returned for 153. They seem to have [a new mindset](https://github.com/uazo/cromite/issues/2976#issuecomment-5467511236) on maintaining and automating releases to better keep up, we will see how this goes.
 
 ### :material-airballoon-outline: {{b("Helium", "https://helium.computer/", "chrome" )}}
 
@@ -167,6 +167,15 @@ This section is dedicated to a few options people often recommend explicitly for
 ### :lucide-shield: {{b("Vanadium", "https://github.com/GrapheneOS/Vanadium", "")}}
 
 This is the GrapheneOS default browser. It almost goes without saying that it is one of, if not the best option currently for privsec. Very few browsers are as comprehensive with their hardening or as consistent with their update cycle. Unfortunately, the browser is only available on GrapheneOS, so most may not be able to use it. An Android-wide release is planned but the expected release of that is unknown (at least to the public).
+
+#### :lucide-shield-cog: {{b("Titanium", "https://github.com/jqssun/android-titanium-browser", "")}}
+
+This is supposed to be a faithful fork of Vanadium accessible to Android platforms outside of GrapheneOS. The problem is this isn't *just* Vanadium patches, it also tags on [extension support](https://github.com/jqssun/android-titanium-browser#installing-extensions). By itself this isn't a huge deal but they also support [MV2 extensions](https://github.com/jqssun/android-titanium-browser/blob/7584b534f6e1f9c29e8bb98df71d7610960a5db3/patch.sh#L72), with an intention to [support it indefinitely](https://github.com/jqssun/android-titanium-browser/issues/4#issuecomment-4625889916) which is rather problematic.
+Additionally, the update cycle is incredibly spotty, with periods where [updates are delayed](https://github.com/jqssun/android-titanium-browser/releases) by several days [behind upstream](https://chromereleases.googleblog.com/search/label/Stable%20updates). Cross referencing dates shows periods of usually 4 days from upstream releases.
+
+Lastly about technical details and practices. Currently, the browser does not maintain a patchset, instead it uses a [patch script](https://github.com/jqssun/android-titanium-browser/blob/7584b534f6e1f9c29e8bb98df71d7610960a5db3/patch.sh). The problem is this is not only harder to maintain but is way more fragile than traditional patches, it just feels like an incredibly strange choice. There's also a poor history with this project when it comes to license compliance. It used to be called [Helium for Android](https://github.com/jqssun/android-titanium-browser#:~:text=This%20project%20was%20formerly%20known%20as%20Helium%20Browser%20for%20Android) and used patches from both Vanadium and Helium, the problem is Helium is a [GPLv3](https://github.com/imputnet/helium/blob/main/LICENSE) licensed project and Vanadium is [GPLv2-only](https://github.com/GrapheneOS/Vanadium/blob/main/LICENSE.GPL-2.0). These two licenses are not only strong copyleft but also are [not compatible](https://www.gnu.org/licenses/gpl-faq.html#v2v3Compatibility) with one another, making the original project a copyright violation on 2 fronts.
+
+Overall, it is rather difficult to recommend Titanium in its current state.
 
 ### :material-google-chrome: {{b("Trivalent", "https://github.com/secureblue/Trivalent", "chrome")}}
 

@@ -1,8 +1,8 @@
 ---
-icon: "lucide/file-lock"
+icon: "lucide/file-pen"
 ---
 
-# :lucide-file-lock: Manual Config
+# :lucide-file-pen: Manual Configuration
 
 ## :material-linux: Linux
 
