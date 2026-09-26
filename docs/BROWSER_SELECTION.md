@@ -184,7 +184,7 @@ Beyond that, I won't go too in depth because it will sound more like marketing t
 
 I don't think this should be controversial, but Tor is *not* a security focused browser. For starters, it is just [Firefox](#firefox) fundamentally, it doesn't fix any of the architectural issues of FF, it just adds anti-fingerprinting protections.
 
-Yes, Tor is decent for anti-fingerprinting, it is hard to argue that any other browser even comes close. That does not translate into security benefit, as security is one of Tor's biggest flaws. It also uses Firefox ESR, which is basically Firefox but 2 months out-of-date and CVEs backported. In general, the best use-case for Tor is inside a virtual machine, otherwise you are putting yourself at risk.
+Yes, Tor is decent for anti-fingerprinting, it is hard to argue that any other browser even comes close. That is not reflective of Tor’s security, one of its biggest flaws. It also uses Firefox ESR, which is basically Firefox but 2 months out-of-date and CVEs backported. In general, the best use-case for Tor is inside a virtual machine, otherwise you are putting yourself at risk.
 
 #### :simple-mullvad: {{b("Mullvad Browser", "https://mullvad.net/en/browser", "firefox")}}
 
