@@ -372,3 +372,11 @@ configurations = [
 module_name = "macros"
 on_error_fail = true
 on_undefined = "strict"
+
+[project.plugins.social]
+cards_layout = "default/variant"
+[project.plugins.social.cards_layout_options]
+color = "#8d60db"
+background_color = "#1e2029"
+
+# [project.plugins.privacy]
