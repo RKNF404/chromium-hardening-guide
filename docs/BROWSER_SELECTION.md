@@ -76,7 +76,7 @@ A very highly regarded option, Edge makes decent security improvements on-top of
 
 The main issue with Edge is telemetry, it is *mandatory* without Windows Enterprise/Educational editions. This makes it a non-contender for privacy outside of those OS configurations, but decent for security. It's update cycle can occasionally be spotty, skipping release every now-and-again. Overall, it's about equal to Chrome. Recently though, Edge seems rather [negligent of security issues](https://www.forbes.com/sites/daveywinder/2026/05/19/microsoft-does-u-turn-on-edge-by-design-password-vulnerability/), in this case they openly disregarded the issue and went back to fix it after criticism. Edge used to be recommended beside Chrome in this guide, but due to their described behavior it is difficult to recommend them.
 
-This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and macOS or [Topaz's Equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
+This guide does not cover hardening Edge but other such guides exist, such as [Tommy Tran's Edge policies](https://github.com/TommyTran732/Microsoft-Edge-Policies) for Linux and macOS or [Topaz's equivalent](https://github.com/topaz8/windows-edge-policies) for Windows.
 
 ### :material-opera: {{ b("Opera", "https://www.opera.com", "chrome")}}
 
