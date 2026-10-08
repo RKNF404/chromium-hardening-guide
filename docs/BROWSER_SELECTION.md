@@ -12,7 +12,7 @@ icon: "lucide/globe-lock"
     - **:material-apple: iOS** — Safari
     - **:material-linux: Linux** — Google Chrome or Brave Origin
         - **:material-fedora: Fedora-based** — [Trivalent](https://github.com/secureblue/Trivalent)
-        - **:material-arch: Arch Linux** — [official repository's packaging of Chromium](https://archlinux.org/packages/extra/x86_64/chromium/)
+        - **:material-arch: Arch Linux** — [`trivalent-bin` AUR package](https://aur.archlinux.org/packages/trivalent-bin), using the AUR is usually not a good idea but the options for Arch a little dry and this particular package is maintained by respected members of the secureblue community
         - **:material-nix: NixOS** — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## :lucide-arrow-down-to-line: Baseline Criteria
@@ -116,7 +116,9 @@ It is proprietary, which isn't the worst, but it is difficult to analyze how goo
 
 ### :material-google-chrome: {{ b("Vanilla Chromium", "", "chrome") }}
 
-This depends heavily, but usually these are just open-source variants of Chrome with worse update cycles. As mentioned in the [baseline](#baseline-criteria) section, some have terrible building standards, like disabling CFI or unbundling everything under the sun. Some variants (used to) go further by disabling the default memory allocator (PartitionAlloc), Debian for example used to use tcmalloc which is borderline a zero-security allocator built for performance. Replacing the allocator was deprecated in Chromium for security reasons so no variants offer that anymore. Some builds lack CFI (this has been improving recently it seems), Fedora Linux and many simple distros like [Arch](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/blob/cd8f1d1e907b39dd2f1f494febba26d535f9b18a/PKGBUILD#L168) keep it enabled. Research your specific distro's packaging, see what they do, how much do they bundle/unbundle.
+This depends heavily, but usually these are just open-source variants of Chrome with worse update cycles. As mentioned in the [baseline](#baseline-criteria) section, some have terrible building standards, like disabling CFI or unbundling everything under the sun. Some variants (used to) go further by disabling the default memory allocator (PartitionAlloc), Debian for example used to use tcmalloc which is borderline a zero-security allocator built for performance. Replacing the allocator was deprecated in Chromium for security reasons so no variants offer that anymore. Some builds lack CFI (this has been improving recently it seems), Fedora Linux and many simple distros like [Arch](https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/blob/cd8f1d1e907b39dd2f1f494febba26d535f9b18a/PKGBUILD#L168) keep it enabled.
+
+Generally, it is probably not the best idea to use your distro package. Many distros have been falling behind more and more, Arch and Gentoo being more recent examples of this, mostly due to changes in Chromium's build processes that make it more annoying to maintain the way most Linux distros have been building it for a while (i.e. unbundled toolchain and stable versions of clang). Research your specific distro's packaging, see how much they unbundle and how up-to-date their package is, as well as how consistent that is.
 
 #### :lucide-circle: {{b("ungoogled-chromium", "https://github.com/ungoogled-software/ungoogled-chromium", "chrome")}}
 
