@@ -12,7 +12,7 @@ icon: "lucide/globe-lock"
     - **:material-apple: iOS** — Safari
     - **:material-linux: Linux** — Google Chrome or Brave Origin
         - **:material-fedora: Fedora-based** — [Trivalent](https://github.com/secureblue/Trivalent)
-        - **:material-arch: Arch Linux** — [`trivalent-bin` AUR package](https://aur.archlinux.org/packages/trivalent-bin), using the AUR is usually not a good idea but the options for Arch a little dry and this particular package is maintained by respected members of the secureblue community
+        - **:material-arch: Arch Linux** — [`trivalent-bin` AUR package](https://aur.archlinux.org/packages/trivalent-bin), using the AUR is usually not a good idea but the options for Arch are a little dry and this particular package is maintained by respected members of the secureblue community
         - **:material-nix: NixOS** — [Nixpkgs Chromium package](https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/networking/browsers/chromium)
 
 ## :lucide-arrow-down-to-line: Baseline Criteria
