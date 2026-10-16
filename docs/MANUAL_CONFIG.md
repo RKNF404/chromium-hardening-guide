@@ -112,12 +112,12 @@ MacOS policies follow this format (this policy does nothing, it just demonstrate
     Then add `ChromeWrapper.ps1` to the location given by `ChromeWrapper_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be 
 
     ```
-    C:\Program Files\GoogleChrome\Application\ChromeWrapper.ps1
+    C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1
     ```
 
     After this, create a desktop shortcut with the following entry:
     ```pwsh
-    powershell.exe -ExecutionPolicy ByPass -File "C:\Program Files\GoogleChrome\Application\ChromeWrapper.ps1"
+    powershell.exe -ExecutionPolicy ByPass -File "C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1"
     ```
 
     Then right click that shortcut and click `Pin To Taskbar`.
