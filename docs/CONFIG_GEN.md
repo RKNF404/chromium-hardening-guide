@@ -43,12 +43,12 @@ If something is going wrong, the script should tell you almost exactly what. If 
     Then add `ChromeWrapper.ps1` to the location given by `ChromeWrapper_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be 
 
     ```
-    C:\Program Files\GoogleChrome\Application\ChromeWrapper.ps1
+    C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1
     ```
 
     After this, create a desktop shortcut with the following entry:
     ```pwsh
-    powershell.exe -ExecutionPolicy ByPass -File "C:\Program Files\GoogleChrome\Application\ChromeWrapper.ps1"
+    powershell.exe -ExecutionPolicy ByPass -File "C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1"
     ```
     Then right click that shortcut and click `Pin To Taskbar`.
     And that's it, your browser will now launch with the flags in the wrapper script whenever it is opened from the icon or invoked as a handler. (The shortcut can be deleted by the way, the taskbar pin will be unaffected)
