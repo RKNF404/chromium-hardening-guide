@@ -382,4 +382,7 @@ background_color = "#1e2029"
 [project.plugins.privacy]
 enabled = true
 
+[project.plugins.offline]
+enabled = true
+
 # [project.plugins.privacy]
