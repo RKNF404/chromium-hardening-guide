@@ -379,4 +379,7 @@ cards_layout = "default/variant"
 color = "#8d60db"
 background_color = "#1e2029"
 
+[project.plugins.privacy]
+enabled = true
+
 # [project.plugins.privacy]
