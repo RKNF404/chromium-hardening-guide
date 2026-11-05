@@ -5,6 +5,7 @@ import os
 import platform
 import json
 import plistlib
+import uuid
 import argparse
 
 # Globals
@@ -41,6 +42,7 @@ Files = {
     'linux_recommended_policy': 'recommended-policy/81-hardening-guide-policy-recommended.json',
     'macos_policy': 'policy/com.google.Chrome.plist',
     'macos_recommended_policy': 'recommended-policy/com.google.Chrome.plist',
+    'macos_profile': 'policy/hardening-guide-policy.mobileconfig',
     'windows_policy': 'policy/hardening-guide-policy.reg',
 }
 
@@ -135,6 +137,32 @@ def WritePlistPolicy(recommend, policies, recommendedPolicies):
         os.makedirs('policy')
     with open(Files['macos_policy'], 'w') as policyOutput:
         policyOutput.write(plistlib.dumps(policies).decode())
+    WriteMobileConfig(policies)
+    return
+
+# Generate MacOS configuration profile
+def WriteMobileConfig(policies):
+    profileId = 'io.github.rknf404.chromium-hardening-guide'
+    profile = {
+        'PayloadContent': [{
+            'PayloadContent': {'com.google.Chrome': {'Forced': [{'mcx_preference_settings': dict(sorted(policies.items()))}]}},
+            'PayloadDisplayName': 'Google Chrome',
+            'PayloadIdentifier': profileId + '.chrome',
+            'PayloadType': 'com.apple.ManagedClient.preferences',
+            'PayloadUUID': str(uuid.uuid5(uuid.NAMESPACE_DNS, profileId + '.chrome')).upper(),
+            'PayloadVersion': 1
+        }],
+        'PayloadDisplayName': 'Chromium Hardening Guide',
+        'PayloadIdentifier': profileId,
+        'PayloadScope': 'System',
+        'PayloadType': 'Configuration',
+        'PayloadUUID': str(uuid.uuid5(uuid.NAMESPACE_DNS, profileId)).upper(),
+        'PayloadVersion': 1
+    }
+    if not os.path.exists('policy'):
+        os.makedirs('policy')
+    with open(Files['macos_profile'], 'w') as profileOutput:
+        profileOutput.write(plistlib.dumps(profile).decode())
     return
 
 # Check if a certain config has a certain tag

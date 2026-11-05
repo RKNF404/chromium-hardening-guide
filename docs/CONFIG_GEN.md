@@ -65,10 +65,24 @@ If something is going wrong, the script should tell you almost exactly what. If 
 
 === ":material-apple: MacOS"
 
-    (WIP)
+    On MacOS, policies are applied with a configuration profile. The script outputs `hardening-guide-policy.mobileconfig` to the `policy/` folder, alongside the plain `com.google.Chrome.plist`. Copying the plist into `/Library/Managed Preferences/` does work, but MacOS deletes it on the next restart, so use the profile instead.
+
+    To install it, double click `hardening-guide-policy.mobileconfig`, then go to `System Settings` > `General` > `Device Management`. Double click "Chromium Hardening Guide", review it, then click `Install`. Fully quit Chrome (++cmd+q++) and reopen it.
+
+    If `--recommend` is used, the recommended policies are left out of the profile and written to `recommended-policy/com.google.Chrome.plist` instead. Import them with:
+
+    ```sh
+    sudo defaults import /Library/Preferences/com.google.Chrome recommended-policy/com.google.Chrome.plist
+    ```
+
+    Fully quit Chrome and reopen it, they will show as `Recommended` in `chrome://policy`. To remove them all, run `sudo defaults delete /Library/Preferences/com.google.Chrome`.
+
+    To update the policies, generate a new profile and install it the same way, it replaces the old one. To remove the mandatory policies, select the profile in `Device Management` and click the `-` button.
+
+    Flags are not covered for MacOS. They only apply when Chrome is launched with them from fully closed, which can't be persisted without a lot of hacks.
 
 ### :lucide-circle-check: Verifying output
 
 To verify the flags are properly being added, open `chrome://version`, under the `Command Line` the added flags should be visible.
 
-To verify policies, visit `chrome://policy`. You should see a list of applied policies. Scroll through them and check their statuses all say `Ok`. Some may say `Error, Ignored` on Windows, not much can be done about that, but they can be manually turned off in the browser's preferences anyway. If you do not see any policies or see more than a few with `Error` statuses, then something went wrong. If you are unsure, please feel free to open an issue. Include the `.reg` file used for the policies.
+To verify policies, visit `chrome://policy`. You should see a list of applied policies. Scroll through them and check their statuses all say `Ok`. Some may say `Error, Ignored` on Windows, not much can be done about that, but they can be manually turned off in the browser's preferences anyway. If you do not see any policies or see more than a few with `Error` statuses, then something went wrong. If you are unsure, please feel free to open an issue. Include the `.reg` (Windows) or `.mobileconfig` (MacOS) file used for the policies.

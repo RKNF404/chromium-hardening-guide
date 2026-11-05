@@ -7,6 +7,7 @@ icon: "lucide/wrench"
 If you applied policies and any of the following are already disabled, ignore it.
 
 - Under `chrome://password-manager/settings`, disable `Sign in automatically`
+- Under `chrome://settings/syncSetup`, disable `Help improve Chrome's features and performance` (the `MetricsReportingEnabled` policy is ignored on Windows when not joined to a domain, and on a personal Mac)
 - Under `chrome://settings/cookies`, enable `Do Not Track`
 - Block the permission at `chrome://settings/content/backgroundSync`
 - Block the permission at `chrome://settings/content/paymentHandler`
