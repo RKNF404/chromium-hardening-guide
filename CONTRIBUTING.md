@@ -22,6 +22,8 @@ Generative AI usage for issues and discussions is strictly forbidden for anythin
 
 ## Pull Requests
 
+Do not submit untested or broken code, try to keep code changes human-readable and comment if something may be confusing.
+
 Some requirements of your PRs:
 - all code must be your own, do not submit some else's code without their permission
 - all writing must be your own unless it is a quote, make sure to include citations if so
