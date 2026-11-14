@@ -24,7 +24,7 @@ In addition, a big concern with MV2-style filter updates is that they are not pr
 
 ### Filter Efficiency
 
-According to an [independent study in August of 2026](https://arxiv.org/html/2503.01000), "The empirical findings indicate no statistically significant reduction in ad-blocking or anti-tracking effectiveness for MV3 ad blockers compared to their MV2 counterparts. Some of our results even suggest slight improvements in blocking trackers for specific ad blockers following the MV3 update." This paper has limitations, as indicated in [section 7](https://arxiv.org/html/2503.01000#S7). These limitations do not appear to have any clear bias towards MV2 results or MV3 results, so at best we can assume ideal-case all around.
+According to an [independent study in August of 2025](https://arxiv.org/html/2503.01000), "The empirical findings indicate no statistically significant reduction in ad-blocking or anti-tracking effectiveness for MV3 ad blockers compared to their MV2 counterparts. Some of our results even suggest slight improvements in blocking trackers for specific ad blockers following the MV3 update." This paper has limitations, as indicated in [section 7](https://arxiv.org/html/2503.01000#S7). These limitations do not appear to have any clear bias towards MV2 results or MV3 results, so at best we can assume ideal-case all around.
 
 #### Youtube Adblock
 
