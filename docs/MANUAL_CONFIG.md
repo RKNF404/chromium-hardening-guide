@@ -32,7 +32,7 @@ While policies do work on Android if applied through an MDM tool, this is not re
 ## :material-microsoft: Windows
 
 
-Windows policies rely on using the registry. Most browsers, similar to Linux, have different locations for their policies. Google Chrome will use policies from `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome`. 
+Windows policies rely on using the registry. Most browsers, similar to Linux, have different locations for their policies. Google Chrome will use policies from `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome`.
 
 Other browsers will use `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\<vendor>\<browser>`.
 
@@ -109,7 +109,7 @@ MacOS policies follow this format (this policy does nothing, it just demonstrate
     Using another project of mine, [ChromeWrapper](https://github.com/RKNF404/ChromeWrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
 
     To do this, run the install script `ChromeWrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
-    Then add `ChromeWrapper.ps1` to the location given by `ChromeWrapper_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be 
+    Then add `ChromeWrapper.ps1` to the location given by `ChromeWrapper_PATH` present in that script, by default it should be Chrome's binary directory (where `chrome.exe` is present), by default this should be
 
     ```
     C:\Program Files\Google\Chrome\Application\ChromeWrapper.ps1
