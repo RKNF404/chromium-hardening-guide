@@ -51,7 +51,7 @@ Policy arrays and dictionaries also use the string values, they have the same fo
 Policies for Mac are similar to Linux in the sense that they are formatted files located in a global config directory. Instead of JSON, MacOS uses plist (XML formatted) files to handle prefs and policies.
 
 
-Aa far as I can tell, mandatory policies always go under `/Library/Managed Preferences/` and recommended go under `/Library/Preferences/`. The variance between browsers would be the file names, since they are related to the application identifier.
+As far as I can tell, mandatory policies always go under `/Library/Managed Preferences/` and recommended go under `/Library/Preferences/`. The variance between browsers would be the file names, since they are related to the application identifier.
 
 For Google Chrome, to apply policies, create a file `com.google.Chrome.plist` in the respective directory, i.e. managed or recommended. Then add policies in the proper formatting (see below). For other browsers, use that browser's respective app ID and add `.plist`.
 
@@ -97,7 +97,7 @@ MacOS policies follow this format (this policy does nothing, it just demonstrate
 
 === ":material-linux: Linux"
 
-    There is no one answer, most Linux distibutions offer a way to persist flags for their build of Chromium, and sometimes even offer a way to persist for Google Chrome as well.
+    There is no one answer, most Linux distributions offer a way to persist flags for their build of Chromium, and sometimes even offer a way to persist for Google Chrome as well.
 
     For example, Arch notably offers a [flag persistence method](https://wiki.archlinux.org/title/Chromium#Configuration) for both Chromium and Chrome. Fedora also offers a method via `/etc/chromium/chromium.conf`. Most other common distros like Ubuntu, Debian, Gentoo, Nix, etc. also offer methods that are either specific or similar.
 
@@ -105,7 +105,7 @@ MacOS policies follow this format (this policy does nothing, it just demonstrate
 
 === ":material-microsoft: Windows"
 
-    Out of the box, there is really no easy way to persist flags in a way to guarentee that they will be used... but, with some reg hacking and a launch script it is possible (thanks to chrlauncher).
+    Out of the box, there is really no easy way to persist flags in a way to guarantee that they will be used... but, with some reg hacking and a launch script it is possible (thanks to chrlauncher).
     Using another project of mine, [ChromeWrapper](https://github.com/RKNF404/ChromeWrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
 
     To do this, run the install script `ChromeWrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
