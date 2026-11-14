@@ -22,7 +22,7 @@ Just running the script without any arguments will automatically parse the `Conf
 
 Currently, there are a few arguments the script takes (these can be viewed with the help command above, this will go in-depth).
 
-- `--system SYSTEM` - takes either "linux", "macos", or "windows". This allows overriding the automatic platform detection, incase you want to generate config files for another computer.
+- `--system SYSTEM` - takes either "linux", "macos", or "windows". This allows overriding the automatic platform detection, in case you want to generate config files for another computer.
 - `--type TYPE` - allows filtering by the type of configuration file you want, i.e. commandline or policy. Commandline will only output the flags file and ignore all policies, the policy options does the inverse. The purpose is for the case where you cannot, for one reason or another, use one of these configuration types. For example, on MacOS where commandline flags are harder to persist.
 - `--format FORMAT` - allows selecting between the two types of formats for the flags file. Generic is just flags separated on each line, variable is each flags being appended to a CHROMIUM_FLAGS variable in the case of the file being used in a shell script. This may get overridden if the platform only supports one type of format (example, Windows only supports generic due to how `ChromeWrapper` is written)
 - `--tag TAG` - filter the output flags by the various tags included, such as "security", "privacy", "annoyance", etc. Can be helpful if you only need a very specific group of flags or policies.
@@ -36,7 +36,7 @@ If something is going wrong, the script should tell you almost exactly what. If 
 
 === ":material-microsoft: Windows"
 
-    Out of the box, there is really no easy way to persist flags in a way to guarentee that they will be used... but, with some reg hacking and a launch script it is possible (thanks to chrlauncher).
+    Out of the box, there is really no easy way to persist flags in a way to guarantee that they will be used... but, with some reg hacking and a launch script it is possible (thanks to chrlauncher).
     Using another project of mine, [ChromeWrapper](https://github.com/RKNF404/ChromeWrapper), you can persist flags, specifically for Google Chrome, but it should be trivially adjustable to any Chromium-based browser.
 
     To do this, run the install script `ChromeWrapperDefaultBrowser.bat`, this will add reg keys for the wrapper script to handle standard requests a browser would typically handle. (this step requires running the script as admin)
