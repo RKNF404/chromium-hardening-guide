@@ -42,7 +42,7 @@ For any instance of a boolean value (true or false), use a DWORD and set it to `
 
 Any policy using an integer (1, 2, 5, etc.), use a DWORD and set the value to that number. It should look similar to a boolean policy in the `Data` column but with the number you used at the end.
 
-For strings, just enter them directly without quotes. For example, the policy `HttpsOnlyMode` has the string value `force_enable`, enter that as it is. Do not enter `"force_enable"`, it will not work.
+For strings, just enter them directly without quotes. For example, the policy `HttpsOnlyMode` has the string value `force_enabled`, enter that as it is. Do not enter `"force_enabled"`, it will not work.
 
 Policy arrays and dictionaries also use the string values, they have the same formatting as presented, nothing special.
 
