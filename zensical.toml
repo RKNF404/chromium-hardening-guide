@@ -387,5 +387,7 @@ enabled = true
 [project.plugins.optimize]
 enabled = true
 
+[project.plugins.git-revision-date-localized]
+
 # [project.plugins.offline]
 # enabled = true
